@@ -1,0 +1,44 @@
+---
+layout: post
+title: Adding Twitter to your Tumblr Blog
+date: '2014-08-29T11:06:00-07:00'
+tags:
+- hacking
+- twitter
+- themes
+image: /tumblr_files/tumblr_inline_nn6yakgBC51rkukje_540.png
+tumblr_url: https://nils.schimmelmann.us/post/96100625272/adding-twitter-to-your-tumblr-blog
+---
+<img src="{{ page.image }}"/>
+<p>I&rsquo;ve recently started using a new Tumblr theme called <a href="https://www.tumblr.com/theme/37310">Optica</a>. It&rsquo;s awesome, it&rsquo;s minimalistic, it looks exactly like what I want it to look; but it doesn&rsquo;t allow me to display Tweets. Bummer!</p>
+<p>But wait, there must be a way we can hack it in, right? We can always hack the theme&rsquo;s HTML directly but then we will lose any sort of improvements that happen naturally when the author updates it.</p>
+<p>So let&rsquo;s hack it in by (ab)using your blog&rsquo;s description!</p>
+<ol><li>Create a <a href="https://dev.twitter.com/docs/embedded-timelines#creating">embedded-timeline widget</a> using your Twitter account.</li>
+<li>Edit your Tumblr blog&rsquo;s theme.</li>
+<li>Append a custom &lt;div/&gt; element to your blog&rsquo;s description. For example:
+
+{% highlight html %}
+My blog is about how great I am.
+<div id="nilstwitter">
+<!-- Replace me! -->
+</div>
+{% endhighlight %}
+
+</li>
+<li>Replace the &lt;!&ndash; Replace me &ndash;&gt; line of text with the embedded-timeline <a href="https://twitter.com/settings/widgets">widget HTML</a>.</li>
+</ol><p>Additional hacks you can perform is to then change the CSS position of the div:</p>
+<ol><li>Go to &ldquo;Advanced options&rdquo; under your theme editor.</li>
+<li>Paste the following into ADD CUSTOM CSS:
+
+{% highlight css %}
+/* Twitter */
+#nilstwitter {
+    padding-top: 10px;
+    height: 50px;
+    margin-bottom: 20px;
+    z-index: 5;
+}
+{% endhighlight %}
+</li>
+<li>Change the CSS as you see fit.</li>
+</ol><p>If you&rsquo;re interested in changing the look and feel further then read the <a href="https://dev.twitter.com/docs/embedded-timelines#customization">widget customization documentation</a>. There are a lot of features that you can tweak such as the number of tweets, visibility of border, and more!</p>

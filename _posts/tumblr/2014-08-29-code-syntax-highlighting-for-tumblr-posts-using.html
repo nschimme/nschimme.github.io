@@ -1,0 +1,38 @@
+---
+layout: post
+title: Code Syntax Highlighting for Tumblr Posts using Prettify
+date: '2014-08-29T14:50:00-07:00'
+tags:
+- hacking
+- theme
+tumblr_url: https://nils.schimmelmann.us/post/96116207422/code-syntax-highlighting-for-tumblr-posts-using
+---
+<p>Copy and paste the following into your blog description:</p>
+{% highlight html %}
+<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+{% endhighlight %}
+<p>Use the following &lt;pre/&gt; tags in any of your Tumblr posts:</p>
+{% highlight html %}
+<pre class="prettyprint">
+    Many
+    lines
+    of
+    code
+</pre>
+{% endhighlight %}
+
+<p>After you&rsquo;re done your code should look beautiful like this example:</p>
+
+{% highlight java %}
+
+package com.schimmelmann.us.example;
+
+class HelloWorld {
+    private static final String HELLO_WORLD = "Hello World!";
+    
+    public static void main(String[] args) {
+        System.out.println(HELLO_WORLD);
+    }
+}
+{% endhighlight %}
+<p>Source: <a href="https://github.com/google/code-prettify">https://github.com/google/code-prettify</a></p>

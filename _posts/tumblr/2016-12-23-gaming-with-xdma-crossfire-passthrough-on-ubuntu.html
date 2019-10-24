@@ -1,0 +1,289 @@
+---
+layout: post
+title: Gaming with XDMA CrossFire Passthrough on Ubuntu 17.04
+date: '2016-12-23T23:34:45-08:00'
+tags:
+- vfio
+- ubuntu
+- kvm
+- radeon
+- crossfire
+- xdma
+- passthrough
+image: /tumblr_files/tumblr_inline_oio7fv287n1rkukje_540.png
+cover-img: /tumblr_files/tumblr_inline_oio7fv287n1rkukje_540.png
+tumblr_url: https://nils.schimmelmann.us/post/154884462507/gaming-with-xdma-crossfire-passthrough-on-ubuntu
+---
+<p>I have used Windows as my primary OS ever since I was a teenager because I am a gamer. Ironically, my gaming hobby also introduced me to my programming/Linux hobby (and now career) which are always at odds with one another. I can either game, which has an unfortunate requirement of needing Windows, or hack, which usually requires Linux. This meant I had to constantly dual boot between Windows and Linux or suffer with a virtual machine with poor video performance. Not ideal.<br/></p><p>However, a few years ago the Linux Kernel Virtual Machine (KVM) project enabled near native Windows guest performance by passing through a host video card to a guest. I was extremely interested in trying this out but was deterred by a lack of proof that SLI or CrossFire worked since my other, other hobby is also being a hardware enthusiast.</p><p>All that changed when I <a href="https://bbs.archlinux.org/viewtopic.php?id=162768&amp;p=219">discovered a post authored by Duelist</a> detailing that he had successfully got his XDMA Radeons to run in CrossFire! I gave it a try it myself and found that documentation was sparse and mostly geared towards Arch Linux. I have a preference for Ubuntu and couldn’t really find anything modern that would help me. All in all, I was successful and am extremely happy with the performance of my box. Hopefully this guide will also help others that have multiple Radeons that they wish to CrossFire!</p><!-- more --><hr><p><i>Note:</i> Large parts of this guide have been pieced together from various tutorials and user posts from around the web. The <a href="https://www.pugetsystems.com/labs/articles/Multiheaded-NVIDIA-Gaming-using-Ubuntu-14-04-KVM-585/">Puget Systems Ubuntu 14.04 + KVM guide</a> is a great Ubuntu starting point when paired with <a href="https://turlucode.com/qemu-kvm-on-arch-linux-guide/">QEMU-KVM on Arch Linux Guide</a>. If you get stuck the <a href="https://wiki.archlinux.org/index.php/PCI_passthrough_via_OVMF">Arch Linux PCI passthrough via OVMF wiki</a>, the Arch Linux forums, or the <a href="https://www.reddit.com/r/VFIO/wiki/index">/r/VFIO wiki</a> are other valuable references.<br/></p><h2>System Requirements</h2><ul><li>CPU <a href="https://software.intel.com/en-us/articles/intel-virtualization-technology-for-directed-io-vt-d-enhancing-intel-platforms-for-efficient-virtualization-of-io-devices">VT-d</a> support</li>
+<li>Motherboard can enable VT-d support</li>
+<li>2+ Radeon eGPUs with <a href="https://en.wikipedia.org/wiki/AMD_CrossFireX#XDMA">XDMA CrossFire</a> and <a href="https://ubuntuforums.org/showthread.php?t=2266916">UEFI BIOS</a> support</li>
+<li>Intel iGPU or a third eGPU</li>
+</ul><h2>BIOS<br/></h2>
+<p>Enable VT-d virtualization in your BIOS and enable your integrated GPU.<br/></p><h2>Ubuntu Setup<br/></h2><p><a href="https://wiki.ubuntu.com/YakketyYak/ReleaseNotes#Download_Ubuntu_16.10">Install Ubuntu 16.10</a> or 17.04 if you want virt-manager because it comes with a more modern libvirt 2.1 than Ubuntu 16.04 LTS.<br/></p>
+
+<p>After you have installed Ubuntu you will now have the stock kernel but it won’t be virtualization aware. We will need to enable the VFIO (Virtual Finction I/O) kernel modules to allow us to pass full devices to the guest machine.</p>{% highlight console %}sudo gedit /etc/modules{% endhighlight %}<p>
+
+Add the following to the bottom of the file:</p>{% highlight console %}# Modules required for VFIO
+vfio
+vfio_iommu_type1
+vfio_pci
+kvm
+kvm_intel 
+{% endhighlight %}<p>Next we will need to enable Intel IOMMU via the boot loader:</p>{% highlight console %}sudo gedit /etc/default/grub
+{% endhighlight %}{% highlight console %}GRUB_CMDLINE_LINUX_DEFAULT="quiet splash intel_iommu=on vfio_iommu_type1.allow_unsafe_interrupts=1"
+{% endhighlight %}{% highlight console %}sudo update-grub
+{% endhighlight %}<p>Now we will need to identify the PCI-Bus IDs of the hardware devices that we wish to pass through. In this case I’m passing through my R9 290s and their HDMI audio devices which have PCI-Bus IDs 1002:67b1 and 1002:aac8.</p>
+
+{% highlight console %}lspci -nn | grep AMD
+01:00.0 VGA compatible controller [0300]: Advanced Micro Devices, Inc. [AMD/ATI] Hawaii PRO [Radeon R9 290/390] [1002:67b1]
+01:00.1 Audio device [0403]: Advanced Micro Devices, Inc. [AMD/ATI] Hawaii HDMI Audio [Radeon R9 290/290X / 390/390X] [1002:aac8]
+02:00.0 VGA compatible controller [0300]: Advanced Micro Devices, Inc. [AMD/ATI] Hawaii PRO [Radeon R9 290/390] [1002:67b1]
+02:00.1 Audio device [0403]: Advanced Micro Devices, Inc. [AMD/ATI] Hawaii HDMI Audio [Radeon R9 290/290X / 390/390X] [1002:aac8]
+{% endhighlight %}<p>Add this to a special vfio.conf that will be run when the vfio-pci module is started:</p>{% highlight console %}sudo gedit /etc/modprobe.d/vfio.conf{% endhighlight %}<p>Add the following to the file replacing you PCI-Bus IDs as needed:<br/></p>
+
+{% highlight console %}
+# Ensure that the vfio-pci module gets loaded before any video drivers
+softdep radeon pre: vfio-pci
+softdep amdgpu pre: vfio-pci
+softdep nouveau pre: vfio-pci
+softdep drm pre: vfio-pci
+
+# vfio-pci driver will be loaded onto the following PCI-Bus IDs
+options vfio-pci ids=1002:67b1,1002:aac8{% endhighlight %}
+
+<p>Blacklist the opensource radeon driver from starting:</p>{% highlight console %}sudo gedit /etc/modprobe.d/blacklist.conf{% endhighlight %}<p>Add the following to the file<br/></p>{% highlight console %}# Drivers for devices that are passed to VFIO
+radeon{% endhighlight %}
+
+<p>Reboot your machine and verify that the video cards have been stubbed out via vfio-pci.<br/></p>{% highlight console %}dmesg | grep vfio
+[    7.206251] vfio_pci: add [1002:67b1[ffff:ffff]] class 0x000000/00000000
+[    7.250264] vfio_pci: add [1002:aac8[ffff:ffff]] class 0x000000/00000000
+{% endhighlight %}<h2>QEMU Setup<br/></h2>
+
+<p>Next install the  Open Virtual Machine Firmware (OVMF) and QEMU so that we can run a virtual machine.<br/></p>{% highlight console %}sudo apt-get install ovmf qemu-kvm
+{% endhighlight %}<p>The OVMF is a project to enable UEFI support for virtual machines. It’s a BIOS that is needed to boot our Windows guest and it needs a variable store partition that we’re going to now create:<br/></p>{% highlight console %}sudo cp /usr/share/OVMF/OVMF_VARS.fd /var/lib/libvirt/qemu/nvram/windows_VARS.fd{% endhighlight %}<p>Next up, create your Windows image for the guest to use. If you’re interested in why these settings are used <a href="https://kashyapc.com/2011/12/02/little-more-disk-io-perf-improvement-with-fallocateing-a-qcow2-disk/">this should help clear things up</a>.<br/></p>{% highlight console %}sudo qemu-img create -f qcow2 -o preallocation=<code>falloc</code> /var/lib/libvirt/images/windows10.qcow2 80G
+{% endhighlight %}<h2>QEMU Test Drive<br/></h2>
+
+<p>Try running the VM using just QEMU after you alter the necessary fields to your machine’s specification. This will be the number of cores/threads, amount of memory, or paths to the installation media. I wouldn’t suggest you change too much otherwise. Also, please note that Windows 10 will BSOD <a href="https://ubuntuforums.org/showthread.php?t=2289210">unless qemu emulates a core2duo</a> class processor. <br/></p><p>In this example I have also mounted the<a href="https://fedoraproject.org/wiki/Windows_Virtio_Drivers"> Windows virtio drivers</a> which you should download beforehand.</p>{% highlight console %}sudo qemu-system-x86_64 -enable-kvm -M q35 -m 8192 -cpu core2duo,+nx,kvm=off \
+-smp 4,sockets=1,cores=4,threads=1 \
+-object iothread,id=iothread1 -object iothread,id=iothread2 \
+-drive if=pflash,format=raw,readonly,file=/usr/share/OVMF/OVMF_CODE.fd \
+-drive if=pflash,format=raw,file=/var/lib/libvirt/qemu/nvram/windows_VARS.fd \
+-drive if=virtio,format=qcow2,file=/var/lib/libvirt/images/windows10.qcow2,cache=writeback \
+-device ioh3420,port=0xe0,chassis=1,id=pcie.1,bus=pcie.0,multifunction=on,addr=0x1c \
+-device ioh3420,port=0x18,chassis=2,id=pcie.2,bus=pcie.0,multifunction=on,addr=0x3 \
+-device vfio-pci,host=01:00.0,bus=pcie.1,addr=00.0,multifunction=on \
+-device vfio-pci,host=01:00.1,bus=pcie.1,addr=00.1 \
+-device vfio-pci,host=02:00.0,bus=pcie.2,addr=00.0,multifunction=on \
+-device vfio-pci,host=02:00.1,bus=pcie.2,addr=00.1 \
+-boot menu=on \
+-parallel null \
+-serial null \
+-vga qxl \
+-rtc base=localtime,clock=host \
+-drive file=/path/to/virtio-win-0.1.126.iso,index=3,media=cdrom \
+-cdrom /path/to/windows10.iso
+{% endhighlight %}
+<p>If you look at the bold configuration above, the trick to getting CrossFire working is to create a unique PCI-e root port switch per GPU (i.e. ioh3420).<br/></p>
+<p>If you were able to run this command then you should have seen a Tiano UEFI boot screen on your Radeons. If so, you succesfully got to the first step in GPU passthrough. Unfortunately this doesn&rsquo;t mean things will work right off away. You will need the QXL emulated video card as a substitute until everything works.</p>
+<h2>Install Windows on the Guest using QXL Video</h2>
+<p>I had to set up my guest at this stage because there <a href="https://www.reddit.com/r/VFIO/comments/59t77a/windows_7_vm_stuck_at_boot/d9dx5ol/">is a bug</a> that prevents Windows 7 guests from booting QEMU KVMs on libvirt. I installed Windows 7 first (and then upgraded to 8 and then 10) because I don&rsquo;t own a Windows 10 retail copy and can <a href="https://www.microsoft.com/en-us/accessibility/windows10upgrade">still upgrade to 10 for free</a> with a valid version of Windows 7 or 8. You might want to skip this stage and go on directly on to libvirt section to avoid having to re-activate your OS (it seems libvirt changes something that Windows&rsquo; activate system doesn&rsquo;t like).</p>
+<p>Fully install Windows 10 and get it working before you install the Radeon drivers. It just worked for me after this. If you run into weird GPU issue a reboot will usually fix the problem. Please note that I was also unable to get CrossFire working in Windows 7 so its likely that only Windows 8/10 are supported.</p>
+
+<h2>(Optional: 16.10 and above only) libvirt and virt-manager Setup<br/></h2><figure data-orig-width="256" data-orig-height="256"><img src="/tumblr_files/tumblr_inline_oio9jdQxtQ1rkukje_540.png" alt="image" data-orig-width="256" data-orig-height="256"/></figure><p>Now we’re going to get this working with libvirt and virt-manager in order to allow our VM to autostart on boot.<br/></p><p>We’re going to roughly follow the <a href="https://help.ubuntu.com/community/KVM/Installation#Install_Necessary_Packages">Ubuntu KVM guide</a>. Additional information on virt can be found on the <a href="http://wiki.libvirt.org/page/UbuntuKVMWalkthrough">Ubuntu KVM Walkthrough</a>.<br/></p>{% highlight console %}sudo apt-get install virt-manager ubuntu-vm-builder bridge-utils
+sudo adduser `id -un` libvirtd{% endhighlight %}<p>Next up we’re going to create a file for inclusion as a virt domain.</p>{% highlight console %}sudo gedit /etc/libvirt/qemu/windows10.xml{% endhighlight %}<p>Alter the following XML similar to what you did above for QEMU and paste it in. The necessary bits to load the unique PCI-e root port switches have been added in bold.</p>
+{% highlight xml %}<domain type='kvm' xmlns:qemu='http://libvirt.org/schemas/domain/qemu/1.0'>
+  <name>windows10</name>
+  <uuid>67f3226e-8303-4437-8c20-b8b03d301a77</uuid>
+  <memory unit='GiB'>8</memory>
+  <currentMemory unit='GiB'>8</currentMemory>
+  <vcpu placement='static'>4</vcpu>
+  <iothreads>2</iothreads>
+  <cputune>
+    <vcpupin vcpu='0' cpuset='0'/>
+    <vcpupin vcpu='1' cpuset='1'/>
+    <vcpupin vcpu='2' cpuset='2'/>
+    <vcpupin vcpu='3' cpuset='3'/>
+    <emulatorpin cpuset='0-3'/>
+    <iothreadpin iothread='1' cpuset='0-1'/>
+  </cputune>
+  <os>
+    <type arch='x86_64' machine='pc-q35-2.6'>hvm</type>
+    <loader readonly='yes' type='pflash'>/usr/share/OVMF/OVMF_CODE.fd</loader>
+    <nvram>/var/lib/libvirt/qemu/nvram/windows_VARS.fd</nvram>
+    <bootmenu enable='yes'/>
+  </os>
+  <features>
+    <acpi/>
+    <apic/>
+   <!-- Delete the hyperv element if you're installing Windows 7 -->
+    <hyperv>
+      <relaxed state='on'/>
+      <vapic state='on'/>
+      <spinlocks state='on' retries='8191'/>
+    </hyperv>
+    <kvm>
+      <hidden state='on'/>
+    </kvm>
+  </features>
+  <cpu mode='custom' match='exact'>
+    <model fallback='allow'>core2duo</model>
+    <topology sockets='1' cores='4' threads='1'/>
+    <feature policy='require' name='nx'/>
+  </cpu>
+  <clock offset='localtime'>
+    <timer name='rtc' tickpolicy='catchup'/>
+    <timer name='pit' tickpolicy='delay'/>
+    <timer name='hpet' present='no'/>
+    <timer name='hypervclock' present='yes'/>
+  </clock>
+  <on_poweroff>destroy</on_poweroff>
+  <on_reboot>restart</on_reboot>
+  <on_crash>restart</on_crash>
+  <pm>
+    <suspend-to-mem enabled='no'/>
+    <suspend-to-disk enabled='no'/>
+  </pm>
+  <devices>
+    <emulator>/usr/bin/qemu-system-x86_64</emulator>
+    <disk type='file' device='disk'>
+      <driver name='qemu' type='qcow2' cache='writeback'/>
+      <source file='/var/lib/libvirt/images/windows10.qcow2'/>
+      <target dev='vda' bus='virtio'/>
+      <boot order='1'/>
+      <address type='pci' domain='0x0000' bus='0x02' slot='0x04' function='0x0'/>
+    </disk>
+    <disk type='file' device='cdrom'>
+      <driver name='qemu' type='raw'/>
+      <source file='/path/to/virtio-win-0.1.126.iso'/>
+      <target dev='sda' bus='sata'/>
+      <readonly/>
+      <address type='drive' controller='0' bus='0' target='0' unit='0'/>
+    </disk>
+    <disk type='file' device='cdrom'>
+      <driver name='qemu' type='raw'/>
+      <source file='/path/to/windows10.iso'/>
+      <target dev='sdb' bus='sata'/>
+      <readonly/>
+      <address type='drive' controller='0' bus='0' target='0' unit='1'/>
+    </disk>
+    <controller type='sata' index='0'>
+      <address type='pci' domain='0x0000' bus='0x00' slot='0x1f' function='0x2'/>
+    </controller>
+ 
+    <controller type='pci' index='0' model='pcie-root'/>
+    <controller type='pci' index='1' model='dmi-to-pci-bridge'>
+      <model name='i82801b11-bridge'/>
+      <address type='pci' domain='0x0000' bus='0x00' slot='0x1e' function='0x0'/>
+    </controller>
+    <controller type='pci' index='2' model='pci-bridge'>
+      <model name='pci-bridge'/>
+      <target chassisNr='2'/>
+      <address type='pci' domain='0x0000' bus='0x01' slot='0x00' function='0x0'/>
+    </controller>
+    <controller type='virtio-serial' index='0'>
+      <address type='pci' domain='0x0000' bus='0x02' slot='0x03' function='0x0'/>
+    </controller>
+    <controller type='usb' index='0' model='ich9-ehci1'>
+      <address type='pci' domain='0x0000' bus='0x00' slot='0x1d' function='0x7'/>
+    </controller>
+    <controller type='usb' index='0' model='ich9-uhci1'>
+      <master startport='0'/>
+      <address type='pci' domain='0x0000' bus='0x00' slot='0x1d' function='0x0' multifunction='on'/>
+    </controller>
+    <controller type='usb' index='0' model='ich9-uhci2'>
+      <master startport='2'/>
+      <address type='pci' domain='0x0000' bus='0x00' slot='0x1d' function='0x1'/>
+    </controller>
+    <controller type='usb' index='0' model='ich9-uhci3'>
+      <master startport='4'/>
+      <address type='pci' domain='0x0000' bus='0x00' slot='0x1d' function='0x2'/>
+    </controller>
+ 
+    <interface type='network'>
+      <mac address='52:54:00:fc:e3:35'/>
+      <source network='default'/>
+      <model type='virtio'/>
+      <address type='pci' domain='0x0000' bus='0x02' slot='0x01' function='0x0'/>
+    </interface>
+    <serial type='pty'>
+      <target port='0'/>
+    </serial>
+    <console type='pty'>
+      <target type='serial' port='0'/>
+    </console>
+    <channel type='spicevmc'>
+      <target type='virtio' name='com.redhat.spice.0'/>
+      <address type='virtio-serial' controller='0' bus='0' port='1'/>
+    </channel>
+    <input type='mouse' bus='ps2'/>
+    <input type='keyboard' bus='ps2'/>
+    <graphics type='spice' autoport='yes'>
+       <listen type='address'/>
+    </graphics>
+    <video>
+       <model type='qxl' ram='65536' vram='65536' vgamem='16384' heads='1' primary='yes'/>
+       <address type='pci' domain='0x0000' bus='0x00' slot='0x01' function='0x0'/>
+    </video>
+    <sound model='ich6'>
+      <address type='pci' domain='0x0000' bus='0x02' slot='0x02' function='0x0'/>
+    </sound>
+    <memballoon model='virtio'>
+      <address type='pci' domain='0x0000' bus='0x02' slot='0x05' function='0x0'/>
+    </memballoon>
+  </devices>
+ 
+  <qemu:commandline>
+    <qemu:arg value='-device'/>
+    <qemu:arg value='ioh3420,port=0xe0,chassis=1,id=pcie.2,bus=pcie.0,multifunction=on,addr=0x1c'/>
+    <qemu:arg value='-device'/>
+    <qemu:arg value='ioh3420,port=0x18,chassis=2,id=pcie.3,bus=pcie.0,multifunction=on,addr=0x3'/>
+    <qemu:arg value='-device'/>
+    <qemu:arg value='vfio-pci,host=01:00.0,bus=pcie.2,addr=00.0,multifunction=on'/>
+    <qemu:arg value='-device'/>
+    <qemu:arg value='vfio-pci,host=01:00.1,bus=pcie.2,addr=00.1'/>
+    <qemu:arg value='-device'/>
+    <qemu:arg value='vfio-pci,host=02:00.0,bus=pcie.3,addr=00.0,multifunction=on'/>
+    <qemu:arg value='-device'/>
+    <qemu:arg value='vfio-pci,host=02:00.1,bus=pcie.3,addr=00.1'/>
+  </qemu:commandline>
+ 
+ </domain>
+{% endhighlight %}<p>Now load up this domain by running:<br/></p>{% highlight console %}virsh define windows10.xml{% endhighlight %}<p>Before starting the VM we will now<a href="https://bbs.archlinux.org/viewtopic.php?id=162768&amp;p=59"> unfortunately need to allow libvirt to access our VFIO devices</a>. Identify the paths to your devices:<br/></p>{% highlight console %}ls /dev/vfio/<br/>15  16  vfio 
+{% endhighlight %}<p>We will now need to edit the qemu configuration for libvirt.<br/></p>{% highlight console %}sudo gedit /etc/libvirt/qemu.conf{% endhighlight %}<p>Change the user that the virtual machine runs at to root and also enhance cgroup-device_acl to include the vfio paths we found above.<br/></p>{% highlight console %}
+user = "root"
+group = "root"
+cgroup_device_acl = [
+   "/dev/null", "/dev/full", "/dev/zero",
+   "/dev/random", "/dev/urandom",
+   "/dev/ptmx", "/dev/kvm", "/dev/kqemu",
+   "/dev/rtc","/dev/hpet", "/dev/vfio/vfio",
+   "/dev/vfio/15", "/dev/vfio/16"
+]
+{% endhighlight %}<p>Next we’ll need to modify the Apparmor profile for libvirt to give it access to our VFIO devices. The <a href="https://help.ubuntu.com/community/KVM/Managing#Apparmor_Modification">KVM Manage Ubuntu guide</a> was useful here.<br/></p>{% highlight console %}sudo gedit /etc/apparmor.d/abstractions/libvirt-qemu{% endhighlight %}<p>Add the following to the file and while also updating your vfio paths:<br/></p>{% highlight console %}  # VFIO access
+  /dev/vfio/* rw,
+
+  # USB passthrough
+  /dev/bus/usb/[0-9]*/[0-9]* rw,
+
+  # Unknown 16.10
+  /proc/[0-9]*/task/[0-9]*/comm rw,
+  /run/udev/data/* r,
+  /etc/host.conf r,
+  /etc/nsswitch.conf r,
+  capability wake_alarm,
+{% endhighlight %}<p>Restart apparmor and libvirtd:<br/></p>
+{% highlight console %}
+sudo service apparmor restart
+sudo service virtlogd restart
+{% endhighlight %}
+<p>Try to start the Windows 10 guest now using virt-manager</p>{% highlight console %}virt-manager{% endhighlight %}
+<p>
+Connect to QEMU/KVM and hit the play button. It&rsquo;s also somewhat convenient to do USB passthrough here.
+</p>
+<p>If you notice things aren’t working keep an eye on dmesg and then edit the Apparmor profile further to give additional access to libvirt.<br/></p>
+
+<h2>Benchmark</h2>
+My machine seems to have a minor 2 frame per second hit over bare metal in benchmarks. If you would like to analyze my benchmark result further take a look here: <a href="http://www.3dmark.com/compare/fs/11182166/fs/8229002">http://www.3dmark.com/compare/fs/11182166/fs/8229002</a>
+
+<h2>Windows 10 Guest Autostart<br/></h2><p>If everything was successful you should now be able to autostart your virtual machine on boot with:</p>{% highlight console %}virsh autostart windows10{% endhighlight %}<h2>(Optional) Next Steps</h2><ul><li>Remove crackle from your sound by enabling <a href="http://vfio.blogspot.com/2014/09/vfio-interrupts-and-how-to-coax-windows.html">MSI interrupts for HDMI audio</a></li><li><a href="http://jrs-s.net/2013/05/17/kvm-io-benchmarking/">Improve guest I/O performance</a> by using <a href="https://www.latentexistence.me.uk/zfs-and-ubuntu-home-server-howto/">ZFS</a></li><li>Set up mouse and keyboard sharing with <a href="https://symless.com/nightly">Synergy</a> or <a href="https://www.kraxel.org/blog/2016/04/linux-evdev-input-support-in-qemu-2-6/">evdev</a>.</li><li><a href="https://help.ubuntu.com/community/KVM/Managing#Apparmor_Modification">Pass through USB devices</a><br/></li><li>Replace virtio with virtio-scsi to enable <a href="https://chrisirwin.ca/posts/discard-with-kvm/">thin client discard</a></li>
+</ul>
