@@ -1,0 +1,124 @@
+---
+layout: post
+title: Guide to add zRAM on the Synology DiskStation DS212j
+date: '2017-05-22T00:55:24-07:00'
+tags:
+- synology
+- zram
+- ds212j
+- compcache
+- hacking
+tumblr_url: https://nils.schimmelmann.us/post/160940955542/guide-to-add-zram-on-the-synology-diskstation
+---
+<p>My Synology DiskStation DS212j has gotten slower over the years ever since I bought in 2012. DSM
+operating system security and software upgrades introduced feature bloat that required more memory and caused memory to page to disk. <a href="https://en.wikipedia.org/wiki/Zram">Wikipedia</a> gives an amazing overview of why paging is bad and why zRAM is amazing for memory constrained PCs.</p>
+
+<blockquote>
+<p><strong>zram</strong> (also called <strong>zRAM</strong> and, initially, <strong>compcache</strong>) is a <a href="https://en.wikipedia.org/wiki/Linux_kernel" title="Linux kernel">Linux kernel</a> feature that provides a form of <a href="https://en.wikipedia.org/wiki/Virtual_memory_compression" title="Virtual memory compression">virtual memory compression</a>. zram increases performance by avoiding <a href="https://en.wikipedia.org/wiki/Paging" title="Paging">paging</a> to disk and using a compressed <a href="https://en.wikipedia.org/wiki/Block_device" title="Block device">block device</a> in <a href="https://en.wikipedia.org/wiki/Random-access_memory" title="Random-access memory">RAM</a> instead, inside which paging takes place until it is necessary to use the <a href="https://en.wikipedia.org/wiki/Linux_swap" title="Linux swap">swap space</a> on a <a href="https://en.wikipedia.org/wiki/Hard_disk_drive" title="Hard disk drive">hard disk drive</a>.
+Since using zram is an alternative way to provide swapping on RAM, zram
+allows Linux to make a better use of RAM when swapping/paging is
+required, especially on older computers with less RAM installed.</p>
+</blockquote>
+<p>Pretty cool, huh? The Android community often uses zRAM as a way to bring back older
+devices back to life and I figured I could do the same with my aging DiskStation that only came with 256MB of RAM compared to the more recent
+DS216 that comes with twice that at 512MB.</p>
+
+<p>I
+successfully compiled and added the zRAM module to my DS212j and wanted to share the steps. My DS212j uses the Linux kernel 2.6.32 so this guide should be applicable to any Synology DS that uses the same kernel.</p>
+
+<!-- more -->
+
+<hr><h2>Setting up the DSM 6.1 Tool Chain</h2>
+
+<p>Synology has provided excellent documentation on how to compile kernel modules. You should follow their tutorial on how to <a href="https://developer.synology.com/developer-guide/create_package/install_toolkit.html">setup the toolkit</a> to compile the kernel.</p>
+
+<p>Steps for the DS212j are roughly:</p>
+
+<ol><li>Setup toolkit: {% highlight console %}mkdir -p /toolkit
+cd /toolkit
+git clone https://github.com/SynologyOpenSource/pkgscripts-ng.git
+cd /toolkit/pkgscripts-ng/
+./EnvDeploy -v 6.1 -p 6281{% endhighlight %}</li>
+</ol><h2>Compiling the 2.6.32 Kernel</h2>
+
+<p>You will need to follow the Synology documentation to <a href="https://developer.synology.com/developer-guide/create_package/compile_kernel_module.html">compile kernel modules here</a> in order to build the LZO kernel module. This is a dependent kernel module for zRAM.</p>
+
+<p>Steps are roughly:</p>
+
+<ol><li><p>Download the kernel source for the closest branch that is currently deployed on your Synology:
+<a href="https://sourceforge.net/projects/dsgpl/files/Synology%20NAS%20GPL%20Source/">https://sourceforge.net/projects/dsgpl/files/Synology%20NAS%20GPL%20Source/</a></p></li>
+<li><p>Extract the source to <code>/toolkit/build_env/ds.x64-6.1/root/</code></p></li>
+<li><p>Enter the tool chain chroot: {% highlight console %}chroot /toolkit/build_env/ds.x64-6.1 /bin/bash
+cd root/linux-2.6.32
+cp synoconfigs/88f6281 .config
+export ARCH="arm"
+export CROSS_COMPILE="/usr/local/arm-marvell-linux-gnueabi/bin/arm-marvell-linux-gnueabi-"
+make oldconfig
+make menuconfig{% endhighlight %}</p></li>
+<li><p>Build LZO modules because they’re dependencies for zRAM.<br/>Enter <code>Cryptographic API</code> to select <code>LZO compression algorithm</code> as a module. Exit and save.</p></li>
+<li><p>{% highlight console %}make prepare
+make modules{% endhighlight %}</p></li>
+<li><p>Copy <code>lzo_compress.ko</code>, <code>lzo_decompress.ko</code>, <code>lzo.ko</code> to your Synology</p></li>
+</ol><h2>Compiling the Compcache Kernel Module</h2>
+
+<p>I have successfully compiled the Compcache 0.6.2 kernel module and gotten it to work with the stock 2.6.32 kernel. The latest version doesn’t seem to work so we’re going to stick with 0.6.2 where we will follow the <a href="https://code.google.com/archive/p/compcache/wikis/CompilingAndUsingNew.wiki">Compcache documentation here</a>.</p>
+
+<ol><li>{% highlight console %}cd /root/{% endhighlight %}</li>
+<li>Download Compcache 0.6.2 module source: {% highlight console %}wget https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/compcache/compcache-0.6.2.tar.gz
+tar -xzf compcache-0.6.2.tar.gz
+cd compcache-0.6.2
+export KERNEL_BUILD_PATH=/root/linux-2.6.32
+make{% endhighlight %}</li>
+<li>Copy <code>ramzswap.ko</code> to your Synology</li>
+</ol><h2>Installation</h2>
+
+<ol><li><p>Copy kernel modules to Synology DSM</p></li>
+<li><p>Test kernels by inserting them</p></li>
+<li>{% highlight console %}
+/sbin/insmod /lib/modules/lzo_decompress.ko
+/sbin/insmod /lib/modules/lzo_compress.ko
+/sbin/insmod /lib/modules/lzo.ko
+/sbin/insmod /lib/modules/ramzswap.ko disksize_kb=131072
+/sbin/swapon /dev/ramzswap0 -p 5
+{% endhighlight %}
+</li>
+<li><p>Enable swap with:
+{% highlight console %}/sbin/swapon /dev/ramzswap0 -p 5{% endhighlight %}</p></li>
+<li>Verify everything worked by checking dmesg for errors{% highlight console %}nschimme@NilsDiskStation:~$ dmesg | grep -E "(ramzswap|lzo)"
+[ 100.500000] alg: No test for lzo (lzo-generic)
+[ 100.550000] ramzswap: num_devices not specified. Using default: 1
+[ 100.550000] ramzswap: /dev/ramzswap0 initialized: disksize_kb=131072
+[ 100.560000] ramzswap: Invalid ioctl 21297
+[ 101.560000] Adding 131064k swap on /dev/ramzswap0. Priority:5 extents:1 across:131064k SS
+nschimme@NilsDiskStation:~${% endhighlight %}</li>
+<li><p>Add above <code>insmod</code>/<code>swapon</code> commands to <code>/etc/rc.local</code> to make the changes permanent</p></li>
+</ol><h2>zRAM Results</h2>
+
+<p>It’s super effective! I’ve noticed that there was roughly ~100MB of paged memory usually and I’ve managed to get it all to fit within ~30MB of compressed memory space rather than going down to the hard drive. Responsiveness in the DSM OS has greatly improved as a result.</p>
+
+{% highlight console %}nschimme@NilsDiskStation:~$ free -m
+total        used        free      shared  buff/cache   available
+              total        used        free      shared  buff/cache   available
+Mem:            243          79          60           3         104         123
+Swap:          2175          94        2081
+nschimme@NilsDiskStation:~$ swapon
+NAME           TYPE      SIZE  USED PRIO
+/dev/md1       partition   2G    0B   -1
+/dev/ramzswap0 partition 128M 94.9M    5
+nschimme@NilsDiskStation:~$ sudo rzscontrol /dev/ramzswap0 --stats
+DiskSize:	  131072 kB
+NumReads:	    9890
+NumWrites:	   26730
+FailedReads:	       0
+FailedWrites:	       0
+InvalidIO:	       0
+NotifyFree:	       0
+ZeroPages:	    7231
+GoodCompress:	      78 %
+NoCompress:	       2 %
+PagesStored:	   19499
+PagesUsed:	    6640
+OrigDataSize:	   77996 kB
+ComprDataSize:	   26200 kB
+MemUsedTotal:	   26560 kB
+nschimme@NilsDiskStation:~${% endhighlight %}

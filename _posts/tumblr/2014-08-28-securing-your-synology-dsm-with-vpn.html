@@ -1,0 +1,22 @@
+---
+layout: post
+title: Securing Your Synology DSM with VPN
+date: '2014-08-28T15:46:00-07:00'
+tags:
+- hacking
+- synology
+- security
+- synolocker
+- vpn
+image: /tumblr_files/tumblr_inline_nn71pftEjL1rkukje_540.png
+tumblr_url: https://nils.schimmelmann.us/post/96034696012/securing-your-synology-dsm-with-vpn
+---
+<img src="{{ page.image }}"/>
+<p>Bugs and exploits are a natural part of this world. The <a href="http://www.anandtech.com/show/8337/synology-advises-users-of-synolocker-ransomware">Synolocker ransomware</a> was recently running rampant and hacking into Synology devices running DSM 4.3 and below. It did this by identifying your device if ports 5000 or 5001 were exposed and then exploiting a bug to implant itself.</p>
+<p>The only fool-proof solution to preventing being exploited permanently is to be paranoid. Shut down all unnecessary Synology services and never expose any ports to the web. This is far from a convenient solution though. For example, I still want to share access to my Synology device because it hosts a few websites for my family. This required me to find a good balance between security and availability.</p>
+<p>I decided that the best way to do this was to install the Synology VPN service and use a L2TP/IPSec VPN. I would only expose ports 80, 443 for web serving and ports 1701, 500, and 4500 for VPN. The following tutorial was very helpful:</p>
+<p><a href="https://www.synology.com/en-global/knowledgebase/DSM/help/VPNCenter/vpn_setup">https://www.synology.com/en-global/knowledgebase/DSM/help/VPNCenter/vpn_setup</a></p>
+<p>After a client connects to the VPN they should be able to access ports 5000 and 5001 because they were underneath my firewall. Better yet, all traffic between the client and the Synology device will be encrypted.</p>
+<p>
+<i>Edit:</i> If you&rsquo;re interested in adding HTTPS to your Synology please take a look at <a href="http://nils.schimmelmann.us/2019/10/24/2014-07-20-i-bought-a-domain-for-my-synology-nas.html">this</a> post.
+</p>
