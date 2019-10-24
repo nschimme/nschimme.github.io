@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>My motherboard bus speed started fluctuating between 95-99 Mhz | Your awesome title</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="My motherboard bus speed started fluctuating between 95-99 Mhz" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="I own a ASUS Z87 Pro and an Intel 4670K that I&rsquo;ve overclocked to a respectable 4.4 GHz which had started exhibiting problems. I noticed a few weeks ago that the bus speed was fluctuating between 95-99 MHz by looking at it with CPU-Z. I orginally believed that this was happening due to an imminant motherboard death. In attempts to debug the problem I had: Increased input voltage to 1.9v Decreased/increase uncore multiplier Changed CPU multipliers Increased/decreased voltage Force BCLK to 100 Mhz Disabled/enabled spread spectrum RMA&rsquo;d my motherboard to ASUS Oddly, the problem only exhibited itself when I was overclocked because the behavior disappeared when I reset to BIOS factory default settings. In truth, the issue was because I had Hyper-V installed on my Windows 8 machine! I discovered this after I disabled Virtualization support in the BIOS and noticed that the fluctuations stopped. After that, I uninstalled Hyper-V, re-enabled Virtualization support, and everything has been fine since then. I&rsquo;m now just going to use VirtualBox for my VM needs since it doesn&rsquo;t cause the same problems. It seems like a bunch of other people have noticed this: http://social.technet.microsoft.com/Forums/windows/en-US/6f383b2a-3a4a-472f-a966-cda0ce646e37/hyperv-windows-8-cpu-power-management-problem?forum=w8itprogeneral http://social.technet.microsoft.com/Forums/windowsserver/en-US/7d99ac94-3340-44c1-856e-fad4684aeea2/hyperv-and-processor-power-states-on-windows-server-2012-intel-speedstep?forum=winserverhyperv http://www.eightforums.com/virtualization/30128-performace-hit-hyper-v-installed.html It looks like this is just a Hyper-V/hardware problem. It seems like Microsoft is doing some weird things with C and P-states to attain energy efficiency with SpeedStep: http://workinghardinit.wordpress.com/2011/06/20/consider-cpu-power-optimization-versus-performance-when-virtualizing/ https://web.archive.org/web/20121117000348/http://www.nspyre.nl/blogs/3178/Windows8-Hyper-V-V3-SpeedStep Oh, and I&rsquo;ve now sent ASUS my debugging analysis so we&rsquo;ll see what comes out of that." />
+<meta property="og:description" content="I own a ASUS Z87 Pro and an Intel 4670K that I&rsquo;ve overclocked to a respectable 4.4 GHz which had started exhibiting problems. I noticed a few weeks ago that the bus speed was fluctuating between 95-99 MHz by looking at it with CPU-Z. I orginally believed that this was happening due to an imminant motherboard death. In attempts to debug the problem I had: Increased input voltage to 1.9v Decreased/increase uncore multiplier Changed CPU multipliers Increased/decreased voltage Force BCLK to 100 Mhz Disabled/enabled spread spectrum RMA&rsquo;d my motherboard to ASUS Oddly, the problem only exhibited itself when I was overclocked because the behavior disappeared when I reset to BIOS factory default settings. In truth, the issue was because I had Hyper-V installed on my Windows 8 machine! I discovered this after I disabled Virtualization support in the BIOS and noticed that the fluctuations stopped. After that, I uninstalled Hyper-V, re-enabled Virtualization support, and everything has been fine since then. I&rsquo;m now just going to use VirtualBox for my VM needs since it doesn&rsquo;t cause the same problems. It seems like a bunch of other people have noticed this: http://social.technet.microsoft.com/Forums/windows/en-US/6f383b2a-3a4a-472f-a966-cda0ce646e37/hyperv-windows-8-cpu-power-management-problem?forum=w8itprogeneral http://social.technet.microsoft.com/Forums/windowsserver/en-US/7d99ac94-3340-44c1-856e-fad4684aeea2/hyperv-and-processor-power-states-on-windows-server-2012-intel-speedstep?forum=winserverhyperv http://www.eightforums.com/virtualization/30128-performace-hit-hyper-v-installed.html It looks like this is just a Hyper-V/hardware problem. It seems like Microsoft is doing some weird things with C and P-states to attain energy efficiency with SpeedStep: http://workinghardinit.wordpress.com/2011/06/20/consider-cpu-power-optimization-versus-performance-when-virtualizing/ https://web.archive.org/web/20121117000348/http://www.nspyre.nl/blogs/3178/Windows8-Hyper-V-V3-SpeedStep Oh, and I&rsquo;ve now sent ASUS my debugging analysis so we&rsquo;ll see what comes out of that." />
+<link rel="canonical" href="http://localhost:4000/2014/09/25/my-motherboard-bus-speed-started-fluctuating.html" />
+<meta property="og:url" content="http://localhost:4000/2014/09/25/my-motherboard-bus-speed-started-fluctuating.html" />
+<meta property="og:site_name" content="Your awesome title" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2014-09-25T00:24:00-07:00" />
+<script type="application/ld+json">
+{"description":"I own a ASUS Z87 Pro and an Intel 4670K that I&rsquo;ve overclocked to a respectable 4.4 GHz which had started exhibiting problems. I noticed a few weeks ago that the bus speed was fluctuating between 95-99 MHz by looking at it with CPU-Z. I orginally believed that this was happening due to an imminant motherboard death. In attempts to debug the problem I had: Increased input voltage to 1.9v Decreased/increase uncore multiplier Changed CPU multipliers Increased/decreased voltage Force BCLK to 100 Mhz Disabled/enabled spread spectrum RMA&rsquo;d my motherboard to ASUS Oddly, the problem only exhibited itself when I was overclocked because the behavior disappeared when I reset to BIOS factory default settings. In truth, the issue was because I had Hyper-V installed on my Windows 8 machine! I discovered this after I disabled Virtualization support in the BIOS and noticed that the fluctuations stopped. After that, I uninstalled Hyper-V, re-enabled Virtualization support, and everything has been fine since then. I&rsquo;m now just going to use VirtualBox for my VM needs since it doesn&rsquo;t cause the same problems. It seems like a bunch of other people have noticed this: http://social.technet.microsoft.com/Forums/windows/en-US/6f383b2a-3a4a-472f-a966-cda0ce646e37/hyperv-windows-8-cpu-power-management-problem?forum=w8itprogeneral http://social.technet.microsoft.com/Forums/windowsserver/en-US/7d99ac94-3340-44c1-856e-fad4684aeea2/hyperv-and-processor-power-states-on-windows-server-2012-intel-speedstep?forum=winserverhyperv http://www.eightforums.com/virtualization/30128-performace-hit-hyper-v-installed.html It looks like this is just a Hyper-V/hardware problem. It seems like Microsoft is doing some weird things with C and P-states to attain energy efficiency with SpeedStep: http://workinghardinit.wordpress.com/2011/06/20/consider-cpu-power-optimization-versus-performance-when-virtualizing/ https://web.archive.org/web/20121117000348/http://www.nspyre.nl/blogs/3178/Windows8-Hyper-V-V3-SpeedStep Oh, and I&rsquo;ve now sent ASUS my debugging analysis so we&rsquo;ll see what comes out of that.","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2014/09/25/my-motherboard-bus-speed-started-fluctuating.html"},"@type":"BlogPosting","url":"http://localhost:4000/2014/09/25/my-motherboard-bus-speed-started-fluctuating.html","headline":"My motherboard bus speed started fluctuating between 95-99 Mhz","dateModified":"2014-09-25T00:24:00-07:00","datePublished":"2014-09-25T00:24:00-07:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Your awesome title" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Your awesome title</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">My motherboard bus speed started fluctuating between 95-99 Mhz</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2014-09-25T00:24:00-07:00" itemprop="datePublished">Sep 25, 2014
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p><figure data-orig-width="417" data-orig-height="414"><img src="https://66.media.tumblr.com/7f1c6659ee83835dd832e817a755590c/tumblr_inline_nn6y6uNvWA1rkukje_540.png" alt="image" data-orig-width="417" data-orig-height="414"/></figure></p><p>I own a <a href="http://www.asus.com/Motherboards/Z87PRO/">ASUS Z87 Pro</a> and an <a href="http://ark.intel.com/products/75048/Intel-Core-i5-4670K-Processor-6M-Cache-up-to-3_80-GHz">Intel 4670K</a> that I&rsquo;ve overclocked to a respectable 4.4 GHz which had started exhibiting problems. I noticed a few weeks ago that the bus speed was fluctuating between 95-99 MHz by looking at it with <a href="http://www.cpuid.com/softwares/cpu-z.html">CPU-Z</a>.</p>
+<p>I orginally believed that this was happening due to an imminant motherboard death. In attempts to debug the problem I had:</p>
+<ol><li>Increased input voltage to 1.9v</li>
+<li>Decreased/increase uncore multiplier</li>
+<li>Changed CPU multipliers</li>
+<li>Increased/decreased voltage</li>
+<li>Force BCLK to 100 Mhz</li>
+<li>Disabled/enabled spread spectrum</li>
+<li>RMA&rsquo;d my motherboard to ASUS</li>
+</ol><p>Oddly, the problem only exhibited itself when I was overclocked because the behavior disappeared when I reset to BIOS factory default settings. In truth, the issue was because I had Hyper-V installed on my Windows 8 machine!</p>
+<p>I discovered this after I disabled Virtualization support in the BIOS and noticed that the fluctuations stopped. After that, I uninstalled Hyper-V, re-enabled Virtualization support, and everything has been fine since then. I&rsquo;m now just going to use VirtualBox for my VM needs since it doesn&rsquo;t cause the same problems.</p>
+<p>It seems like a bunch of other people have noticed this:</p>
+<ol><li><a href="http://social.technet.microsoft.com/Forums/windows/en-US/6f383b2a-3a4a-472f-a966-cda0ce646e37/hyperv-windows-8-cpu-power-management-problem?forum=w8itprogeneral">http://social.technet.microsoft.com/Forums/windows/en-US/6f383b2a-3a4a-472f-a966-cda0ce646e37/hyperv-windows-8-cpu-power-management-problem?forum=w8itprogeneral</a></li>
+<li><a href="http://social.technet.microsoft.com/Forums/windowsserver/en-US/7d99ac94-3340-44c1-856e-fad4684aeea2/hyperv-and-processor-power-states-on-windows-server-2012-intel-speedstep?forum=winserverhyperv">http://social.technet.microsoft.com/Forums/windowsserver/en-US/7d99ac94-3340-44c1-856e-fad4684aeea2/hyperv-and-processor-power-states-on-windows-server-2012-intel-speedstep?forum=winserverhyperv</a></li>
+<li><a href="http://www.eightforums.com/virtualization/30128-performace-hit-hyper-v-installed.html">http://www.eightforums.com/virtualization/30128-performace-hit-hyper-v-installed.html</a></li>
+</ol><p>It looks like this is just a Hyper-V/hardware problem. It seems like Microsoft is doing some weird things with C and P-states to attain energy efficiency with SpeedStep:</p>
+<ol><li><a href="http://workinghardinit.wordpress.com/2011/06/20/consider-cpu-power-optimization-versus-performance-when-virtualizing/">http://workinghardinit.wordpress.com/2011/06/20/consider-cpu-power-optimization-versus-performance-when-virtualizing/</a></li>
+<li><a href="https://web.archive.org/web/20121117000348/http://www.nspyre.nl/blogs/3178/Windows8-Hyper-V-V3-SpeedStep">https://web.archive.org/web/20121117000348/http://www.nspyre.nl/blogs/3178/Windows8-Hyper-V-V3-SpeedStep</a></li>
+</ol><p>Oh, and I&rsquo;ve now sent ASUS my debugging analysis so we&rsquo;ll see what comes out of that.</p>
+
+  </div><a class="u-url" href="/2014/09/25/my-motherboard-bus-speed-started-fluctuating.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Your awesome title</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Your awesome title</li><li><a class="u-email" href="mailto:your-email@example.com">your-email@example.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/jekyll"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">jekyll</span></a></li><li><a href="https://www.twitter.com/jekyllrb"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">jekyllrb</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

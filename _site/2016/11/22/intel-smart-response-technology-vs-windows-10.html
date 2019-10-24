@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Intel Smart Response Technology vs Windows 10 Tiered Storage Spaces | Your awesome title</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Intel Smart Response Technology vs Windows 10 Tiered Storage Spaces" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="I have used Intel’s SRT (Smart Response Technology) as a way to boost the performance of my slow spinner hard drives ever since they introduced the SSD caching technology alongside the Z68 chipset for Sandybridge in 2011. SRT works by caching heavily used data onto the speedy SSD with a fall back to the HDD at the minor cost of requiring a RAID driver on Windows boot. The technology behind Intel’s SRT is nothing new and has been standard in the industry as a way to boost the performance of database servers. The software has been reimplemented many times in the form of flashcache, ZFS, and bcache. Not wanting to be left out of the server market, Microsoft also implemented tiered storage spaces for Windows Server 2012 by following the same concept but adding their own twist. They introduce a hot/cold tier concept where the SSD is portion is self-balancing and keeps hot data within itself for fast access. Enthusiast’s who want their games to load fast without shelling out $$$ for a large capacity SSD were stuck with using Intel’s SRT because Microsoft never ported the tiered storage space technology to Windows 10. This was until Windows 10 build 10565 secretly introduced it without any press release. Microsoft’s tiered storage space technology ought to be more advanced than Intel’s software based caching and should be able to replace it and perform better. My personal goal was to do that and then measure it." />
+<meta property="og:description" content="I have used Intel’s SRT (Smart Response Technology) as a way to boost the performance of my slow spinner hard drives ever since they introduced the SSD caching technology alongside the Z68 chipset for Sandybridge in 2011. SRT works by caching heavily used data onto the speedy SSD with a fall back to the HDD at the minor cost of requiring a RAID driver on Windows boot. The technology behind Intel’s SRT is nothing new and has been standard in the industry as a way to boost the performance of database servers. The software has been reimplemented many times in the form of flashcache, ZFS, and bcache. Not wanting to be left out of the server market, Microsoft also implemented tiered storage spaces for Windows Server 2012 by following the same concept but adding their own twist. They introduce a hot/cold tier concept where the SSD is portion is self-balancing and keeps hot data within itself for fast access. Enthusiast’s who want their games to load fast without shelling out $$$ for a large capacity SSD were stuck with using Intel’s SRT because Microsoft never ported the tiered storage space technology to Windows 10. This was until Windows 10 build 10565 secretly introduced it without any press release. Microsoft’s tiered storage space technology ought to be more advanced than Intel’s software based caching and should be able to replace it and perform better. My personal goal was to do that and then measure it." />
+<link rel="canonical" href="http://localhost:4000/2016/11/22/intel-smart-response-technology-vs-windows-10.html" />
+<meta property="og:url" content="http://localhost:4000/2016/11/22/intel-smart-response-technology-vs-windows-10.html" />
+<meta property="og:site_name" content="Your awesome title" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2016-11-22T18:31:25-08:00" />
+<script type="application/ld+json">
+{"description":"I have used Intel’s SRT (Smart Response Technology) as a way to boost the performance of my slow spinner hard drives ever since they introduced the SSD caching technology alongside the Z68 chipset for Sandybridge in 2011. SRT works by caching heavily used data onto the speedy SSD with a fall back to the HDD at the minor cost of requiring a RAID driver on Windows boot. The technology behind Intel’s SRT is nothing new and has been standard in the industry as a way to boost the performance of database servers. The software has been reimplemented many times in the form of flashcache, ZFS, and bcache. Not wanting to be left out of the server market, Microsoft also implemented tiered storage spaces for Windows Server 2012 by following the same concept but adding their own twist. They introduce a hot/cold tier concept where the SSD is portion is self-balancing and keeps hot data within itself for fast access. Enthusiast’s who want their games to load fast without shelling out $$$ for a large capacity SSD were stuck with using Intel’s SRT because Microsoft never ported the tiered storage space technology to Windows 10. This was until Windows 10 build 10565 secretly introduced it without any press release. Microsoft’s tiered storage space technology ought to be more advanced than Intel’s software based caching and should be able to replace it and perform better. My personal goal was to do that and then measure it.","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2016/11/22/intel-smart-response-technology-vs-windows-10.html"},"@type":"BlogPosting","url":"http://localhost:4000/2016/11/22/intel-smart-response-technology-vs-windows-10.html","headline":"Intel Smart Response Technology vs Windows 10 Tiered Storage Spaces","dateModified":"2016-11-22T18:31:25-08:00","datePublished":"2016-11-22T18:31:25-08:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Your awesome title" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Your awesome title</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Intel Smart Response Technology vs Windows 10 Tiered Storage Spaces</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2016-11-22T18:31:25-08:00" itemprop="datePublished">Nov 22, 2016
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>I have used Intel’s <a href="https://en.wikipedia.org/wiki/Smart_Response_Technology">SRT (Smart Response Technology)</a> as a way to boost the performance of my slow spinner hard drives ever since they introduced the SSD caching technology alongside the Z68 chipset for Sandybridge in 2011. SRT works by caching heavily used data onto the speedy SSD with a fall back to the HDD at the minor cost of requiring a RAID driver on Windows boot.</p><figure data-orig-width="540" data-orig-height="276"><img src="https://66.media.tumblr.com/4892724468d086a1a53c6c3078f141ad/tumblr_inline_oh2l7m7D1W1rkukje_540.png" data-orig-width="540" data-orig-height="276" alt="image"/></figure><p>The technology behind Intel’s SRT is nothing new and has been standard in the industry as a way to boost the performance of database servers. The software has been reimplemented many times in the form of flashcache, ZFS, and bcache. Not wanting to be left out of the server market, Microsoft also implemented <a href="https://blogs.technet.microsoft.com/josebda/2013/08/28/step-by-step-for-storage-spaces-tiering-in-windows-server-2012-r2/">tiered storage spaces</a> for Windows Server 2012 by following the same concept but adding their own twist. They introduce a hot/cold tier concept where the SSD is portion is self-balancing and keeps hot data within itself for fast access.<br/></p><p>Enthusiast’s who want their games to load fast without shelling out $$$ for a large capacity SSD were stuck with using Intel’s SRT because Microsoft never ported the tiered storage space technology to Windows 10. This was <a href="https://www.reddit.com/r/Windows10/comments/3p11i0/10565_has_vastly_improved_storage_spaces/">until Windows 10 build 10565 secretly introduced it without any press release</a>. <br/></p><p>Microsoft’s tiered storage space technology ought to be more advanced than Intel’s software based caching and should be able to replace it and perform better. My personal goal was to do that and then measure it.<br/></p>
+
+<p><!-- more --></p>
+
+<p><b>Setting up a Simple Tiered Storage Space on Windows 10 </b><br/></p>
+
+<p>It was nearly impossible to find documentation on how to set up tiered storage spaces on Windows 10. I wanted to create a setup similar to what I had in the SRT where I paired a single HDD with a SSD. In the end I pieced together <a href="http://windowsitpro.com/windows-server-2012-r2/powershell-storage-space-creation-tips">two</a> <a href="http://www.van-gelderen.eu/vworkspace-hyper-v-with-tiered-storage-pools-part1/">guides</a> meant for Windows Server and created some rough instructions that need to be entered into a Powershell:</p><pre class="prettyprint">#Variables<br/>$StoragePoolName = "My Storage Pool"<br/>$TieredSpaceName = "My Tiered Space"<br/>$ResiliencySetting = "Simple"<br/>$SSDTierName = "SSDTier"<br/>$HDDTierName = "HDDTier"<br/>
+#List all disks that can be pooled and output in table format (format-table)
+Get-PhysicalDisk -CanPool $True | ft FriendlyName,OperationalStatus,Size,MediaType
+<br/>#Store all physical disks that can be pooled into a variable, $PhysicalDisks<br/>$PhysicalDisks = (Get-PhysicalDisk -CanPool $True | Where MediaType -NE UnSpecified)       
+<br/>#Create a new Storage Pool using the disks in variable $PhysicalDisks with a name of My Storage Pool
+$SubSysName = (Get-StorageSubSystem).FriendlyName
+New-StoragePool -PhysicalDisks $PhysicalDisks -StorageSubSystemFriendlyName $SubSysName -FriendlyName $StoragePoolName
+<br/>#View the disks in the Storage Pool just created
+Get-StoragePool -FriendlyName $StoragePoolName | Get-PhysicalDisk | Select FriendlyName, MediaType
+<br/>#Create two tiers in the Storage Pool created. One for SSD disks and one for HDD disks
+$SSDTier = New-StorageTier -StoragePoolFriendlyName $StoragePoolName -FriendlyName $SSDTierName -MediaType SSD
+$HDDTier = New-StorageTier -StoragePoolFriendlyName $StoragePoolName -FriendlyName $HDDTierName -MediaType HDD
+<br/>#Identify tier sizes within this storage pool<br/>$SSDTierSizes = (Get-StorageTierSupportedSize -FriendlyName $SSDTierName -ResiliencySettingName $ResiliencySetting).TierSizeMax<br/>$HDDTierSizes = (Get-StorageTierSupportedSize -FriendlyName $HDDTierName -ResiliencySettingName $ResiliencySetting).TierSizeMax 
+<br/>#Create a new virtual disk in the pool with a name of TieredSpace using the SSD and HDD tiers<br/>New-VirtualDisk -StoragePoolFriendlyName $StoragePoolName -FriendlyName $TieredSpaceName -StorageTiers $SSDTier, $HDDTier -StorageTierSizes $SSDTierSizes, $HDDTierSizes -ResiliencySettingName $ResiliencySetting  -AutoWriteCacheSize -AutoNumberOfColumns<br/><br/>#Alternatively try adjusting the sizes manually:<br/>#New-VirtualDisk -StoragePoolFriendlyName $StoragePoolName -FriendlyName $TieredSpaceName -StorageTiers @($SSDTier,$HDDTier) -StorageTierSizes @(228GB,1.816TB) -ResiliencySettingName $ResiliencySetting -AutoWriteCacheSize -AutoNumberOfColumns<br/></pre><hr><p><b>Benchmarks</b></p><p>The hard drive that I’m using in all these is a <a href="https://www.hgst.com/sites/default/files/resources/DS5K3000_ds.pdf">2TB Hitachi Deskstar 5K3000 (HDS5C3020ALA632)</a>. The solid state drive that I’m using is a <a href="http://www.samsung.com/us/computing/memory-storage/solid-state-drives/ssd-850-evo-2-5-sata-iii-250gb-mz-75e250b-am/">250GB Samsung 850 EVO</a>. My system is powered by a 4690K, ASUS Z87 Pro, and 32GB of RAM.<br/></p><p>Let’s start off by just looking at the Hitachi itself by using <a href="http://crystalmark.info/software/CrystalDiskMark/index-e.html">CrystalDiskMark</a>:<br/></p><figure data-orig-width="402" data-orig-height="367"><img src="https://66.media.tumblr.com/83932096652d6c842d10cd1513af3178/tumblr_inline_oh2nkvOeZr1rkukje_540.png" alt="image" data-orig-width="402" data-orig-height="367"/></figure><p>As shown, the Hitachi performs like any other spinning disk drive where any kind of random reads and writes suck.</p><p>Let’s take a look at what the numbers look like when we pair the Hitachi with the 850 EVO using a 64GB cache at the<a href="http://www.intel.com/content/www/us/en/support/boards-and-kits/000005501.html"> maximized acceleration mode with Intel RST</a>.</p><figure data-orig-width="402" data-orig-height="367"><img src="https://66.media.tumblr.com/3f11d6ae1ccc19b251f373efa2209467/tumblr_inline_oh2mzxpCw31rkukje_540.png" alt="image" data-orig-width="402" data-orig-height="367"/></figure><p><b> </b></p><p>Performance improved slightly but the cache didn’t kick in because of the nature of how RST works.</p><p>Let’s take a look at what Windows 10 tiered storage spaces can do.<br/></p><figure data-orig-width="402" data-orig-height="367"><img src="https://66.media.tumblr.com/f54d32412898575ccf6cea9fe5c8f691/tumblr_inline_oh2mz3jVcR1rkukje_540.png" alt="image" data-orig-width="402" data-orig-height="367"/></figure><p>Huge improvement there especially with regard to writes! It’s pretty clear that tiered storage spaces offer some benefit over Intel SRT for this kind of work load.</p><hr><p><b>Conclusion</b><br/></p><p>I haven’t had a chance to measure game load times but I’ve been running a tiered storage space system for over a year and haven’t noticed any regression with the game load times. If someone else goes through the trouble of doing this migration please do measure before and after and let me know!<br/></p><p>Good luck!<br/></p>
+
+  </div><a class="u-url" href="/2016/11/22/intel-smart-response-technology-vs-windows-10.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Your awesome title</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Your awesome title</li><li><a class="u-email" href="mailto:your-email@example.com">your-email@example.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/jekyll"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">jekyll</span></a></li><li><a href="https://www.twitter.com/jekyllrb"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">jekyllrb</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

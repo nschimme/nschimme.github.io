@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Guide to add zRAM on the Synology DiskStation DS212j | Your awesome title</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Guide to add zRAM on the Synology DiskStation DS212j" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="My Synology DiskStation DS212j has gotten slower over the years ever since I bought in 2012. DSM operating system security and software upgrades introduced feature bloat that required more memory and caused memory to page to disk. Wikipedia gives an amazing overview of why paging is bad and why zRAM is amazing for memory constrained PCs." />
+<meta property="og:description" content="My Synology DiskStation DS212j has gotten slower over the years ever since I bought in 2012. DSM operating system security and software upgrades introduced feature bloat that required more memory and caused memory to page to disk. Wikipedia gives an amazing overview of why paging is bad and why zRAM is amazing for memory constrained PCs." />
+<link rel="canonical" href="http://localhost:4000/2017/05/22/guide-to-add-zram-on-the-synology-diskstation.html" />
+<meta property="og:url" content="http://localhost:4000/2017/05/22/guide-to-add-zram-on-the-synology-diskstation.html" />
+<meta property="og:site_name" content="Your awesome title" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-05-22T00:55:24-07:00" />
+<script type="application/ld+json">
+{"description":"My Synology DiskStation DS212j has gotten slower over the years ever since I bought in 2012. DSM operating system security and software upgrades introduced feature bloat that required more memory and caused memory to page to disk. Wikipedia gives an amazing overview of why paging is bad and why zRAM is amazing for memory constrained PCs.","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2017/05/22/guide-to-add-zram-on-the-synology-diskstation.html"},"@type":"BlogPosting","url":"http://localhost:4000/2017/05/22/guide-to-add-zram-on-the-synology-diskstation.html","headline":"Guide to add zRAM on the Synology DiskStation DS212j","dateModified":"2017-05-22T00:55:24-07:00","datePublished":"2017-05-22T00:55:24-07:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Your awesome title" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Your awesome title</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Guide to add zRAM on the Synology DiskStation DS212j</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2017-05-22T00:55:24-07:00" itemprop="datePublished">May 22, 2017
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>My Synology DiskStation DS212j has gotten slower over the years ever since I bought in 2012. DSM
+operating system security and software upgrades introduced feature bloat that required more memory and caused memory to page to disk. <a href="https://en.wikipedia.org/wiki/Zram">Wikipedia</a> gives an amazing overview of why paging is bad and why zRAM is amazing for memory constrained PCs.</p>
+
+<blockquote>
+<p><strong>zram</strong> (also called <strong>zRAM</strong> and, initially, <strong>compcache</strong>) is a <a href="https://en.wikipedia.org/wiki/Linux_kernel" title="Linux kernel">Linux kernel</a> feature that provides a form of <a href="https://en.wikipedia.org/wiki/Virtual_memory_compression" title="Virtual memory compression">virtual memory compression</a>. zram increases performance by avoiding <a href="https://en.wikipedia.org/wiki/Paging" title="Paging">paging</a> to disk and using a compressed <a href="https://en.wikipedia.org/wiki/Block_device" title="Block device">block device</a> in <a href="https://en.wikipedia.org/wiki/Random-access_memory" title="Random-access memory">RAM</a> instead, inside which paging takes place until it is necessary to use the <a href="https://en.wikipedia.org/wiki/Linux_swap" title="Linux swap">swap space</a> on a <a href="https://en.wikipedia.org/wiki/Hard_disk_drive" title="Hard disk drive">hard disk drive</a>.
+Since using zram is an alternative way to provide swapping on RAM, zram
+allows Linux to make a better use of RAM when swapping/paging is
+required, especially on older computers with less RAM installed.</p>
+</blockquote>
+<p>Pretty cool, huh? The Android community often uses zRAM as a way to bring back older
+devices back to life and I figured I could do the same with my aging DiskStation that only came with 256MB of RAM compared to the more recent
+DS216 that comes with twice that at 512MB.</p>
+
+<p>I
+successfully compiled and added the zRAM module to my DS212j and wanted to share the steps. My DS212j uses the Linux kernel 2.6.32 so this guide should be applicable to any Synology DS that uses the same kernel.</p>
+
+<!-- more -->
+
+<hr><h2>Setting up the DSM 6.1 Tool Chain</h2>
+
+<p>Synology has provided excellent documentation on how to compile kernel modules. You should follow their tutorial on how to <a href="https://developer.synology.com/developer-guide/create_package/install_toolkit.html">setup the toolkit</a> to compile the kernel.</p>
+
+<p>Steps for the DS212j are roughly:</p>
+
+<ol><li>Setup toolkit: <code>mkdir -p /toolkit</code></li>
+<li><code>cd /toolkit</code></li>
+<li><code>git clone <a href="https://github.com/SynologyOpenSource/pkgscripts-ng.git">https://github.com/SynologyOpenSource/pkgscripts-ng.git</a></code></li>
+<li><code>cd /toolkit/pkgscripts-ng/</code></li>
+<li><code>./EnvDeploy -v 6.1 -p 6281</code></li>
+</ol><h2>Compiling the 2.6.32 Kernel</h2>
+
+<p>You will need to follow the Synology documentation to <a href="https://developer.synology.com/developer-guide/create_package/compile_kernel_module.html">compile kernel modules here</a> in order to build the LZO kernel module. This is a dependent kernel module for zRAM.</p>
+
+<p>Steps are roughly:</p>
+
+<ol><li><p>Download the kernel source for the closest branch that is currently deployed on your Synology:
+<a href="https://sourceforge.net/projects/dsgpl/files/Synology%20NAS%20GPL%20Source/">https://sourceforge.net/projects/dsgpl/files/Synology%20NAS%20GPL%20Source/</a></p></li>
+<li><p>Extract the source to <code>/toolkit/build_env/ds.x64-6.1/root/</code></p></li>
+<li><p>Enter the tool chain chroot: <code>chroot /toolkit/build_env/ds.x64-6.1 /bin/bash</code></p></li>
+<li><p><code>cd root/linux-2.6.32</code></p></li>
+<li><p><code>cp synoconfigs/88f6281 .config</code></p></li>
+<li><p><code>export ARCH="arm"</code></p></li>
+<li><p><code>export CROSS_COMPILE="/usr/local/arm-marvell-linux-gnueabi/bin/arm-marvell-linux-gnueabi-"</code></p></li>
+<li><p><code>make oldconfig</code></p></li>
+<li><p><code>make menuconfig</code></p></li>
+<li><p>Build LZO modules because they’re dependencies for zRAM.<br/>Enter <code>Cryptographic API</code> to select <code>LZO compression algorithm</code> as a module. Exit and save.</p></li>
+<li><p><code>make prepare</code></p></li>
+<li><p><code>make modules</code></p></li>
+<li><p>Copy <code>lzo_compress.ko</code>, <code>lzo_decompress.ko</code>, <code>lzo.ko</code> to your Synology</p></li>
+</ol><h2>Compiling the Compcache Kernel Module</h2>
+
+<p>I have successfully compiled the Compcache 0.6.2 kernel module and gotten it to work with the stock 2.6.32 kernel. The latest version doesn’t seem to work so we’re going to stick with 0.6.2 where we will follow the <a href="https://code.google.com/archive/p/compcache/wikis/CompilingAndUsingNew.wiki">Compcache documentation here</a>.</p>
+
+<ol><li><code>cd /root/</code></li>
+<li>Download Compcache 0.6.2 module source: <code>wget <a href="https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/compcache/compcache-0.6.2.tar.gz">https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/compcache/compcache-0.6.2.tar.gz</a></code></li>
+<li><code>tar -xzf compcache-0.6.2.tar.gz</code></li>
+<li><code>cd compcache-0.6.2</code></li>
+<li><code>export KERNEL_BUILD_PATH=/root/linux-2.6.32</code></li>
+<li><code>make</code></li>
+<li>Copy <code>ramzswap.ko</code> to your Synology</li>
+</ol><h2>Installation</h2>
+
+<ol><li><p>Copy kernel modules to Synology DSM</p></li>
+<li><p>Test kernels by inserting them</p></li>
+<li><pre class="prettyprint">
+/sbin/insmod /lib/modules/lzo_decompress.ko
+/sbin/insmod /lib/modules/lzo_compress.ko
+/sbin/insmod /lib/modules/lzo.ko
+/sbin/insmod /lib/modules/ramzswap.ko disksize_kb=131072
+/sbin/swapon /dev/ramzswap0 -p 5
+</pre>
+</li>
+<li><p>Enable swap with:
+<code>/sbin/swapon /dev/ramzswap0 -p 5</code></p></li>
+<li>Verify everything worked by checking dmesg for errors</li>
+<li><pre class="prettyprint">nschimme@NilsDiskStation:~$ dmesg | grep -E "(ramzswap|lzo)"
+[ 100.500000] alg: No test for lzo (lzo-generic)
+[ 100.550000] ramzswap: num_devices not specified. Using default: 1
+[ 100.550000] ramzswap: /dev/ramzswap0 initialized: disksize_kb=131072
+[ 100.560000] ramzswap: Invalid ioctl 21297
+[ 101.560000] Adding 131064k swap on /dev/ramzswap0. Priority:5 extents:1 across:131064k SS
+nschimme@NilsDiskStation:~$</pre></li>
+<li><p>Add above <code>insmod</code>/<code>swapon</code> commands to <code>/etc/rc.local</code> to make the changes permanent</p></li>
+</ol><h2>zRAM Results</h2>
+
+<p>It’s super effective! I’ve noticed that there was roughly ~100MB of paged memory usually and I’ve managed to get it all to fit within ~30MB of compressed memory space rather than going down to the hard drive. Responsiveness in the DSM OS has greatly improved as a result.</p>
+
+<pre class="prettyprint">nschimme@NilsDiskStation:~$ free -m
+total        used        free      shared  buff/cache   available
+              total        used        free      shared  buff/cache   available
+Mem:            243          79          60           3         104         123
+Swap:          2175          94        2081
+nschimme@NilsDiskStation:~$ swapon
+NAME           TYPE      SIZE  USED PRIO
+/dev/md1       partition   2G    0B   -1
+/dev/ramzswap0 partition 128M 94.9M    5
+nschimme@NilsDiskStation:~$ sudo rzscontrol /dev/ramzswap0 --stats
+DiskSize:	  131072 kB
+NumReads:	    9890
+NumWrites:	   26730
+FailedReads:	       0
+FailedWrites:	       0
+InvalidIO:	       0
+NotifyFree:	       0
+ZeroPages:	    7231
+GoodCompress:	      78 %
+NoCompress:	       2 %
+PagesStored:	   19499
+PagesUsed:	    6640
+OrigDataSize:	   77996 kB
+ComprDataSize:	   26200 kB
+MemUsedTotal:	   26560 kB
+nschimme@NilsDiskStation:~$</pre>
+
+  </div><a class="u-url" href="/2017/05/22/guide-to-add-zram-on-the-synology-diskstation.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Your awesome title</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Your awesome title</li><li><a class="u-email" href="mailto:your-email@example.com">your-email@example.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/jekyll"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">jekyll</span></a></li><li><a href="https://www.twitter.com/jekyllrb"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">jekyllrb</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

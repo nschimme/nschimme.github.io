@@ -1,0 +1,42 @@
+---
+layout: post
+title: I liberated my NETGEAR Centria N900 router
+date: '2014-09-28T00:19:00-07:00'
+tags:
+- centria
+- WNDR4700
+- shibby
+- netgear
+- hacking
+- router
+- flash
+- firmware
+tumblr_url: https://nils.schimmelmann.us/post/98616730247/i-liberated-my-netgear-centria-n900-router
+---
+<p><figure data-orig-width="282" data-orig-height="273"><img src="https://66.media.tumblr.com/a98f507610561f695efbd2144fbc7985/tumblr_inline_nn6yh96fph1rkukje_540.jpg" alt="image" data-orig-width="282" data-orig-height="273"/></figure></p><p>I purchased a <a href="http://www.netgear.com/home/products/networking/wifi-routers/WNDR4700.aspx">NETGEAR Centria N900 router</a> at a fire sale nearly a year ago. I&rsquo;m happy with its functionality but was always disappointed that I wasn&rsquo;t able to flash a community created firmware such as DD-WRT or Tomato onto it.</p>
+<p>Luckily, the official firmware is forked from OpenWrt and as per the GPL the sources need to be publically available. Armed with those sources, a hacker name shibby managed to create an alternative 1.0.0.52 firmware which includes the dropbear ssh server that we can use to gain root access to the router.</p>
+
+<p><i><b>Edit 11/22/2016</b>: This guide is now irrelevant. Follow the new <a href="http://nils.schimmelmann.us/2019/10/24/2016-11-22-lede-and-debian-on-the-netgear-centria-n900.html">LEDE guide</a>.</i></p>
+
+<p><!-- more --></p>
+
+<hr><p>After flashing the <a href="http://myopenrouter.com/download/netgear-centria-wndr4700-modified-firmware-dropbear-transmission-and-more">shibby firmware</a> (mirrored <a href="https://app.box.com/s/vbcmcn9sff4ceg1tcrkfplridqmmvpzk">here</a>) I was able to SSH into the router with no difficulty. I saw that it ran a 1GHz single core PowerPC APM82181 CPU built by AppliedMicro:
+</p><pre class="prettyprint">root@WNDR4700:~ # cat /proc/cpuinfo<br/>processor : 0<br/>cpu : APM82181<br/>clock : 1000.000010MHz<br/>revision : 28.131 (pvr 12c4 1c83)<br/>bogomips : 2000.00<br/>timebase : 1000000010<br/>platform : PowerPC 44x Platform<br/>model : amcc,wdnr4700<br/>Memory : 256 MB</pre>
+<p>It isn&rsquo;t much but it is plenty fast to host a wide range of services. Now if only I can get some packages installed on the router! In order to do that I first need some location to install it. I plugged a USB drive into my router and the drive was happily automounted on /tmp/mnt/sda1:</p>
+<pre class="prettyprint">root@WNDR4700:~ # mount<br/>rootfs on / type rootfs (rw)<br/>/dev/root on / type squashfs (ro,relatime)<br/>none on /proc type proc (rw,relatime)<br/>sysfs on /sys type sysfs (rw,relatime)<br/>none on /tmp type tmpfs (rw,nosuid,nodev,relatime)<br/>tmpfs on /dev type tmpfs (rw,relatime,size=128k)<br/>none on /proc/bus/usb type usbfs (rw,relatime)<br/>/dev/sda1 on /tmp/mnt/sda1 type ext4 (rw,noexec,relatime,barrier=1,data=ordered)</pre>
+<p>This is a good start! But we need to ensure that some basic directories are writable so let&rsquo;s remount our USB drive to allow it to execute files, copy over any configuration and libraries that might need altering, and remount those copies over the read only filesystem as writable:</p>
+<pre class="prettyprint">root@WNDR4700:~ # umount /mnt/sda1<br/>root@WNDR4700:~ # mount -o rw,exec /dev/sda1 /mnt/sda1/<br/>root@WNDR4700:~ # cd /tmp/mnt/sda1<br/>root@WNDR4700:~ # mkdir opt etc root usr/lib -p<br/>root@WNDR4700:~ # cp -ar /etc/* /mnt/sda1/etc<br/>root@WNDR4700:~ # cp -ar /usr/lib/* /mnt/sda1/usr/lib<br/>root@WNDR4700:~ # cp -ar /opt/* /mnt/sda1/opt<br/>root@WNDR4700:~ # mount -o bind /mnt/sda1/opt/ /opt<br/>root@WNDR4700:~ # mount -o bind /mnt/sda1/etc/ /etc<br/>root@WNDR4700:~ # mount -o bind /mnt/sda1/root/ /root<br/>root@WNDR4700:~ # mount -o bind /mnt/sda1/usr/lib /usr/lib</pre>
+<p>Cool, now I have a system that is fairly hackable! I could now spend several days trying to cross compile packages for my router but hopefully I could leverage an existing package manager such as optware to download precompiled binaries. Luckily OpenWrt already comes packaged with Busybox which includes the ipkg binary so the only thing that was missing was a repository. After some searching I found out that the Synology DS101G device, which has great ipkg support, coincidentally also has a PowerPC CPU. I was further encourged by finding another hacker named Pinchii who had succesfully hacked his PowerPC NAS by using the Synology repository.</p>
+<p>After some reading of the <a href="http://www.nslu2-linux.org/wiki/DS101/DS101BootStrap">DS101G bootstrap instructions</a> and <a href="http://pinchii.com/home/2012/03/optware-for-the-patriot-javelin-s4-media-server/">Pinchii&rsquo;s directions</a> I discovered that their scripts aren&rsquo;t compatible. To save anyone the trouble just download the following packages, copy them to the router (scp or onto the flash drive):</p>
+
+<ul><li><a href="http://ipkg.nslu2-linux.org/feeds/optware/ds101g/cross/stable/wget-ssl_1.12-2_powerpc.ipk">http://ipkg.nslu2-linux.org/feeds/optware/ds101g/cross/stable/wget-ssl_1.12-2_powerpc.ipk</a></li>
+<li><a href="http://ipkg.nslu2-linux.org/feeds/optware/ds101g/cross/stable/libidn_1.25-1_powerpc.ipk">http://ipkg.nslu2-linux.org/feeds/optware/ds101g/cross/stable/libidn_1.25-1_powerpc.ipk</a></li>
+<li><a href="http://ipkg.nslu2-linux.org/feeds/optware/ds101g/cross/stable/openssl_0.9.7m-6_powerpc.ipk">http://ipkg.nslu2-linux.org/feeds/optware/ds101g/cross/stable/openssl_0.9.7m-6_powerpc.ipk</a></li>
+<li><a href="http://ipkg.nslu2-linux.org/feeds/optware/ds101g/cross/stable/ipkg-opt_0.99.163-10_powerpc.ipk">http://ipkg.nslu2-linux.org/feeds/optware/ds101g/cross/stable/ipkg-opt_0.99.163-10_powerpc.ipk</a></li>
+</ul><p>Finally, I installed the packages with Busybox ipkg and then updated my paths so that the router was aware of optware:</p>
+<pre class="prettyprint">root@WNDR4700:~ # /usr/bin/ipkg install *.ipk<br/>Installing ipkg-opt (0.99.163-10) to root...<br/>Installing libidn (1.25-1) to root...<br/>Installing openssl (0.9.7m-6) to root...<br/>Installing wget-ssl (1.12-2) to root...<br/>Configuring ipkg-opt<br/>Configuring libidn<br/>Configuring openssl<br/>Configuring wget-ssl<br/>Done.<br/>root@WNDR4700:~ # export LD_LIBRARY_PATH='/opt/lib:/opt/usr/lib:/lib:/usr/lib:/opt/usr/local/lib'<br/>root@WNDR4700:~ # export PATH='/sbin:/opt/bin:/opt/usr/bin:/opt/sbin:/opt/usr/sbin:/bin:/usr/bin:/usr/sbin:/opt/usr/local/bin'<br/>root@WNDR4700:~ # ipkg update<br/>Downloading <a href="http://ipkg.nslu2-linux.org/feeds/optware/ds101g/cross/stable/Packages.gz">http://ipkg.nslu2-linux.org/feeds/optware/ds101g/cross/stable/Packages.gz</a><br/>Inflating <a href="http://ipkg.nslu2-linux.org/feeds/optware/ds101g/cross/stable/Packages.gz">http://ipkg.nslu2-linux.org/feeds/optware/ds101g/cross/stable/Packages.gz</a><br/>Updated list of available packages in /opt/lib/ipkg/lists/optware<br/>Successfully terminated.</pre>
+<p>If you have been following my instructions you now have an unlocked WNDR4700 router! I&rsquo;ve installed vim, screen, bash, coreutils from ipkg onto the router to make it more functional. If you do install bash yourself, make sure you install crosstool-native and compile a newer version of bash to fix the shellshock bug!</p>
+<p>Did you run into trouble? No sweat, just reboot your router and your mucking about will disappear because its localized to the USB stick.</p>
+<p>Granted, this is somewhat of an annoyance though because any changes will be undone each time there is a power outage. At that point you just need to remount the necessary folders in order to get your environment back. I might take a stab at making everything more permanent in the future by modifying the <a href="http://wiki.openwrt.org/toh/netgear/wndr4700#flash.layout">nvram</a>.</p>
+<p>Happy hacking!</p>
+<p>Disclaimer: I am not responsible for any damage caused to your device.</p>

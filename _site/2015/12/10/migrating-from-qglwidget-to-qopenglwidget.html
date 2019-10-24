@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Migrating from QGLWidget to QOpenGLWidget | Your awesome title</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Migrating from QGLWidget to QOpenGLWidget" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="A year ago I migrated an old Qt4 project to Qt5. The migration was relatively painless and a huge success with the exception of the QGLWidget powered OpenGL canvas. In Qt5, this widget has been deprecated and currently mangles text rendering on Mac OS X retina displays as shown below: The only way to fix the mangled text is to migrate to the QOpenGLWidget that was introduced in Qt 5.4.0. Overall, this widget is pretty similar to QGLWidget and Qt has done a decent job describing the differences as well as providing an example of working code. With that information in hand, I decided to try my luck migrating it over the weekend where I ran into some trouble. Here are some of the more annoying differences that I discovered: qglColor(), qglColorClear(), bindTexture(), and renderText() are not available.QPixmaps aren’t supported anymore and you need to substitute QOpenGLTexture.updateGL() has been renamed to update()Blending seems to behave differently when utilized with multiple transparent textures. Some of these things are obvious to fix and others not so much. I was able to easily replace qglColor() and qglColorClear() with by their OpenGL equivalents by looking at the QGLWidget documentation. void MapCanvas::qglColor(QColor color) {    glColor4f(color.redF(), color.greenF(), color.blueF(), color.alphaF());}" />
+<meta property="og:description" content="A year ago I migrated an old Qt4 project to Qt5. The migration was relatively painless and a huge success with the exception of the QGLWidget powered OpenGL canvas. In Qt5, this widget has been deprecated and currently mangles text rendering on Mac OS X retina displays as shown below: The only way to fix the mangled text is to migrate to the QOpenGLWidget that was introduced in Qt 5.4.0. Overall, this widget is pretty similar to QGLWidget and Qt has done a decent job describing the differences as well as providing an example of working code. With that information in hand, I decided to try my luck migrating it over the weekend where I ran into some trouble. Here are some of the more annoying differences that I discovered: qglColor(), qglColorClear(), bindTexture(), and renderText() are not available.QPixmaps aren’t supported anymore and you need to substitute QOpenGLTexture.updateGL() has been renamed to update()Blending seems to behave differently when utilized with multiple transparent textures. Some of these things are obvious to fix and others not so much. I was able to easily replace qglColor() and qglColorClear() with by their OpenGL equivalents by looking at the QGLWidget documentation. void MapCanvas::qglColor(QColor color) {    glColor4f(color.redF(), color.greenF(), color.blueF(), color.alphaF());}" />
+<link rel="canonical" href="http://localhost:4000/2015/12/10/migrating-from-qglwidget-to-qopenglwidget.html" />
+<meta property="og:url" content="http://localhost:4000/2015/12/10/migrating-from-qglwidget-to-qopenglwidget.html" />
+<meta property="og:site_name" content="Your awesome title" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2015-12-10T23:05:14-08:00" />
+<script type="application/ld+json">
+{"description":"A year ago I migrated an old Qt4 project to Qt5. The migration was relatively painless and a huge success with the exception of the QGLWidget powered OpenGL canvas. In Qt5, this widget has been deprecated and currently mangles text rendering on Mac OS X retina displays as shown below: The only way to fix the mangled text is to migrate to the QOpenGLWidget that was introduced in Qt 5.4.0. Overall, this widget is pretty similar to QGLWidget and Qt has done a decent job describing the differences as well as providing an example of working code. With that information in hand, I decided to try my luck migrating it over the weekend where I ran into some trouble. Here are some of the more annoying differences that I discovered: qglColor(), qglColorClear(), bindTexture(), and renderText() are not available.QPixmaps aren’t supported anymore and you need to substitute QOpenGLTexture.updateGL() has been renamed to update()Blending seems to behave differently when utilized with multiple transparent textures. Some of these things are obvious to fix and others not so much. I was able to easily replace qglColor() and qglColorClear() with by their OpenGL equivalents by looking at the QGLWidget documentation. void MapCanvas::qglColor(QColor color) {    glColor4f(color.redF(), color.greenF(), color.blueF(), color.alphaF());}","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2015/12/10/migrating-from-qglwidget-to-qopenglwidget.html"},"@type":"BlogPosting","url":"http://localhost:4000/2015/12/10/migrating-from-qglwidget-to-qopenglwidget.html","headline":"Migrating from QGLWidget to QOpenGLWidget","dateModified":"2015-12-10T23:05:14-08:00","datePublished":"2015-12-10T23:05:14-08:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Your awesome title" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Your awesome title</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Migrating from QGLWidget to QOpenGLWidget</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2015-12-10T23:05:14-08:00" itemprop="datePublished">Dec 10, 2015
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>A year ago I migrated an old <a href="http://nils.schimmelmann.us/2019/10/24/2015-01-17-migrating-your-project-from-qt4-to-qt5.html">Qt4 project</a> to Qt5. The migration was relatively painless and a huge success with the exception of the QGLWidget powered OpenGL canvas. In Qt5, this widget has been deprecated and currently mangles text rendering on Mac OS X retina displays as shown below:<br/></p><figure class="tmblr-full" data-orig-height="650" data-orig-width="1076"><img data-orig-height="650" data-orig-width="1076" alt="image" src="https://66.media.tumblr.com/59d2c7a98f83931bd02aa49cecdf7a5b/tumblr_inline_nz6h87CWCj1rkukje_540.png"/></figure><p>The only way to fix the mangled text is to migrate to the <a href="http://doc.qt.io/qt-5/qopenglwidget.html">QOpenGLWidget</a> that was introduced in Qt 5.4.0. Overall, this widget is pretty similar to QGLWidget and Qt has done a decent job <a href="http://doc.qt.io/qt-5/qopenglwidget.html#differences-to-qglwidget">describing the differences</a> as well as providing an <a href="http://doc.qt.io/qt-5/qtopengl-textures-example.html">example of working code</a>.</p><p>With that information in hand, I decided to try my luck migrating it over the weekend where I ran into some trouble. Here are some of the more annoying differences that I discovered:<br/></p><ol><li><a href="http://doc.qt.io/qt-5/qglwidget.html#qglColor"><i>qglColor()</i></a>, <i><a href="http://doc.qt.io/qt-5/qglwidget.html#qglClearColor">qglColorClear()</a>,</i> <a href="http://doc.qt.io/qt-5/qglwidget.html#bindTexture-4"><i>bindTexture()</i></a>, and <a href="http://doc.qt.io/qt-5/qglwidget.html#renderText"><i>renderText()</i></a> are not available.</li><li><a href="http://doc.qt.io/qt-5/qpixmap.html">QPixmap</a>s aren’t supported anymore and you need to substitute <a href="http://doc.qt.io/qt-5/qopengltexture.html">QOpenGLTexture.</a><br/></li><li><i>updateGL()</i> has been renamed to <i>update()</i></li><li>Blending seems to behave differently when utilized with multiple transparent textures.</li></ol><!-- more --><hr><p>Some of these things are obvious to fix and others not so much. I was able to easily replace <i>qglColor()</i> and <i>qglColorClear()</i> with by their OpenGL equivalents by looking at the QGLWidget documentation.</p><pre class="prettyprint">
+void MapCanvas::qglColor(QColor <i>color</i>) {<br/>    glColor4f(color.redF(), color.greenF(), color.blueF(), color.alphaF());<br/>}
+
+void MapCanvas::qglClearColor(QColor <i>clearColor</i>) {<br/>    glClearColor(clearColor.redF(), clearColor.greenF(), clearColor.blueF(), clearColor.alphaF());<br/>}
+</pre>
+<hr><p><i>bindTexture()</i> does not exist anymore so you now need to preload a <a href="http://doc.qt.io/qt-5/qopengltexture.html">QOpenGLTexture</a> and then call texture-&gt;<i>bind()</i> wherever you called <i>bindTexture()</i> previously.</p><p>Additionally, you will need to load textures in the following manner whereas you could just use <a href="http://doc.qt.io/qt-5/qpixmap.html">QPixmap</a> previously:<br/></p>
+<pre class="prettyprint">
+    QOpenGLTexture *texture = new QOpenGLTexture(QImage(QString(":/pixmaps/terrain%1.png").arg(i)).mirrored());
+</pre>
+
+<hr><p><i>renderText()</i> was a bit trickier to replace and requires a <a href="http://doc.qt.io/qt-5/qopenglwidget.html#painting-techniques">QPainter</a> to paint text over the OpenGL canvas. I found this solution from <a href="http://stackoverflow.com/questions/28216001/how-to-render-text-with-qopenglwidget/33674071#33674071">jaba on Stackoverflow</a> but discovered a bug (he wasn’t calling painter.<i>end() </i>which resulted in some artifacts). Please also note that the <i>project()</i> method should be what you’re using to project from the OpenGL coordinates to your widget coordinates.<br/></p><pre class="prettyprint">
+void MapCanvas::renderText(double <i>x</i>, double <i>y</i>, double z, const <a href="http://doc.qt.io/qt-5/qstring.html">QString</a> &amp;<i>str</i>, const <a href="http://doc.qt.io/qt-5/qfont.html">QFont</a> &amp;<i> font</i> = QFont()) {<br/>    // Identify x and y locations to render text within widget<br/>    int height = this-&gt;height();<br/>    GLdouble textPosX = 0, textPosY = 0, textPosZ = 0;<br/>    project(x, y, 0f, &amp;textPosX, &amp;textPosY, &amp;textPosZ);<br/>    textPosY = height - textPosY; // y is inverted<br/><br/>    // Retrieve last OpenGL color to use as a font color<br/>    GLdouble glColor[4];<br/>    glGetDoublev(GL_CURRENT_COLOR, glColor);<br/>    QColor fontColor = QColor(glColor[0], glColor[1], glColor[2], glColor[3]);<br/><br/>    // Render text<br/>    QPainter painter(this);<br/>    painter.setPen(fontColor);<br/>    painter.setFont(font);<br/>    painter.drawText(textPosX, textPosY, text);<br/>    painter.end();<br/>}
+</pre>
+<hr><p>Unfortunately, the transparent textures artifact problem was not something that I was able to fix entirely. I achieved a similar look by removing most instances of blending and instead utilized colors with a predefined alpha.</p><p>Good luck!<br/></p>
+
+  </div><a class="u-url" href="/2015/12/10/migrating-from-qglwidget-to-qopenglwidget.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Your awesome title</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Your awesome title</li><li><a class="u-email" href="mailto:your-email@example.com">your-email@example.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/jekyll"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">jekyll</span></a></li><li><a href="https://www.twitter.com/jekyllrb"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">jekyllrb</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

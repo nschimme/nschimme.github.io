@@ -1,0 +1,32 @@
+---
+layout: post
+title: My motherboard bus speed started fluctuating between 95-99 Mhz
+date: '2014-09-25T00:24:00-07:00'
+tags:
+- hacking
+- asus
+- motherboard
+- hyper-v
+- virtualization
+- windows8
+tumblr_url: https://nils.schimmelmann.us/post/98374181172/my-motherboard-bus-speed-started-fluctuating
+---
+<p><figure data-orig-width="417" data-orig-height="414"><img src="https://66.media.tumblr.com/7f1c6659ee83835dd832e817a755590c/tumblr_inline_nn6y6uNvWA1rkukje_540.png" alt="image" data-orig-width="417" data-orig-height="414"/></figure></p><p>I own a <a href="http://www.asus.com/Motherboards/Z87PRO/">ASUS Z87 Pro</a> and an <a href="http://ark.intel.com/products/75048/Intel-Core-i5-4670K-Processor-6M-Cache-up-to-3_80-GHz">Intel 4670K</a> that I&rsquo;ve overclocked to a respectable 4.4 GHz which had started exhibiting problems. I noticed a few weeks ago that the bus speed was fluctuating between 95-99 MHz by looking at it with <a href="http://www.cpuid.com/softwares/cpu-z.html">CPU-Z</a>.</p>
+<p>I orginally believed that this was happening due to an imminant motherboard death. In attempts to debug the problem I had:</p>
+<ol><li>Increased input voltage to 1.9v</li>
+<li>Decreased/increase uncore multiplier</li>
+<li>Changed CPU multipliers</li>
+<li>Increased/decreased voltage</li>
+<li>Force BCLK to 100 Mhz</li>
+<li>Disabled/enabled spread spectrum</li>
+<li>RMA&rsquo;d my motherboard to ASUS</li>
+</ol><p>Oddly, the problem only exhibited itself when I was overclocked because the behavior disappeared when I reset to BIOS factory default settings. In truth, the issue was because I had Hyper-V installed on my Windows 8 machine!</p>
+<p>I discovered this after I disabled Virtualization support in the BIOS and noticed that the fluctuations stopped. After that, I uninstalled Hyper-V, re-enabled Virtualization support, and everything has been fine since then. I&rsquo;m now just going to use VirtualBox for my VM needs since it doesn&rsquo;t cause the same problems.</p>
+<p>It seems like a bunch of other people have noticed this:</p>
+<ol><li><a href="http://social.technet.microsoft.com/Forums/windows/en-US/6f383b2a-3a4a-472f-a966-cda0ce646e37/hyperv-windows-8-cpu-power-management-problem?forum=w8itprogeneral">http://social.technet.microsoft.com/Forums/windows/en-US/6f383b2a-3a4a-472f-a966-cda0ce646e37/hyperv-windows-8-cpu-power-management-problem?forum=w8itprogeneral</a></li>
+<li><a href="http://social.technet.microsoft.com/Forums/windowsserver/en-US/7d99ac94-3340-44c1-856e-fad4684aeea2/hyperv-and-processor-power-states-on-windows-server-2012-intel-speedstep?forum=winserverhyperv">http://social.technet.microsoft.com/Forums/windowsserver/en-US/7d99ac94-3340-44c1-856e-fad4684aeea2/hyperv-and-processor-power-states-on-windows-server-2012-intel-speedstep?forum=winserverhyperv</a></li>
+<li><a href="http://www.eightforums.com/virtualization/30128-performace-hit-hyper-v-installed.html">http://www.eightforums.com/virtualization/30128-performace-hit-hyper-v-installed.html</a></li>
+</ol><p>It looks like this is just a Hyper-V/hardware problem. It seems like Microsoft is doing some weird things with C and P-states to attain energy efficiency with SpeedStep:</p>
+<ol><li><a href="http://workinghardinit.wordpress.com/2011/06/20/consider-cpu-power-optimization-versus-performance-when-virtualizing/">http://workinghardinit.wordpress.com/2011/06/20/consider-cpu-power-optimization-versus-performance-when-virtualizing/</a></li>
+<li><a href="https://web.archive.org/web/20121117000348/http://www.nspyre.nl/blogs/3178/Windows8-Hyper-V-V3-SpeedStep">https://web.archive.org/web/20121117000348/http://www.nspyre.nl/blogs/3178/Windows8-Hyper-V-V3-SpeedStep</a></li>
+</ol><p>Oh, and I&rsquo;ve now sent ASUS my debugging analysis so we&rsquo;ll see what comes out of that.</p>
