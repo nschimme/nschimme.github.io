@@ -3,16 +3,16 @@ layout: page
 title: About
 permalink: /about/
 ---
+I'm an engineer in the south bay.
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
+I write about computer hardware, programming, gaming, and outdoor travels.
 
-You can find the source code for Minima at GitHub:
-[jekyll][jekyll-organization] /
-[minima](https://github.com/jekyll/minima)
+I am a hacker, shredder, gamer, cycler, foodie, hiker, and tweeter.
 
-You can find the source code for Jekyll at GitHub:
-[jekyll][jekyll-organization] /
-[jekyll](https://github.com/jekyll/jekyll)
+Some of my alter egos:
+* [Github](https://github.com/nschimme)
+* [Reddit](https://old.reddit.com/user/jahara)
+* [Flickr](https://www.flickr.com/photos/nilsschimmelmann/)
+* [LinkedIn](https://www.linkedin.com/in/nilsschimmelmann/)
+* [Twitter](https://twitter.com/nschimme)
 
-
-[jekyll-organization]: https://github.com/jekyll

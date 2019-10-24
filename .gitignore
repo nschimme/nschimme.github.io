@@ -4,4 +4,9 @@
 *Thumbs.db
 **/.DS_Store
 .idea
+
+_site/
+.sass-cache/
+.jekyll-cache/
 .jekyll-cache
+.jekyll-metadata
