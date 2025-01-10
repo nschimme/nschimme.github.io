@@ -2,6 +2,7 @@
 layout: page
 title: About me
 cover-img: /assets/img/cover.gif
+share-description: A page about Nils Schimmelmann.
 ---
 I am a father of two and an engineer in Houston, Texas. I write about computer hardware, programming, gaming, and outdoor travels. I am a hacker, shredder, gamer, cycler, foodie, hiker, aquarist, and smart home afficionado.
 
