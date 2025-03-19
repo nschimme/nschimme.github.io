@@ -5,8 +5,6 @@ tags: [Home Assistant, HomeKit, Smart Locks, Schlage]
 description: "Learn how to sync your Schlage Encode Plus smart lock with Home Assistant using HomeKit actions, input booleans, and automations—while keeping Apple Home Key and Thread support."
 ---
 
-## Introduction  
-
 The Schlage Encode Plus is a powerful smart lock that integrates seamlessly with Apple HomeKit. However, Home Assistant lacks native support for this lock. Fortunately, by leveraging HomeKit Actions, the Home Assistant HomeKit bridge, and automations, we can achieve a reliable bidirectional sync—while keeping **Apple Home Key functionality** and **Thread battery life benefits** intact.
 
 ## Why This Approach?  
