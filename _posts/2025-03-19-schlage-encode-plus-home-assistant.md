@@ -79,7 +79,7 @@ Now, define a `lock` entity using a template in `configuration.yaml`:
 lock:
   - platform: template
     name: "Front Door Lock"
-    value_template: "{{ is_state('input_boolean.schlage_state', 'on') }}"  # Sync lock state
+    value_template: "{% raw %}{{ is_state('input_boolean.schlage_state', 'on') }}{% endraw %}"  # Sync lock state
     lock:
       # Reset the momentary switch if its stuck
       - choose:
