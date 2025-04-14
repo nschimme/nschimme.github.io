@@ -9,7 +9,7 @@ The Schlage Encode Plus is a powerful smart lock that integrates seamlessly with
 
 ## Why This Approach?  
 
-This method was originally detailed in the Home Assistant Community [https://community.home-assistant.io/t/schlage-encode-plus-in-apple-home-w-homekey-and-home-assistant/684159/24](forums).  
+This method was originally detailed in the Home Assistant Community [forums](https://community.home-assistant.io/t/schlage-encode-plus-in-apple-home-w-homekey-and-home-assistant/684159/24).  
 
 By using this approach, you can:  
 
