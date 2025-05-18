@@ -2,6 +2,8 @@
 layout: post
 date: 2025-05-18
 title: Enabling Open Source Two-Way Audio in Thingino
+tags:
+  - Thingino
 ---
 I'm excited to share a significant new feature in Thingino: **two-way audio support**!
 
