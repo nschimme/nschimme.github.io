@@ -3,7 +3,9 @@ layout: post
 date: 2025-05-18
 title: Enabling Open Source Two-Way Audio in Thingino
 ---
-I'm excited to share a significant new feature in Thingino: two-way audio support! One-way audio support already existed, but this allows for real-time audio communication from anNVR to the Thingino device to be played back over the remote speaker. In this post, I'll walk through the architecture of this backchannel audio pipeline and discuss some of the key considerations that went into its development, keeping the resource-constrained environment in mind.
+I'm excited to share a significant new feature in Thingino: **two-way audio support**!
+
+One-way audio support already existed, but this allows for real-time audio communication from an NVR to the Thingino device to be played back over the remote speaker. In this post, I'll walk through the architecture of this backchannel audio pipeline and discuss some of the key considerations that went into its development, keeping the resource-constrained environment in mind.
 
 ## Backchannel Audio Pipeline: Architecture Overview
 
