@@ -23,19 +23,21 @@ The `BackchannelSink` is responsible for receiving the encoded audio data stream
 
 Once audio data is received, the `BackchannelSink` wraps the audio into `BackchannelFrame` objects. These frames are then enqueued into a global queue. It's important to note that these frames can be one of two types:
 
-\* **Playback frames:** These contain the actual audio data.
-
-\* **Stop frames:** These have an empty payload and are used to signal the termination of an audio session, often triggered by the timeout mechanism mentioned earlier.
+*   **Playback frames:** These contain the actual audio data.
+    
+*   **Stop frames:** These have an empty payload and are used to signal the termination of an audio session, often triggered by the timeout mechanism mentioned earlier.
+    
 
 4\. **Audio Processing and Session Management:**
 
 The `BackchannelWorker` continuously monitors the input queue. When a frame is dequeued, the worker takes over. Its primary responsibilities include:
 
-\* **Decoding:** Using the IMP audio SDK, it decodes the audio data.
-
-\* **Resampling:** If necessary, the audio is resampled to match the requirements of the output stage.
-
-\* **Session Management:** The `BackchannelWorker` maintains the concept of a "current" session. This is vital for handling multiple potential clients or connection interruptions. It processes only frames belonging to the active session, discarding any frames from other or outdated sessions.
+*   **Decoding:** Using the IMP audio SDK, it decodes the audio data.
+    
+*   **Resampling:** If necessary, the audio is resampled to match the requirements of the output stage.
+    
+*   **Session Management:** The `BackchannelWorker` maintains the concept of a "current" session. This is vital for handling multiple potential clients or connection interruptions. It processes only frames belonging to the active session, discarding any frames from other or outdated sessions.
+    
 
 5\. **Audio Output:**
 
@@ -53,9 +55,12 @@ For AAC (Advanced Audio Coding) decoding, size was a major constraint, **especia
 
 To put this in perspective:
 
-\* **libhelix-aac:** `128K`  
-\* FAAD2: `460K`  
-\* FDK-AAC: `1.2M`
+*   **libhelix-aac:** `128K`
+    
+*   **FAAD2**: `460K`
+    
+*   **FDK-AAC**: `1.2M`
+    
 
 The [libhelix-aac](https://github.com/earlephilhower/ESP8266Audio/blob/master/src/libhelix-aac/readme.txt) decoder, maintained by the ESP8266Audio project, offered the best balance of functionality and size. This choice was paramount to fitting advanced features like AAC support within the stringent memory limits. However, its upstream version doesn't provide a standard Makefile. This required me to implement some minor patches to adapt it from its Arduino-centric assumptions and then compile it as a library using some Buildroot magic.
 
