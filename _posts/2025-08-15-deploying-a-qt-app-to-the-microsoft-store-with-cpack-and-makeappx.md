@@ -30,19 +30,15 @@ You’ll need:
 
 If you were using NSIS before, you might have had something like:
 
-\`\`\`cmake
-
-set(CPACK\_GENERATOR "NSIS")
-
-\`\`\`
+```
+set(CPACK_GENERATOR "NSIS")
+```
 
 We're going to replace it with:
 
-\`\`\`cmake
-
-set(CPACK\_GENERATOR "External")
-
-\`\`\`
+```
+set(CPACK_GENERATOR "External")
+```
 
 Why **External**? Because the Microsoft Store packaging process is not handled by a built-in CPack generator. Instead, we instruct CPack to run a custom script that orchestrates the entire packaging workflow. This script finds all the necessary files and uses the `MakeAppx.exe` utility to build the final package.
 
