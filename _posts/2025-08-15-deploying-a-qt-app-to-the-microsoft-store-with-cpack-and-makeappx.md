@@ -9,9 +9,9 @@ tags:
   - cmake
   - cpack
 ---
-As the maintainer of an open source Qt application, I’ve run into a common problem: Windows users often get blocked by security warnings because the software isn’t digitally signed. The cost of a code signing certificate can be prohibitive, but there’s a fantastic alternative — the Microsoft Store. By submitting your app to the Store, Microsoft signs it for you, eliminating trust warnings and giving users a clean, familiar installation experience.
+As the maintainer of [an open source Qt application](https://mume.github.io/MMapper/), I’ve run into a common problem: Windows users often get blocked by security warnings because the software isn’t digitally signed. The cost of a code signing certificate can be prohibitive, but there’s a fantastic alternative — the Microsoft Store. By submitting your app to the Store, Microsoft signs it for you, eliminating trust warnings and giving users a clean, familiar installation experience.
 
-This guide explains how I replaced my Windows NSIS installer with a Microsoft Store–ready package. The Store doesn’t want a classic installer — it wants an `.appxupload` file. Fortunately, Qt already works with CMake and CPack, so we can swap out the CPack generator and use `MakeAppx.exe` to produce a Store package without rewriting the build system.
+This guide explains how I replaced my Windows NSIS installer with a [Microsoft Store–ready package](https://apps.microsoft.com/detail/9p6f2b68rf7g?referrer=appbadge&mode=direct&hl=en-US&gl=US). The Store doesn’t want a classic installer — it wants an `.appxupload` file. Fortunately, Qt already works with CMake and CPack, so we can swap out the CPack generator and use `MakeAppx.exe` to produce a Store package without rewriting the build system.
 
 Here’s the workflow I used to go from an NSIS-based `.exe` to a Store-ready `.appxupload` with minimal effort.
 
@@ -19,11 +19,12 @@ Here’s the workflow I used to go from an NSIS-based `.exe` to a Store-ready `.
 
 You’ll need:
 
-\- A working Qt + CMake build on Windows
-
-\- Visual Studio (for `MakeAppx.exe`)
-
-\- A Microsoft Partner Center account for Store submission
+*   A working Qt + CMake build on Windows
+    
+*   Visual Studio (for `MakeAppx.exe`)
+    
+*   A [Microsoft Partner Center account](https://developer.microsoft.com/en-us/microsoft-store/register) for Store submission
+    
 
 ## **2\. Adjusting** `CMakeLists.txt` **for CPack**
 
@@ -51,13 +52,14 @@ Reference this commit to see all of the necessary changes to invoke the `MakeApp
 
 Once you have your `.appxupload`:
 
-1\. Go to Partner Center
-
-2\. Create a new app or update an existing one
-
-3\. Upload your `.appxupload` file
-
-4\. Fill in your Store listing and submit for certification
+1.  Go to [Partner Center](https://partner.microsoft.com/en-us/dashboard/apps-and-games/overview)
+    
+2.  Create a new app or update an existing one
+    
+3.  Upload your `.appxupload` file
+    
+4.  Fill in your Store listing and submit for certification
+    
 
 Microsoft typically takes about a week to approve a new submission. Once approved, you can follow the same process for updates, and they’ll appear automatically for all users.
 
