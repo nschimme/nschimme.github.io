@@ -1,6 +1,7 @@
 ---
 layout: post
 date: 2025-10-15
+image: /assets/img/IMG_7596.jpeg
 title: "Integrating the Tuya Smart Valve Controller with ESPHome "
 tags:
   - Smart Valve
