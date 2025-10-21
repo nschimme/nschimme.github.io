@@ -96,7 +96,6 @@ switch:
     pin: P6
     restore_mode: DISABLED
     internal: True
-    inverted: True
 
 valve:
   - platform: template
