@@ -32,7 +32,7 @@ As usual, the [OpenBeken forum](https://www.elektroda.com/news/news3945101.html)
 
 > Note: This post contains affiliate links for the recommended hardware. I may earn a small commission from qualifying purchases, at no extra cost to you.
 
-To follow this guide, you will will need the same model [**Tuya Smart Valve Controller**](https://amzn.to/4hS55XJ) I purchased.
+To follow this example, you will will need the same model [**Tuya Smart Valve Controller**](https://amzn.to/4hS55XJ) I purchased.
 
 ```
 esphome:
