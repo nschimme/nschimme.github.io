@@ -1,15 +1,29 @@
 ---
 layout: post
-title: "Integrating the Tuya FS-05R WiFi Dimmer Switch with ESPHome"
 date: 2025-01-11
-tags: [FS-05R, smart home, OpenBeken, ESPHome, hacking, Home Assistant]
+title: Integrating the Tuya FS-05R WiFi Dimmer Switch with ESPHome
+tags:
+  - FS-05R
+  - smart home
+  - OpenBeken
+  - ESPHome
+  - hacking
+  - Home Assistant
 ---
-
 When I moved to Texas and started setting up my smart home, I encountered a specific challenge: a combination switch in my kitchen controlled two separate lights. One of the lights was too bright, so I needed a dimmer solution. The issue? The existing tan-colored switch was built into the tile backsplash, and replacing it with a larger two-gang box wasn’t an option. It had to be hackable, open-source, retain the same look, and be smart—all while keeping my wife happy with it. After some research, I found a way to meet these requirements using the Tuya FS-05R dimmer switch, ESPHome, and a little ingenuity. This post walks you through the process.
+
+> _Note: This post contains affiliate links for the recommended and compared hardware. I may earn a small commission from qualifying purchases, at no extra cost to you. I only recommend products I have personally used._
 
 ## Build Versus Buy
 
-My first instinct was to look for a Matter-compatible device, but I quickly realized that no suitable options existed on the market. That left me with a DIY approach. After some research, I considered two options: the $4 [Tuya FS-05R](https://www.aliexpress.us/item/3256806679229437.html) and the $31 [Shelly Dimmer2](https://us.shelly.com/products/shelly-dimmer2). While the Shelly Dimmer2 offered premium open-source capabilities, the challenge and learning experience of working with the FS-05R intrigued me. Since the FS-05R was compatible with OpenBeken, I expected it to be a cost-effective and reasonable solution. I was wrong.
+My first instinct was to look for a Matter-compatible device, but I quickly realized that no suitable options existed on the market. That left me with a DIY approach. After some research, I considered two options: the $4 Tuya FS-05R and the $38 Shelly Dimmer2.
+
+*   **Tuya FS-05R Dimmer:** [See Price on **Amazon**](https://amzn.to/4ol1S5f) | [See Price on **AliExpress**](https://www.aliexpress.us/item/3256806679229437.html)
+    
+*   **Shelly Dimmer2:** [See Price on **Amazon**](https://amzn.to/497qAlb) | [See Price on **Shelly.com**](https://us.shelly.com/products/shelly-dimmer2)
+    
+
+While the Shelly Dimmer2 offered premium open-source capabilities, the challenge and learning experience of working with the FS-05R intrigued me. Since the FS-05R was compatible with OpenBeken, I expected it to be a cost-effective and reasonable solution. I was wrong.
 
 ## Initial Concerns
 
