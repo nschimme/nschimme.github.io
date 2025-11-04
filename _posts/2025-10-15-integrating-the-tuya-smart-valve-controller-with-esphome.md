@@ -2,7 +2,6 @@
 layout: post
 date: 2025-10-15
 image: /assets/img/IMG_7596.jpeg
-cover-img: /assets/img/IMG_7596.jpeg
 title: "Integrating the Tuya Smart Valve Controller with ESPHome "
 tags:
   - Smart Valve
@@ -13,6 +12,8 @@ tags:
   - hacking
 ---
 When protecting your home, reliability is non-negotiable. A smart water shut-off valve is arguably the second most important component in your smart home defense system when it comes to avoiding damage (wind and hail damage claim first place).
+
+> Note: This post contains affiliate links for the recommended hardware. I may earn a small commission from qualifying purchases, at no extra cost to you.
 
 By integrating the Tuya Smart Valve Controller using ESPHome, we eliminate cloud dependencies, giving us complete **local control** and ensuring that the valve works the _instant_ a leak is detected. It's a cost effective solution at ~$25 that won't break the bank!
 
@@ -30,6 +31,8 @@ Unlike a smart light or a thermostat, failure of this device can lead to tens of
 As usual, the [OpenBeken forum](https://www.elektroda.com/news/news3945101.html) was an excellent resource. I didn't have to desolder the CB3S chip and was able to connect my UART USB directly to the appropriate pins to [flash with OpenBeken](https://community.home-assistant.io/t/detailed-guide-on-how-to-flash-the-new-tuya-beken-chips-with-openbk7231t/437276?page=9) and subsequently [OTA migrate to ESPHome](https://docs.libretiny.eu/docs/flashing/esphome/#migrating-from-esphome-to-openbeken). By leveraging `assumed_state: False` and `restore_mode: RESTORE_AND_CALL`, we make up for the lack of a physical sensor detecting the state of the valve, transforming this valve into a reliable, local, and fully-owned piece of hardware. Good luck and keep your home safe! 💧
 
 ## YAML
+
+To follow this guide, you will need the same Tuya Smart Valve Controller board I purchased below. **Full Disclosure:** This post contains affiliate links. If you purchase the [**Tuya Smart Valve Controller**](https://amzn.to/4hS55XJ) through this link, I may receive a small commission at no extra cost to you.
 
 ```
 esphome:
