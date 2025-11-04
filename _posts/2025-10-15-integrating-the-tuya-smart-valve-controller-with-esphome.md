@@ -13,8 +13,6 @@ tags:
 ---
 When protecting your home, reliability is non-negotiable. A smart water shut-off valve is arguably the second most important component in your smart home defense system when it comes to avoiding damage (wind and hail damage claim first place).
 
-> Note: This post contains affiliate links for the recommended hardware. I may earn a small commission from qualifying purchases, at no extra cost to you.
-
 By integrating the Tuya Smart Valve Controller using ESPHome, we eliminate cloud dependencies, giving us complete **local control** and ensuring that the valve works the _instant_ a leak is detected. It's a cost effective solution at ~$25 that won't break the bank!
 
 ## Why Local Control?
@@ -32,7 +30,9 @@ As usual, the [OpenBeken forum](https://www.elektroda.com/news/news3945101.html)
 
 ## YAML
 
-To follow this guide, you will need the same Tuya Smart Valve Controller board I purchased below. **Full Disclosure:** This post contains affiliate links. If you purchase the [**Tuya Smart Valve Controller**](https://amzn.to/4hS55XJ) through this link, I may receive a small commission at no extra cost to you.
+> Note: This post contains affiliate links for the recommended hardware. I may earn a small commission from qualifying purchases, at no extra cost to you.
+
+To follow this guide, you will will need the same model [**Tuya Smart Valve Controller**](https://amzn.to/4hS55XJ) I purchased.
 
 ```
 esphome:
