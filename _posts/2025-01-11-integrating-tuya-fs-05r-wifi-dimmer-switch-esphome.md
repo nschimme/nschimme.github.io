@@ -18,10 +18,9 @@ When I moved to Texas and started setting up my smart home, I encountered a spec
 
 My first instinct was to look for a Matter-compatible device, but I quickly realized that no suitable options existed on the market. That left me with a DIY approach. After some research, I considered two options: the $4 Tuya FS-05R and the $38 Shelly Dimmer2.
 
-*   **Tuya FS-05R Dimmer:** [See Price on **Amazon**](https://amzn.to/4ol1S5f) | [See Price on **AliExpress**](https://www.aliexpress.us/item/3256806679229437.html)
-    
-*   **Shelly Dimmer2:** [See Price on **Amazon**](https://amzn.to/497qAlb) | [See Price on **Shelly.com**](https://us.shelly.com/products/shelly-dimmer2)
-    
+**| Tuya FS-05R Dimmer |** [See Price on **Amazon**](https://amzn.to/4ol1S5f) | [See Price on **AliExpress**](https://www.aliexpress.us/item/3256806679229437.html)
+
+**| Shelly Dimmer2 |** [See Price on **Amazon**](https://amzn.to/497qAlb) | [See Price on **Shelly.com**](https://us.shelly.com/products/shelly-dimmer2)
 
 While the Shelly Dimmer2 offered premium open-source capabilities, the challenge and learning experience of working with the FS-05R intrigued me. Since the FS-05R was compatible with OpenBeken, I expected it to be a cost-effective and reasonable solution. I was wrong.
 
