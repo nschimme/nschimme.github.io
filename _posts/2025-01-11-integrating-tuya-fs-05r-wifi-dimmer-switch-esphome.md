@@ -93,6 +93,10 @@ globals:
     type: bool
     restore_value: no
     initial_value: "false"
+  - id: uart_packet_data
+    type: std::vector<uint8_t>
+    initial_value: ''
+    restore_value: no
 
 # https://www.elektroda.com/rtvforum/topic4039890.html
 status_led:
@@ -123,51 +127,49 @@ output:
   - platform: template
     id: fake_tuya
     type: float
-    min_power: 0.0
-    max_power: 1.0
     write_action:
-      - uart.write:
-          # https://www.elektroda.com/rtvforum/topic3880546.html
-          id: uartbus
-          data: !lambda |-
-            uint8_t brightness_level = int(id(out).remote_values.get_brightness() * 255);
-            uint8_t toggle_value = int(id(out).remote_values.is_on());
+      # https://www.elektroda.com/rtvforum/topic3880546.html
+      - lambda: |-
+          uint8_t brightness_level = id(out).remote_values.get_brightness() * 100;
+          uint16_t val = esphome::remap(state, 0.0f, 1.0f, (uint16_t)0, (uint16_t)765);
+          if (id(out).remote_values.is_on() && val < brightness_level) {
+            val = brightness_level;
+          }
 
-            // Calculate the value to send to the Tuya device
-            uint16_t val = brightness_level * 3 * toggle_value;
+          ESP_LOGD("fake_tuya", "Brightness: %d, Power: %0.2f, val: %d", brightness_level, state, val);
 
-            ESP_LOGD("fake_tuya", "Brightness: %d, Toggle: %d, val: %d", brightness_level, toggle_value, val);
+          // Split the value into two bytes
+          uint8_t high = (val >> 8) & 0xFF;
+          uint8_t low = val & 0xFF;
 
-            // Split the value into two bytes
-            uint8_t high = (val >> 8) & 0xFF;
-            uint8_t low = val & 0xFF;
+          // Prepare TuyaMCU data packet
+          // [0] 0x55       - Start byte
+          // [1] 0xAA       - Second byte
+          // [2] 0x00       - Protocol version or command type (can vary)
+          // [4] 0x30       - Command type of package (content)
+          // [5] 0x00       - The size of the packet`s data content in bytes (high)
+          // [6] 0x03       - The size of the packet`s data content in bytes (low)
+          // [7] 0x00       - Unknown
+          // [8] high       - High byte of the calculated value
+          // [9] low        - Low byte of the calculated value
+          // [10] checksum  - Checksum calculated as XOR of all previous bytes
+          std::vector<uint8_t> data = {0x55, 0xAA, 0x00, 0x30, 0x00, 0x03, 0x00, high, low, 0x00};
 
-            // Prepare TuyaMCU data packet
-            // [0] 0x55       - Start byte
-            // [1] 0xAA       - Second byte
-            // [2] 0x00       - Protocol version or command type (can vary)
-            // [4] 0x30       - Command type of package (content)
-            // [5] 0x00       - The size of the packet`s data content in bytes (high)
-            // [6] 0x03       - The size of the packet`s data content in bytes (low)
-            // [7] 0x00       - Unknown
-            // [8] high       - High byte of the calculated value (brightness * 3 * toggle_value)
-            // [9] low        - Low byte of the calculated value
-            // [10] checksum  - Checksum
-            std::vector<uint8_t> data = {0x55, 0xAA, 0x00, 0x30, 0x00, 0x03, 0x00, high, low, 0x00};
+          // Sum all bytes except the checksum itself (last byte)
+          uint16_t sum = 0;
+          for (size_t i = 0; i < data.size() - 1; ++i) {
+            sum += data[i];
+          }
 
-            // Sum all bytes except the checksum itself (last byte)
-            uint16_t sum = 0;
-            for (size_t i = 0; i < data.size() - 1; ++i) {
-              sum += data[i];
-            }
+          // Take the result modulo 256 to get the checksum
+          uint8_t checksum = static_cast<uint8_t>(sum % 256);
+          data[data.size() - 1] = checksum;
 
-            // Take the result modulo 256 to get the checksum
-            uint8_t checksum = static_cast<uint8_t>(sum % 256);
-            data[data.size() - 1] = checksum;
+          ESP_LOGD("fake_tuya", "High: %d, Low: %d, Checksum: %d", high, low, checksum);
 
-            ESP_LOGD("fake_tuya", "High: %d, Low: %d, Checksum: %d", high, low, checksum);
-
-            return data;
+          // Store the data packet in the global variable for later use
+          id(uart_packet_data) = data;
+      - script.execute: send_command
 
 light:
   - platform: monochromatic
@@ -176,6 +178,7 @@ light:
     restore_mode: ALWAYS_OFF
     default_transition_length: 0s
     output: fake_tuya
+    gamma_correct: 1.5
 
 number:
   - platform: template
@@ -236,6 +239,16 @@ binary_sensor:
               - script.execute: cycle
 
 script:
+  - id: send_command
+    mode: restart
+    then:
+      - uart.write:
+          id: uartbus
+          data: !lambda "return id(uart_packet_data);"
+      - delay: 1s
+      - uart.write:
+          id: uartbus
+          data: !lambda "return id(uart_packet_data);"
   - id: cycle
     mode: restart
     then:
