@@ -178,7 +178,6 @@ light:
     restore_mode: ALWAYS_OFF
     default_transition_length: 0s
     output: fake_tuya
-    gamma_correct: 1.5
 
 number:
   - platform: template
@@ -193,6 +192,70 @@ number:
     optimistic: true
     icon: "mdi:timer-sand"
     entity_category: config
+  - platform: template
+    name: "Minimum Brightness Limit"
+    id: min_power_percent
+    min_value: 1.0
+    max_value: 99.0
+    initial_value: 1.0
+    step: 1.0
+    unit_of_measurement: "%"
+    restore_value: yes
+    optimistic: true
+    icon: "mdi:brightness-2"
+    entity_category: config
+    on_value:
+      then:
+        - if:
+            condition:
+              lambda: 'return x >= id(max_power_percent).state;'
+            then:
+              - number.set:
+                  id: max_power_percent
+                  value: !lambda 'return x + 1;'
+        - lambda: 'id(fake_tuya).set_min_power((x - 1) / 100.0);'
+        - light.turn_on:
+            id: out
+            brightness: 0.01
+  - platform: template
+    name: "Maximum Brightness Limit"
+    id: max_power_percent
+    min_value: 2.0
+    max_value: 100.0
+    initial_value: 100.0
+    step: 1.0
+    unit_of_measurement: "%"
+    restore_value: yes
+    optimistic: true
+    icon: "mdi:brightness-7"
+    entity_category: config
+    on_value:
+      then:
+        - if:
+              condition:
+                lambda: 'return x <= id(min_power_percent).state;'
+              then:
+                - number.set:
+                    id: min_power_percent
+                    value: !lambda 'return x - 1;'
+        - lambda: 'id(fake_tuya).set_max_power(x / 100.0);'
+        - light.turn_on:
+            id: out
+            brightness: 1.0
+  - platform: template
+    name: "Gamma Correction Value"
+    id: gamma_value
+    min_value: 1.0
+    max_value: 4.0
+    initial_value: 2.8
+    step: 0.1
+    restore_value: yes
+    optimistic: true
+    icon: "mdi:gamma"
+    entity_category: config
+    on_value:
+      then:
+        - lambda: 'id(out).set_gamma_correct(x);'
 
 binary_sensor:
   - platform: gpio
