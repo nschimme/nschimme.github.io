@@ -5,8 +5,9 @@ title: "Bridging the Gap: Retrofitting a 1993 Home with UL 217 Smoke Alarms and
   Home Assistant"
 tags:
   - smart home
-  - home assistant
+  - Home Assistant
   - smoke alarm
+  - hacking
 ---
 My old smoke alarms finally reached their 10-year expiration mark, and the replacement process turned into a full-blown engineering project. If you live in a home built in the early 90s—specifically around 1993—you’re likely in the same "infrastructure gap" I was. My house in Houston was originally hardwired for only three spots in the hallways, but modern fire codes now mandate smoke alarms in **every bedroom**.
 
