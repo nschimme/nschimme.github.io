@@ -41,7 +41,7 @@ The pre-2.0 line had a reputation for the occasional harsh, glitchy-sounding fra
 
 ## 3. Where FAAC 2.0 Stands Today
 
-*(Note on benchmarks: results come from `[faac-benchmark](https://github.com/nschimme/faac-benchmark)`, the same GitHub Action-based harness that now gates every PR against regressions in CI — these aren't one-off marketing numbers, and the methodology is inspectable. All encoders below were run on the same Apple Silicon M1 machine: FAAC 2.0.0, fdk-aac 2.0.3, FFmpeg 8.1.2, and Apple AAC 26.5.2 (25F84). Full results are posted in [this discussion](https://github.com/nschimme/faac-benchmark/discussions/33), and each metric (MOS, Stereo Fidelity, etc.) is defined in [the benchmark's docs](https://github.com/nschimme/faac-benchmark/blob/master/docs/metrics.md).)*
+*(Note on benchmarks: results come from [faac-benchmark](https://github.com/nschimme/faac-benchmark), the same GitHub Action-based harness that now gates every PR against regressions in CI — these aren't one-off marketing numbers, and the methodology is inspectable. All encoders below were run on the same Apple Silicon M1 machine: FAAC 2.0.0, fdk-aac 2.0.3, FFmpeg 8.1.2, and Apple AAC 26.5.2 (25F84). Full results are posted in [this discussion](https://github.com/nschimme/faac-benchmark/discussions/33), and each metric (MOS, Stereo Fidelity, etc.) is defined in [the benchmark's docs](https://github.com/nschimme/faac-benchmark/blob/master/docs/metrics.md).)*
 
 ### FAAC 2.0.0 vs. Apple AAC, FDK, and FFmpeg
 
