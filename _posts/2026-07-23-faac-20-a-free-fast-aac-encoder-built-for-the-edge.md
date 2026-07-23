@@ -3,7 +3,9 @@ layout: post
 date: 2026-07-23
 title: "FAAC 2.0: A Free, Fast AAC Encoder Built for the Edge"
 tags:
-  - faac
+  - FAAC
+  - Thingino
+  - open source
 ---
 FAAC has been around for a long time as a lightweight, dependency-free AAC encoder. What pushed a fresh 2.0 release wasn't a plan to chase Apple or Fraunhofer's quality crown — it was **Thingino**, an open embedded-Linux firmware project for IP cameras. Thingino uses FAAC to encode audio on-device, on hardware where every kilobyte of binary size and every CPU cycle is budgeted, and where a license with any legal ambiguity is a non-starter. Those constraints — footprint, speed, and clean licensing — are what actually drove FAAC 2.0. Better audio quality came along with it.
 
