@@ -15,5 +15,8 @@ gem "wdm", "~> 0.1", :platforms => [:mingw, :x64_mingw, :mswin]
 # Serve redirects from old (pre-timezone-fix) permalinks to their current URL
 gem "jekyll-redirect-from", "~> 0.16"
 
+# No longer a default gem as of Ruby 3.4; liquid/jekyll require it directly
+gem "bigdecimal"
+
 gemspec
 
