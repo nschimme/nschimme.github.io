@@ -1,0 +1,574 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 920 560" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
+<rect x="0" y="0" width="920" height="560" fill="#FFFFFF"/>
+<rect x="524.6" y="28" width="74.2" height="476" fill="#f3ecd9" opacity="0.5"/>
+<text x="561.7" y="44" text-anchor="middle" font-size="11.5" fill="#9c8a4d">vacation</text>
+<line x1="56" y1="310.3" x2="710" y2="310.3" stroke="#e4e4e4" stroke-width="1"/>
+<text x="46" y="314.3" text-anchor="end" font-size="12" fill="#8a8a8a">1 hour</text>
+<line x1="56" y1="221.7" x2="710" y2="221.7" stroke="#e4e4e4" stroke-width="1"/>
+<text x="46" y="225.7" text-anchor="end" font-size="12" fill="#8a8a8a">6 hours</text>
+<line x1="56" y1="153.0" x2="710" y2="153.0" stroke="#e4e4e4" stroke-width="1"/>
+<text x="46" y="157.0" text-anchor="end" font-size="12" fill="#8a8a8a">1 day</text>
+<line x1="56" y1="56.7" x2="710" y2="56.7" stroke="#e4e4e4" stroke-width="1"/>
+<text x="46" y="60.7" text-anchor="end" font-size="12" fill="#8a8a8a">1 week</text>
+<line x1="96.5" y1="28" x2="96.5" y2="504" stroke="#0085A1" stroke-width="1.5" stroke-dasharray="4,3"/>
+<text x="88.5" y="494.0" font-size="11.5" fill="#0085A1" text-anchor="start" transform="rotate(-90 88.5 494.0)">faac-benchmark CI wired in</text>
+<line x1="571.8" y1="28" x2="571.8" y2="504" stroke="#B45309" stroke-width="1.5" stroke-dasharray="4,3"/>
+<text x="563.8" y="494.0" font-size="11.5" fill="#B45309" text-anchor="start" transform="rotate(-90 563.8 494.0)">FAAC 2.0 ships</text>
+<line x1="86.3" y1="504" x2="86.3" y2="509" stroke="#8a8a8a" stroke-width="1"/>
+<text x="86.3" y="524" text-anchor="middle" font-size="12" fill="#8a8a8a">Mar</text>
+<line x1="190.8" y1="504" x2="190.8" y2="509" stroke="#8a8a8a" stroke-width="1"/>
+<text x="190.8" y="524" text-anchor="middle" font-size="12" fill="#8a8a8a">Apr</text>
+<line x1="292.0" y1="504" x2="292.0" y2="509" stroke="#8a8a8a" stroke-width="1"/>
+<text x="292.0" y="524" text-anchor="middle" font-size="12" fill="#8a8a8a">May</text>
+<line x1="396.5" y1="504" x2="396.5" y2="509" stroke="#8a8a8a" stroke-width="1"/>
+<text x="396.5" y="524" text-anchor="middle" font-size="12" fill="#8a8a8a">Jun</text>
+<line x1="497.6" y1="504" x2="497.6" y2="509" stroke="#8a8a8a" stroke-width="1"/>
+<text x="497.6" y="524" text-anchor="middle" font-size="12" fill="#8a8a8a">Jul</text>
+<line x1="602.1" y1="504" x2="602.1" y2="509" stroke="#8a8a8a" stroke-width="1"/>
+<text x="602.1" y="524" text-anchor="middle" font-size="12" fill="#8a8a8a">Aug</text>
+<line x1="56" y1="504" x2="710" y2="504" stroke="#404040" stroke-width="1"/>
+<a href="https://github.com/knik0/faac/pull/64" xlink:href="https://github.com/knik0/faac/pull/64" target="_blank" rel="noopener" style="cursor:pointer">
+<title>#64: add options to disable DRM and opt for single floating-point precision (799 lines, 11.1h to merge)</title>
+<path d="M80.18,191.06 L80.18,178.95 A12.11,12.11 0 1 1 75.85,202.37 Z" fill="#2da44e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<path d="M80.18,191.06 L75.85,202.37 A12.11,12.11 0 0 1 80.18,178.95 Z" fill="#cf222e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<circle cx="80.18" cy="191.06" r="12.11" fill="none" stroke="#6b6b6b" stroke-opacity="0.35" stroke-width="0.75"/>
+</a>
+<a href="https://github.com/knik0/faac/pull/65" xlink:href="https://github.com/knik0/faac/pull/65" target="_blank" rel="noopener" style="cursor:pointer">
+<title>#65: remove dead code (484 lines, 10.9h to merge)</title>
+<path d="M83.53,192.13 L83.53,182.71 A9.42,9.42 0 0 1 84.51,182.76 Z" fill="#2da44e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<path d="M83.53,192.13 L84.51,182.76 A9.42,9.42 0 1 1 83.53,182.71 Z" fill="#cf222e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<circle cx="83.53" cy="192.13" r="9.42" fill="none" stroke="#6b6b6b" stroke-opacity="0.35" stroke-width="0.75"/>
+</a>
+<a href="https://github.com/knik0/faac/pull/66" xlink:href="https://github.com/knik0/faac/pull/66" target="_blank" rel="noopener" style="cursor:pointer">
+<title>#66: CI: add native MSVC build and fix Windows compatibility (46 lines, 4.5h to merge)</title>
+<path d="M83.77,236.03 L83.77,232.03 A4.00,4.00 0 1 1 82.18,232.36 Z" fill="#2da44e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<path d="M83.77,236.03 L82.18,232.36 A4.00,4.00 0 0 1 83.77,232.03 Z" fill="#cf222e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<circle cx="83.77" cy="236.03" r="4.00" fill="none" stroke="#6b6b6b" stroke-opacity="0.35" stroke-width="0.75"/>
+</a>
+<a href="https://github.com/knik0/faac/pull/68" xlink:href="https://github.com/knik0/faac/pull/68" target="_blank" rel="noopener" style="cursor:pointer">
+<title>#68: optimize FFT reordering by combining real and imaginary passes (17 lines, 36.8h to merge)</title>
+<path d="M86.40,131.90 L86.40,127.90 A4.00,4.00 0 1 1 84.29,135.30 Z" fill="#2da44e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<path d="M86.40,131.90 L84.29,135.30 A4.00,4.00 0 0 1 86.40,127.90 Z" fill="#cf222e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<circle cx="86.40" cy="131.90" r="4.00" fill="none" stroke="#6b6b6b" stroke-opacity="0.35" stroke-width="0.75"/>
+</a>
+<a href="https://github.com/knik0/faac/pull/70" xlink:href="https://github.com/knik0/faac/pull/70" target="_blank" rel="noopener" style="cursor:pointer">
+<title>#70: optimize FFT performance (63 lines, 23.0h to merge)</title>
+<path d="M88.33,155.04 L88.33,151.04 A4.00,4.00 0 1 1 87.54,151.12 Z" fill="#2da44e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<path d="M88.33,155.04 L87.54,151.12 A4.00,4.00 0 0 1 88.33,151.04 Z" fill="#cf222e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<circle cx="88.33" cy="155.04" r="4.00" fill="none" stroke="#6b6b6b" stroke-opacity="0.35" stroke-width="0.75"/>
+</a>
+<a href="https://github.com/knik0/faac/pull/71" xlink:href="https://github.com/knik0/faac/pull/71" target="_blank" rel="noopener" style="cursor:pointer">
+<title>#71: refactor quantizer for portable C and extensible SIMD dispatch (414 lines, 95.0h to merge)</title>
+<path d="M89.32,84.93 L89.32,76.22 A8.72,8.72 0 1 1 81.52,88.83 Z" fill="#2da44e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<path d="M89.32,84.93 L81.52,88.83 A8.72,8.72 0 0 1 89.32,76.22 Z" fill="#cf222e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<circle cx="89.32" cy="84.93" r="8.72" fill="none" stroke="#6b6b6b" stroke-opacity="0.35" stroke-width="0.75"/>
+</a>
+<a href="https://github.com/knik0/faac/pull/72" xlink:href="https://github.com/knik0/faac/pull/72" target="_blank" rel="noopener" style="cursor:pointer">
+<title>#72: optimize MDCT by removing conditional branches and hoisting logic (97 lines, 87.5h to merge)</title>
+<path d="M92.05,88.98 L92.05,84.76 A4.22,4.22 0 1 1 87.84,89.18 Z" fill="#2da44e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<path d="M92.05,88.98 L87.84,89.18 A4.22,4.22 0 0 1 92.05,84.76 Z" fill="#cf222e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<circle cx="92.05" cy="88.98" r="4.22" fill="none" stroke="#6b6b6b" stroke-opacity="0.35" stroke-width="0.75"/>
+</a>
+<a href="https://github.com/knik0/faac/pull/73" xlink:href="https://github.com/knik0/faac/pull/73" target="_blank" rel="noopener" style="cursor:pointer">
+<title>#73: optimize memory allocation and unify MDCT implementation (151 lines, 70.2h to merge)</title>
+<path d="M92.80,99.90 L92.80,94.64 A5.26,5.26 0 0 1 98.02,100.61 Z" fill="#2da44e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<path d="M92.80,99.90 L98.02,100.61 A5.26,5.26 0 1 1 92.80,94.64 Z" fill="#cf222e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<circle cx="92.80" cy="99.90" r="5.26" fill="none" stroke="#6b6b6b" stroke-opacity="0.35" stroke-width="0.75"/>
+</a>
+<a href="https://github.com/knik0/faac/pull/74" xlink:href="https://github.com/knik0/faac/pull/74" target="_blank" rel="noopener" style="cursor:pointer">
+<title>#74: ci: update GitHub Actions and add Dependabot configuration (16 lines, 1.4h to merge)</title>
+<path d="M95.30,295.19 L95.30,291.19 A4.00,4.00 0 1 1 91.61,293.66 Z" fill="#2da44e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<path d="M95.30,295.19 L91.61,293.66 A4.00,4.00 0 0 1 95.30,291.19 Z" fill="#cf222e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<circle cx="95.30" cy="295.19" r="4.00" fill="none" stroke="#6b6b6b" stroke-opacity="0.35" stroke-width="0.75"/>
+</a>
+<a href="https://github.com/knik0/faac/pull/80" xlink:href="https://github.com/knik0/faac/pull/80" target="_blank" rel="noopener" style="cursor:pointer">
+<title>#80: refactor the hot path for writing bits to the output stream (70 lines, 8.5h to merge)</title>
+<path d="M123.30,204.14 L123.30,200.14 A4.00,4.00 0 0 1 123.66,208.12 Z" fill="#2da44e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<path d="M123.30,204.14 L123.66,208.12 A4.00,4.00 0 1 1 123.30,200.14 Z" fill="#cf222e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<circle cx="123.30" cy="204.14" r="4.00" fill="none" stroke="#6b6b6b" stroke-opacity="0.35" stroke-width="0.75"/>
+</a>
+<a href="https://github.com/knik0/faac/pull/81" xlink:href="https://github.com/knik0/faac/pull/81" target="_blank" rel="noopener" style="cursor:pointer">
+<title>#81: Remove Digital Radio Mondiale (DRM) support (2,013 lines, 9.1h to merge)</title>
+<path d="M130.10,201.08 L130.10,181.86 A19.22,19.22 0 0 1 130.58,181.86 Z" fill="#2da44e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<path d="M130.10,201.08 L130.58,181.86 A19.22,19.22 0 1 1 130.10,181.86 Z" fill="#cf222e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<circle cx="130.10" cy="201.08" r="19.22" fill="none" stroke="#6b6b6b" stroke-opacity="0.35" stroke-width="0.75"/>
+</a>
+<a href="https://github.com/knik0/faac/pull/82" xlink:href="https://github.com/knik0/faac/pull/82" target="_blank" rel="noopener" style="cursor:pointer">
+<title>#82: add max-channels option to change MAX_CHANNELS from 64 (11 lines, 2.5h to merge)</title>
+<path d="M149.21,264.73 L149.21,260.73 A4.00,4.00 0 1 1 145.58,263.07 Z" fill="#2da44e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<path d="M149.21,264.73 L145.58,263.07 A4.00,4.00 0 0 1 149.21,260.73 Z" fill="#cf222e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<circle cx="149.21" cy="264.73" r="4.00" fill="none" stroke="#6b6b6b" stroke-opacity="0.35" stroke-width="0.75"/>
+</a>
+<a href="https://github.com/knik0/faac/pull/83" xlink:href="https://github.com/knik0/faac/pull/83" target="_blank" rel="noopener" style="cursor:pointer">
+<title>#83: disallow PNS in MPEG-2 mode to match spec (9 lines, 1.2h to merge)</title>
+<circle cx="149.22" cy="302.33" r="4.00" fill="#2da44e" fill-opacity="0.8" stroke="#1a7f37" stroke-width="1"/>
+</a>
+<a href="https://github.com/knik0/faac/pull/84" xlink:href="https://github.com/knik0/faac/pull/84" target="_blank" rel="noopener" style="cursor:pointer">
+<title>#84: frontend: change default to MPEG-4 as MPEG-2 is obsolete (2 lines, 1.1h to merge)</title>
+<path d="M149.23,304.97 L149.23,300.97 A4.00,4.00 0 0 1 149.23,308.97 Z" fill="#2da44e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<path d="M149.23,304.97 L149.23,308.97 A4.00,4.00 0 0 1 149.23,300.97 Z" fill="#cf222e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<circle cx="149.23" cy="304.97" r="4.00" fill="none" stroke="#6b6b6b" stroke-opacity="0.35" stroke-width="0.75"/>
+</a>
+<a href="https://github.com/knik0/faac/pull/87" xlink:href="https://github.com/knik0/faac/pull/87" target="_blank" rel="noopener" style="cursor:pointer">
+<title>#87: fix PNS to stay on in JOINT_MS for low-bitrate accuracy (2 lines, 0.6h to merge)</title>
+<circle cx="155.93" cy="336.79" r="4.00" fill="#cf222e" fill-opacity="0.8" stroke="#a40e26" stroke-width="1"/>
+</a>
+<a href="https://github.com/knik0/faac/pull/89" xlink:href="https://github.com/knik0/faac/pull/89" target="_blank" rel="noopener" style="cursor:pointer">
+<title>#89: replace redundant cpe, sce, and lfe boolean flags in ChannelInfo with an enum (50 lines, 0.1h to merge)</title>
+<path d="M162.43,436.77 L162.43,432.77 A4.00,4.00 0 0 1 162.93,440.74 Z" fill="#2da44e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<path d="M162.43,436.77 L162.93,440.74 A4.00,4.00 0 1 1 162.43,432.77 Z" fill="#cf222e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<circle cx="162.43" cy="436.77" r="4.00" fill="none" stroke="#6b6b6b" stroke-opacity="0.35" stroke-width="0.75"/>
+</a>
+<a href="https://github.com/knik0/faac/pull/90" xlink:href="https://github.com/knik0/faac/pull/90" target="_blank" rel="noopener" style="cursor:pointer">
+<title>#90: reduce MAX_CHANNELS to 8 for ADTS compliance (5 lines, 0.1h to merge)</title>
+<path d="M162.45,420.24 L162.45,416.24 A4.00,4.00 0 1 1 160.10,423.48 Z" fill="#2da44e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<path d="M162.45,420.24 L160.10,423.48 A4.00,4.00 0 0 1 162.45,416.24 Z" fill="#cf222e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<circle cx="162.45" cy="420.24" r="4.00" fill="none" stroke="#6b6b6b" stroke-opacity="0.35" stroke-width="0.75"/>
+</a>
+<a href="https://github.com/knik0/faac/pull/91" xlink:href="https://github.com/knik0/faac/pull/91" target="_blank" rel="noopener" style="cursor:pointer">
+<title>#91: tns: prevent division-by-zero or instability on highly correlated signals (7 lines, 3.9h to merge)</title>
+<circle cx="162.45" cy="242.65" r="4.00" fill="#2da44e" fill-opacity="0.8" stroke="#1a7f37" stroke-width="1"/>
+</a>
+<a href="https://github.com/knik0/faac/pull/93" xlink:href="https://github.com/knik0/faac/pull/93" target="_blank" rel="noopener" style="cursor:pointer">
+<title>#93: implement MOS-optimized bandwidth calculation (47 lines, 12.7h to merge)</title>
+<path d="M163.90,184.47 L163.90,180.47 A4.00,4.00 0 1 1 160.01,183.54 Z" fill="#2da44e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<path d="M163.90,184.47 L160.01,183.54 A4.00,4.00 0 0 1 163.90,180.47 Z" fill="#cf222e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<circle cx="163.90" cy="184.47" r="4.00" fill="none" stroke="#6b6b6b" stroke-opacity="0.35" stroke-width="0.75"/>
+</a>
+<a href="https://github.com/knik0/faac/pull/95" xlink:href="https://github.com/knik0/faac/pull/95" target="_blank" rel="noopener" style="cursor:pointer">
+<title>#95: fine-tune rate controller to restore bitrate accuracy (49 lines, 1.1h to merge)</title>
+<path d="M216.59,306.09 L216.59,302.09 A4.00,4.00 0 0 1 220.49,306.98 Z" fill="#2da44e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<path d="M216.59,306.09 L220.49,306.98 A4.00,4.00 0 1 1 216.59,302.09 Z" fill="#cf222e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<circle cx="216.59" cy="306.09" r="4.00" fill="none" stroke="#6b6b6b" stroke-opacity="0.35" stroke-width="0.75"/>
+</a>
+<a href="https://github.com/knik0/faac/pull/96" xlink:href="https://github.com/knik0/faac/pull/96" target="_blank" rel="noopener" style="cursor:pointer">
+<title>#96: fix channel-specific group metadata in joint-stereo (4 lines, 1.5h to merge)</title>
+<path d="M216.63,290.14 L216.63,286.14 A4.00,4.00 0 0 1 216.63,294.14 Z" fill="#2da44e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<path d="M216.63,290.14 L216.63,294.14 A4.00,4.00 0 0 1 216.63,286.14 Z" fill="#cf222e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<circle cx="216.63" cy="290.14" r="4.00" fill="none" stroke="#6b6b6b" stroke-opacity="0.35" stroke-width="0.75"/>
+</a>
+<a href="https://github.com/knik0/faac/pull/97" xlink:href="https://github.com/knik0/faac/pull/97" target="_blank" rel="noopener" style="cursor:pointer">
+<title>#97: enable link-time optimization (LTO) in Meson build (3 lines, 0.0h to merge)</title>
+<path d="M216.84,460.89 L216.84,456.89 A4.00,4.00 0 1 1 213.38,462.89 Z" fill="#2da44e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<path d="M216.84,460.89 L213.38,462.89 A4.00,4.00 0 0 1 216.84,456.89 Z" fill="#cf222e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<circle cx="216.84" cy="460.89" r="4.00" fill="none" stroke="#6b6b6b" stroke-opacity="0.35" stroke-width="0.75"/>
+</a>
+<a href="https://github.com/knik0/faac/pull/98" xlink:href="https://github.com/knik0/faac/pull/98" target="_blank" rel="noopener" style="cursor:pointer">
+<title>#98: stereo: fix undefined behaviour in intensity stereo for degenerate bands (14 lines, 5.2h to merge)</title>
+<circle cx="223.42" cy="228.29" r="4.00" fill="#2da44e" fill-opacity="0.8" stroke="#1a7f37" stroke-width="1"/>
+</a>
+<a href="https://github.com/knik0/faac/pull/99" xlink:href="https://github.com/knik0/faac/pull/99" target="_blank" rel="noopener" style="cursor:pointer">
+<title>#99: fix scalefactor delta overflows to comply with AAC spec (ISO 14496-3) (155 lines, 64.0h to merge)</title>
+<path d="M224.19,104.51 L224.19,99.18 A5.33,5.33 0 1 1 219.61,107.24 Z" fill="#2da44e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<path d="M224.19,104.51 L219.61,107.24 A5.33,5.33 0 0 1 224.19,99.18 Z" fill="#cf222e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<circle cx="224.19" cy="104.51" r="5.33" fill="none" stroke="#6b6b6b" stroke-opacity="0.35" stroke-width="0.75"/>
+</a>
+<a href="https://github.com/knik0/faac/pull/100" xlink:href="https://github.com/knik0/faac/pull/100" target="_blank" rel="noopener" style="cursor:pointer">
+<title>#100: Fix post-echo artifacts by pre-clamping scalefactor deltas (Fixes #40) (162 lines, 10.5h to merge)</title>
+<path d="M237.93,193.98 L237.93,188.52 A5.45,5.45 0 1 1 233.97,197.72 Z" fill="#2da44e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<path d="M237.93,193.98 L233.97,197.72 A5.45,5.45 0 0 1 237.93,188.52 Z" fill="#cf222e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<circle cx="237.93" cy="193.98" r="5.45" fill="none" stroke="#6b6b6b" stroke-opacity="0.35" stroke-width="0.75"/>
+</a>
+<a href="https://github.com/knik0/faac/pull/103" xlink:href="https://github.com/knik0/faac/pull/103" target="_blank" rel="noopener" style="cursor:pointer">
+<title>#103: quantize: restore short-window masking penalty to fix energy drops (10 lines, 13.4h to merge)</title>
+<path d="M338.15,181.70 L338.15,177.70 A4.00,4.00 0 1 1 335.80,184.94 Z" fill="#2da44e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<path d="M338.15,181.70 L335.80,184.94 A4.00,4.00 0 0 1 338.15,177.70 Z" fill="#cf222e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<circle cx="338.15" cy="181.70" r="4.00" fill="none" stroke="#6b6b6b" stroke-opacity="0.35" stroke-width="0.75"/>
+</a>
+<a href="https://github.com/knik0/faac/pull/106" xlink:href="https://github.com/knik0/faac/pull/106" target="_blank" rel="noopener" style="cursor:pointer">
+<title>#106: Fix TNS Decoder Rejection Bugs &amp; Remove Obsolete Profiles (146 lines, 20.2h to merge)</title>
+<path d="M358.68,161.59 L358.68,156.42 A5.18,5.18 0 0 1 363.43,163.65 Z" fill="#2da44e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<path d="M358.68,161.59 L363.43,163.65 A5.18,5.18 0 1 1 358.68,156.42 Z" fill="#cf222e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<circle cx="358.68" cy="161.59" r="5.18" fill="none" stroke="#6b6b6b" stroke-opacity="0.35" stroke-width="0.75"/>
+</a>
+<a href="https://github.com/knik0/faac/pull/107" xlink:href="https://github.com/knik0/faac/pull/107" target="_blank" rel="noopener" style="cursor:pointer">
+<title>#107: quantize: floor masking targets in quiet bands; fix qlevel safety (46 lines, 1.0h to merge)</title>
+<path d="M432.05,312.34 L432.05,308.34 A4.00,4.00 0 0 1 432.05,316.34 Z" fill="#2da44e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<path d="M432.05,312.34 L432.05,316.34 A4.00,4.00 0 0 1 432.05,308.34 Z" fill="#cf222e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<circle cx="432.05" cy="312.34" r="4.00" fill="none" stroke="#6b6b6b" stroke-opacity="0.35" stroke-width="0.75"/>
+</a>
+<a href="https://github.com/knik0/faac/pull/109" xlink:href="https://github.com/knik0/faac/pull/109" target="_blank" rel="noopener" style="cursor:pointer">
+<title>#109: quantize: keep global_gain a valid regular scalefactor (fix decoder OOR) (29 lines, 30.8h to merge)</title>
+<path d="M440.28,140.72 L440.28,136.72 A4.00,4.00 0 1 1 438.61,137.09 Z" fill="#2da44e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<path d="M440.28,140.72 L438.61,137.09 A4.00,4.00 0 0 1 440.28,136.72 Z" fill="#cf222e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<circle cx="440.28" cy="140.72" r="4.00" fill="none" stroke="#6b6b6b" stroke-opacity="0.35" stroke-width="0.75"/>
+</a>
+<a href="https://github.com/knik0/faac/pull/110" xlink:href="https://github.com/knik0/faac/pull/110" target="_blank" rel="noopener" style="cursor:pointer">
+<title>#110: stereo: add Mixed Mode joint stereo; improve throughput (542 lines, 20.0h to merge)</title>
+<path d="M446.05,161.94 L446.05,151.97 A9.97,9.97 0 1 1 436.18,160.50 Z" fill="#2da44e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<path d="M446.05,161.94 L436.18,160.50 A9.97,9.97 0 0 1 446.05,151.97 Z" fill="#cf222e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<circle cx="446.05" cy="161.94" r="9.97" fill="none" stroke="#6b6b6b" stroke-opacity="0.35" stroke-width="0.75"/>
+</a>
+<a href="https://github.com/knik0/faac/pull/112" xlink:href="https://github.com/knik0/faac/pull/112" target="_blank" rel="noopener" style="cursor:pointer">
+<title>#112: ci: bump to latest meson (2 lines, 0.0h to merge)</title>
+<path d="M452.94,475.91 L452.94,471.91 A4.00,4.00 0 0 1 452.94,479.91 Z" fill="#2da44e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<path d="M452.94,475.91 L452.94,479.91 A4.00,4.00 0 0 1 452.94,471.91 Z" fill="#cf222e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<circle cx="452.94" cy="475.91" r="4.00" fill="none" stroke="#6b6b6b" stroke-opacity="0.35" stroke-width="0.75"/>
+</a>
+<a href="https://github.com/knik0/faac/pull/113" xlink:href="https://github.com/knik0/faac/pull/113" target="_blank" rel="noopener" style="cursor:pointer">
+<title>#113: fft: optimize with stage-contiguous twiddles for auto-vectorization (51 lines, 66.3h to merge)</title>
+<path d="M463.04,102.76 L463.04,98.76 A4.00,4.00 0 1 1 461.37,106.39 Z" fill="#2da44e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<path d="M463.04,102.76 L461.37,106.39 A4.00,4.00 0 0 1 463.04,98.76 Z" fill="#cf222e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<circle cx="463.04" cy="102.76" r="4.00" fill="none" stroke="#6b6b6b" stroke-opacity="0.35" stroke-width="0.75"/>
+</a>
+<a href="https://github.com/knik0/faac/pull/114" xlink:href="https://github.com/knik0/faac/pull/114" target="_blank" rel="noopener" style="cursor:pointer">
+<title>#114: bitstream: stop embedding the libfaac version string (47 lines, 3.0h to merge)</title>
+<circle cx="464.42" cy="256.76" r="4.00" fill="#cf222e" fill-opacity="0.8" stroke="#a40e26" stroke-width="1"/>
+</a>
+<a href="https://github.com/knik0/faac/pull/115" xlink:href="https://github.com/knik0/faac/pull/115" target="_blank" rel="noopener" style="cursor:pointer">
+<title>#115: quantize: drop maxe*=gsize tonal scaling in bmask (1 lines, 10.7h to merge)</title>
+<circle cx="465.10" cy="193.12" r="4.00" fill="#cf222e" fill-opacity="0.8" stroke="#a40e26" stroke-width="1"/>
+</a>
+<a href="https://github.com/knik0/faac/pull/116" xlink:href="https://github.com/knik0/faac/pull/116" target="_blank" rel="noopener" style="cursor:pointer">
+<title>#116: blockswitch: move detection to time domain (308 lines, 32.9h to merge)</title>
+<path d="M467.73,137.35 L467.73,129.83 A7.52,7.52 0 0 1 475.17,136.28 Z" fill="#2da44e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<path d="M467.73,137.35 L475.17,136.28 A7.52,7.52 0 1 1 467.73,129.83 Z" fill="#cf222e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<circle cx="467.73" cy="137.35" r="7.52" fill="none" stroke="#6b6b6b" stroke-opacity="0.35" stroke-width="0.75"/>
+</a>
+<a href="https://github.com/knik0/faac/pull/117" xlink:href="https://github.com/knik0/faac/pull/117" target="_blank" rel="noopener" style="cursor:pointer">
+<title>#117: tns: enable coefCompress when all indices fit in 3 bits (84 lines, 32.7h to merge)</title>
+<path d="M467.76,137.70 L467.76,133.70 A4.00,4.00 0 0 1 471.36,135.96 Z" fill="#2da44e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<path d="M467.76,137.70 L471.36,135.96 A4.00,4.00 0 1 1 467.76,133.70 Z" fill="#cf222e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<circle cx="467.76" cy="137.70" r="4.00" fill="none" stroke="#6b6b6b" stroke-opacity="0.35" stroke-width="0.75"/>
+</a>
+<a href="https://github.com/knik0/faac/pull/119" xlink:href="https://github.com/knik0/faac/pull/119" target="_blank" rel="noopener" style="cursor:pointer">
+<title>#119: filtbank: reuse shared work buffer for MDCT scratch (24 lines, 1.7h to merge)</title>
+<path d="M472.84,282.76 L472.84,278.76 A4.00,4.00 0 0 1 473.88,286.62 Z" fill="#2da44e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<path d="M472.84,282.76 L473.88,286.62 A4.00,4.00 0 1 1 472.84,278.76 Z" fill="#cf222e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<circle cx="472.84" cy="282.76" r="4.00" fill="none" stroke="#6b6b6b" stroke-opacity="0.35" stroke-width="0.75"/>
+</a>
+<a href="https://github.com/knik0/faac/pull/120" xlink:href="https://github.com/knik0/faac/pull/120" target="_blank" rel="noopener" style="cursor:pointer">
+<title>#120: huffman: readability cleanup of the Huffman stage (206 lines, 1.7h to merge)</title>
+<path d="M472.86,284.32 L472.86,278.18 A6.15,6.15 0 1 1 467.66,287.61 Z" fill="#2da44e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<path d="M472.86,284.32 L467.66,287.61 A6.15,6.15 0 0 1 472.86,278.18 Z" fill="#cf222e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<circle cx="472.86" cy="284.32" r="6.15" fill="none" stroke="#6b6b6b" stroke-opacity="0.35" stroke-width="0.75"/>
+</a>
+<a href="https://github.com/knik0/faac/pull/121" xlink:href="https://github.com/knik0/faac/pull/121" target="_blank" rel="noopener" style="cursor:pointer">
+<title>#121: tns: optimize hot paths (136 lines, 1.0h to merge)</title>
+<path d="M474.51,308.55 L474.51,303.56 A5.00,5.00 0 1 1 473.14,313.36 Z" fill="#2da44e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<path d="M474.51,308.55 L473.14,313.36 A5.00,5.00 0 0 1 474.51,303.56 Z" fill="#cf222e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<circle cx="474.51" cy="308.55" r="5.00" fill="none" stroke="#6b6b6b" stroke-opacity="0.35" stroke-width="0.75"/>
+</a>
+<a href="https://github.com/knik0/faac/pull/122" xlink:href="https://github.com/knik0/faac/pull/122" target="_blank" rel="noopener" style="cursor:pointer">
+<title>#122: frame: buffer encoder input so any chunk size works (171 lines, 14.5h to merge)</title>
+<path d="M476.39,177.91 L476.39,172.31 A5.60,5.60 0 1 1 470.94,179.19 Z" fill="#2da44e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<path d="M476.39,177.91 L470.94,179.19 A5.60,5.60 0 0 1 476.39,172.31 Z" fill="#cf222e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<circle cx="476.39" cy="177.91" r="5.60" fill="none" stroke="#6b6b6b" stroke-opacity="0.35" stroke-width="0.75"/>
+</a>
+<a href="https://github.com/knik0/faac/pull/123" xlink:href="https://github.com/knik0/faac/pull/123" target="_blank" rel="noopener" style="cursor:pointer">
+<title>#123: huffman: refactor hcode32_t to use bit-fields (4 lines, 11.3h to merge)</title>
+<path d="M476.84,190.16 L476.84,186.16 A4.00,4.00 0 0 1 476.84,194.16 Z" fill="#2da44e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<path d="M476.84,190.16 L476.84,194.16 A4.00,4.00 0 0 1 476.84,186.16 Z" fill="#cf222e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<circle cx="476.84" cy="190.16" r="4.00" fill="none" stroke="#6b6b6b" stroke-opacity="0.35" stroke-width="0.75"/>
+</a>
+<a href="https://github.com/knik0/faac/pull/124" xlink:href="https://github.com/knik0/faac/pull/124" target="_blank" rel="noopener" style="cursor:pointer">
+<title>#124: stereo: optimize IS-gate sqrt and sfcnt increment (47 lines, 0.8h to merge)</title>
+<path d="M479.67,320.64 L479.67,316.64 A4.00,4.00 0 0 1 479.94,324.63 Z" fill="#2da44e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<path d="M479.67,320.64 L479.94,324.63 A4.00,4.00 0 1 1 479.67,316.64 Z" fill="#cf222e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<circle cx="479.67" cy="320.64" r="4.00" fill="none" stroke="#6b6b6b" stroke-opacity="0.35" stroke-width="0.75"/>
+</a>
+<a href="https://github.com/knik0/faac/pull/126" xlink:href="https://github.com/knik0/faac/pull/126" target="_blank" rel="noopener" style="cursor:pointer">
+<title>#126: fix lookahead regression causing pre-echo and stereo issues (12 lines, 11.6h to merge)</title>
+<path d="M487.36,189.19 L487.36,185.19 A4.00,4.00 0 1 1 485.36,185.72 Z" fill="#2da44e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<path d="M487.36,189.19 L485.36,185.72 A4.00,4.00 0 0 1 487.36,185.19 Z" fill="#cf222e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<circle cx="487.36" cy="189.19" r="4.00" fill="none" stroke="#6b6b6b" stroke-opacity="0.35" stroke-width="0.75"/>
+</a>
+<a href="https://github.com/knik0/faac/pull/127" xlink:href="https://github.com/knik0/faac/pull/127" target="_blank" rel="noopener" style="cursor:pointer">
+<title>#127: simplify encoder lookahead to a unified FIFO and energy timeline (200 lines, 8.9h to merge)</title>
+<path d="M490.60,202.17 L490.60,196.11 A6.06,6.06 0 0 1 492.47,207.93 Z" fill="#2da44e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<path d="M490.60,202.17 L492.47,207.93 A6.06,6.06 0 1 1 490.60,196.11 Z" fill="#cf222e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<circle cx="490.60" cy="202.17" r="6.06" fill="none" stroke="#6b6b6b" stroke-opacity="0.35" stroke-width="0.75"/>
+</a>
+<a href="https://github.com/knik0/faac/pull/132" xlink:href="https://github.com/knik0/faac/pull/132" target="_blank" rel="noopener" style="cursor:pointer">
+<title>#132: relicense: reimplement huffdata under LGPL 2.1 (69 lines, 12.8h to merge)</title>
+<path d="M496.78,184.24 L496.78,180.24 A4.00,4.00 0 1 1 496.24,188.20 Z" fill="#2da44e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<path d="M496.78,184.24 L496.24,188.20 A4.00,4.00 0 0 1 496.78,180.24 Z" fill="#cf222e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<circle cx="496.78" cy="184.24" r="4.00" fill="none" stroke="#6b6b6b" stroke-opacity="0.35" stroke-width="0.75"/>
+</a>
+<a href="https://github.com/knik0/faac/pull/133" xlink:href="https://github.com/knik0/faac/pull/133" target="_blank" rel="noopener" style="cursor:pointer">
+<title>#133: relicense: reimplement huff2 under LGPL 2.1 (722 lines, 12.4h to merge)</title>
+<path d="M496.83,185.67 L496.83,174.16 A11.51,11.51 0 0 1 503.58,195.00 Z" fill="#2da44e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<path d="M496.83,185.67 L503.58,195.00 A11.51,11.51 0 1 1 496.83,174.16 Z" fill="#cf222e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<circle cx="496.83" cy="185.67" r="11.51" fill="none" stroke="#6b6b6b" stroke-opacity="0.35" stroke-width="0.75"/>
+</a>
+<a href="https://github.com/knik0/faac/pull/134" xlink:href="https://github.com/knik0/faac/pull/134" target="_blank" rel="noopener" style="cursor:pointer">
+<title>#134: relicense: reimplement MP4 output under LGPL 2.1 (1,652 lines, 12.1h to merge)</title>
+<path d="M497.72,186.95 L497.72,169.54 A17.41,17.41 0 0 1 507.68,201.24 Z" fill="#2da44e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<path d="M497.72,186.95 L507.68,201.24 A17.41,17.41 0 1 1 497.72,169.54 Z" fill="#cf222e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<circle cx="497.72" cy="186.95" r="17.41" fill="none" stroke="#6b6b6b" stroke-opacity="0.35" stroke-width="0.75"/>
+</a>
+<a href="https://github.com/knik0/faac/pull/135" xlink:href="https://github.com/knik0/faac/pull/135" target="_blank" rel="noopener" style="cursor:pointer">
+<title>#135: frontend: vendor mingw-w64 wingetopt as a minimal-diff getopt fallback (1,461 lines, 9.9h to merge)</title>
+<path d="M498.03,196.73 L498.03,180.36 A16.37,16.37 0 0 1 504.95,211.57 Z" fill="#2da44e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<path d="M498.03,196.73 L504.95,211.57 A16.37,16.37 0 1 1 498.03,180.36 Z" fill="#cf222e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<circle cx="498.03" cy="196.73" r="16.37" fill="none" stroke="#6b6b6b" stroke-opacity="0.35" stroke-width="0.75"/>
+</a>
+<a href="https://github.com/knik0/faac/pull/136" xlink:href="https://github.com/knik0/faac/pull/136" target="_blank" rel="noopener" style="cursor:pointer">
+<title>#136: convert README to markdown (42 lines, 9.7h to merge)</title>
+<path d="M498.07,198.05 L498.07,194.05 A4.00,4.00 0 0 1 500.32,201.35 Z" fill="#2da44e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<path d="M498.07,198.05 L500.32,201.35 A4.00,4.00 0 1 1 498.07,194.05 Z" fill="#cf222e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<circle cx="498.07" cy="198.05" r="4.00" fill="none" stroke="#6b6b6b" stroke-opacity="0.35" stroke-width="0.75"/>
+</a>
+<a href="https://github.com/knik0/faac/pull/137" xlink:href="https://github.com/knik0/faac/pull/137" target="_blank" rel="noopener" style="cursor:pointer">
+<title>#137: update license from GNU Library GPL to Lesser GPL (219 lines, 9.4h to merge)</title>
+<path d="M498.11,199.66 L498.11,193.32 A6.34,6.34 0 1 1 496.40,205.76 Z" fill="#2da44e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<path d="M498.11,199.66 L496.40,205.76 A6.34,6.34 0 0 1 498.11,193.32 Z" fill="#cf222e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<circle cx="498.11" cy="199.66" r="6.34" fill="none" stroke="#6b6b6b" stroke-opacity="0.35" stroke-width="0.75"/>
+</a>
+<a href="https://github.com/knik0/faac/pull/138" xlink:href="https://github.com/knik0/faac/pull/138" target="_blank" rel="noopener" style="cursor:pointer">
+<title>#138: relicense: reimplement stereo under LGPL 2.1 (836 lines, 9.4h to merge)</title>
+<path d="M498.13,199.21 L498.13,186.82 A12.39,12.39 0 0 1 509.82,203.32 Z" fill="#2da44e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<path d="M498.13,199.21 L509.82,203.32 A12.39,12.39 0 1 1 498.13,186.82 Z" fill="#cf222e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<circle cx="498.13" cy="199.21" r="12.39" fill="none" stroke="#6b6b6b" stroke-opacity="0.35" stroke-width="0.75"/>
+</a>
+<a href="https://github.com/knik0/faac/pull/139" xlink:href="https://github.com/knik0/faac/pull/139" target="_blank" rel="noopener" style="cursor:pointer">
+<title>#139: relicense: reimplement quantize under LGPL 2.1 (755 lines, 9.3h to merge)</title>
+<path d="M498.15,199.88 L498.15,188.11 A11.77,11.77 0 0 1 503.13,210.54 Z" fill="#2da44e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<path d="M498.15,199.88 L503.13,210.54 A11.77,11.77 0 1 1 498.15,188.11 Z" fill="#cf222e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<circle cx="498.15" cy="199.88" r="11.77" fill="none" stroke="#6b6b6b" stroke-opacity="0.35" stroke-width="0.75"/>
+</a>
+<a href="https://github.com/knik0/faac/pull/140" xlink:href="https://github.com/knik0/faac/pull/140" target="_blank" rel="noopener" style="cursor:pointer">
+<title>#140: frontend: add --creation-time flag for configurable timestamps (84 lines, 4.1h to merge)</title>
+<path d="M503.27,240.00 L503.27,236.00 A4.00,4.00 0 1 1 502.38,236.10 Z" fill="#2da44e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<path d="M503.27,240.00 L502.38,236.10 A4.00,4.00 0 0 1 503.27,236.00 Z" fill="#cf222e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<circle cx="503.27" cy="240.00" r="4.00" fill="none" stroke="#6b6b6b" stroke-opacity="0.35" stroke-width="0.75"/>
+</a>
+<a href="https://github.com/knik0/faac/pull/141" xlink:href="https://github.com/knik0/faac/pull/141" target="_blank" rel="noopener" style="cursor:pointer">
+<title>#141: build: fix compiler warnings and transition to C11 (150 lines, 10.5h to merge)</title>
+<path d="M503.72,194.11 L503.72,188.87 A5.25,5.25 0 0 1 505.65,198.99 Z" fill="#2da44e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<path d="M503.72,194.11 L505.65,198.99 A5.25,5.25 0 1 1 503.72,188.87 Z" fill="#cf222e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<circle cx="503.72" cy="194.11" r="5.25" fill="none" stroke="#6b6b6b" stroke-opacity="0.35" stroke-width="0.75"/>
+</a>
+<a href="https://github.com/knik0/faac/pull/142" xlink:href="https://github.com/knik0/faac/pull/142" target="_blank" rel="noopener" style="cursor:pointer">
+<title>#142: harden input parsing and guard against allocation failures (339 lines, 8.4h to merge)</title>
+<path d="M504.14,205.12 L504.14,197.24 A7.89,7.89 0 1 1 497.04,208.55 Z" fill="#2da44e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<path d="M504.14,205.12 L497.04,208.55 A7.89,7.89 0 0 1 504.14,197.24 Z" fill="#cf222e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<circle cx="504.14" cy="205.12" r="7.89" fill="none" stroke="#6b6b6b" stroke-opacity="0.35" stroke-width="0.75"/>
+</a>
+<a href="https://github.com/knik0/faac/pull/143" xlink:href="https://github.com/knik0/faac/pull/143" target="_blank" rel="noopener" style="cursor:pointer">
+<title>#143: add HE-AAC v1 (SBR) Encoding Support (2,321 lines, 141.5h to merge)</title>
+<path d="M506.24,65.21 L506.24,44.57 A20.64,20.64 0 1 1 500.24,45.46 Z" fill="#2da44e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<path d="M506.24,65.21 L500.24,45.46 A20.64,20.64 0 0 1 506.24,44.57 Z" fill="#cf222e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<circle cx="506.24" cy="65.21" r="20.64" fill="none" stroke="#6b6b6b" stroke-opacity="0.35" stroke-width="0.75"/>
+</a>
+<a href="https://github.com/knik0/faac/pull/144" xlink:href="https://github.com/knik0/faac/pull/144" target="_blank" rel="noopener" style="cursor:pointer">
+<title>#144: fft: switch to radix-4 DIF, precomputed MDCT twiddles (611 lines, 64.1h to merge)</title>
+<path d="M509.64,104.39 L509.64,93.80 A10.59,10.59 0 0 1 510.13,114.97 Z" fill="#2da44e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<path d="M509.64,104.39 L510.13,114.97 A10.59,10.59 0 1 1 509.64,93.80 Z" fill="#cf222e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<circle cx="509.64" cy="104.39" r="10.59" fill="none" stroke="#6b6b6b" stroke-opacity="0.35" stroke-width="0.75"/>
+</a>
+<a href="https://github.com/knik0/faac/pull/145" xlink:href="https://github.com/knik0/faac/pull/145" target="_blank" rel="noopener" style="cursor:pointer">
+<title>#145: api: replace legacy faacEnc* surface with modern faac_* API (1,602 lines, 12.8h to merge)</title>
+<path d="M516.84,184.00 L516.84,166.86 A17.15,17.15 0 1 1 503.27,194.48 Z" fill="#2da44e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<path d="M516.84,184.00 L503.27,194.48 A17.15,17.15 0 0 1 516.84,166.86 Z" fill="#cf222e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<circle cx="516.84" cy="184.00" r="17.15" fill="none" stroke="#6b6b6b" stroke-opacity="0.35" stroke-width="0.75"/>
+</a>
+<a href="https://github.com/knik0/faac/pull/147" xlink:href="https://github.com/knik0/faac/pull/147" target="_blank" rel="noopener" style="cursor:pointer">
+<title>#147: relicense: reimplement channels and bitstream under LGPL 2.1 (1,840 lines, 13.4h to merge)</title>
+<path d="M520.30,182.05 L520.30,163.68 A18.37,18.37 0 0 1 533.73,194.60 Z" fill="#2da44e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<path d="M520.30,182.05 L533.73,194.60 A18.37,18.37 0 1 1 520.30,163.68 Z" fill="#cf222e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<circle cx="520.30" cy="182.05" r="18.37" fill="none" stroke="#6b6b6b" stroke-opacity="0.35" stroke-width="0.75"/>
+</a>
+<a href="https://github.com/knik0/faac/pull/148" xlink:href="https://github.com/knik0/faac/pull/148" target="_blank" rel="noopener" style="cursor:pointer">
+<title>#148: relicense: reimplement filtbank under LGPL 2.1 (451 lines, 8.1h to merge)</title>
+<path d="M521.05,207.07 L521.05,197.97 A9.10,9.10 0 0 1 521.87,216.13 Z" fill="#2da44e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<path d="M521.05,207.07 L521.87,216.13 A9.10,9.10 0 1 1 521.05,197.97 Z" fill="#cf222e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<circle cx="521.05" cy="207.07" r="9.10" fill="none" stroke="#6b6b6b" stroke-opacity="0.35" stroke-width="0.75"/>
+</a>
+<a href="https://github.com/knik0/faac/pull/149" xlink:href="https://github.com/knik0/faac/pull/149" target="_blank" rel="noopener" style="cursor:pointer">
+<title>#149: relicense: reimplement tns under LGPL 2.1 (829 lines, 14.2h to merge)</title>
+<path d="M523.51,178.96 L523.51,166.63 A12.33,12.33 0 0 1 526.78,190.85 Z" fill="#2da44e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<path d="M523.51,178.96 L526.78,190.85 A12.33,12.33 0 1 1 523.51,166.63 Z" fill="#cf222e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<circle cx="523.51" cy="178.96" r="12.33" fill="none" stroke="#6b6b6b" stroke-opacity="0.35" stroke-width="0.75"/>
+</a>
+<a href="https://github.com/knik0/faac/pull/150" xlink:href="https://github.com/knik0/faac/pull/150" target="_blank" rel="noopener" style="cursor:pointer">
+<title>#150: relicense: drop MPEG reference-code preamble from docs (175 lines, 13.8h to merge)</title>
+<path d="M523.57,180.46 L523.57,174.79 A5.67,5.67 0 0 1 529.23,180.71 Z" fill="#2da44e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<path d="M523.57,180.46 L529.23,180.71 A5.67,5.67 0 1 1 523.57,174.79 Z" fill="#cf222e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<circle cx="523.57" cy="180.46" r="5.67" fill="none" stroke="#6b6b6b" stroke-opacity="0.35" stroke-width="0.75"/>
+</a>
+<a href="https://github.com/knik0/faac/pull/151" xlink:href="https://github.com/knik0/faac/pull/151" target="_blank" rel="noopener" style="cursor:pointer">
+<title>#151: frontend: make maingui.c consistent and keep TNS off by default (2 lines, 11.5h to merge)</title>
+<path d="M523.89,189.50 L523.89,185.50 A4.00,4.00 0 0 1 523.89,193.50 Z" fill="#2da44e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<path d="M523.89,189.50 L523.89,193.50 A4.00,4.00 0 0 1 523.89,185.50 Z" fill="#cf222e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<circle cx="523.89" cy="189.50" r="4.00" fill="none" stroke="#6b6b6b" stroke-opacity="0.35" stroke-width="0.75"/>
+</a>
+<a href="https://github.com/knik0/faac/pull/152" xlink:href="https://github.com/knik0/faac/pull/152" target="_blank" rel="noopener" style="cursor:pointer">
+<title>#152: standardize libfaac on single-precision floating point (976 lines, 14.2h to merge)</title>
+<path d="M524.13,178.96 L524.13,165.58 A13.38,13.38 0 0 1 527.21,191.98 Z" fill="#2da44e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<path d="M524.13,178.96 L527.21,191.98 A13.38,13.38 0 1 1 524.13,165.58 Z" fill="#cf222e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<circle cx="524.13" cy="178.96" r="13.38" fill="none" stroke="#6b6b6b" stroke-opacity="0.35" stroke-width="0.75"/>
+</a>
+<a href="https://github.com/knik0/faac/pull/153" xlink:href="https://github.com/knik0/faac/pull/153" target="_blank" rel="noopener" style="cursor:pointer">
+<title>#153: fix: silence unused-include and typedef-redefinition warnings (11 lines, 0.0h to merge)</title>
+<path d="M526.24,483.47 L526.24,479.47 A4.00,4.00 0 0 1 529.26,486.09 Z" fill="#2da44e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<path d="M526.24,483.47 L529.26,486.09 A4.00,4.00 0 1 1 526.24,479.47 Z" fill="#cf222e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<circle cx="526.24" cy="483.47" r="4.00" fill="none" stroke="#6b6b6b" stroke-opacity="0.35" stroke-width="0.75"/>
+</a>
+<a href="https://github.com/knik0/faac/pull/154" xlink:href="https://github.com/knik0/faac/pull/154" target="_blank" rel="noopener" style="cursor:pointer">
+<title>#154: docs: unify LGPL license headers, drop stale FSF address (187 lines, 0.0h to merge)</title>
+<circle cx="526.24" cy="468.00" r="5.86" fill="#cf222e" fill-opacity="0.8" stroke="#a40e26" stroke-width="1"/>
+</a>
+<a href="https://github.com/knik0/faac/pull/155" xlink:href="https://github.com/knik0/faac/pull/155" target="_blank" rel="noopener" style="cursor:pointer">
+<title>#155: docs: fill in ChangeLog for commits since 1.50 (85 lines, 217.8h to merge)</title>
+<path d="M526.63,43.85 L526.63,39.85 A4.00,4.00 0 1 1 524.65,40.37 Z" fill="#2da44e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<path d="M526.63,43.85 L524.65,40.37 A4.00,4.00 0 0 1 526.63,39.85 Z" fill="#cf222e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<circle cx="526.63" cy="43.85" r="4.00" fill="none" stroke="#6b6b6b" stroke-opacity="0.35" stroke-width="0.75"/>
+</a>
+<a href="https://github.com/knik0/faac/pull/158" xlink:href="https://github.com/knik0/faac/pull/158" target="_blank" rel="noopener" style="cursor:pointer">
+<title>#158: honor ABI backward compatibility for faac_params (14 lines, 3.1h to merge)</title>
+<path d="M600.41,255.14 L600.41,251.14 A4.00,4.00 0 1 1 597.28,257.63 Z" fill="#2da44e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<path d="M600.41,255.14 L597.28,257.63 A4.00,4.00 0 0 1 600.41,251.14 Z" fill="#cf222e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<circle cx="600.41" cy="255.14" r="4.00" fill="none" stroke="#6b6b6b" stroke-opacity="0.35" stroke-width="0.75"/>
+</a>
+<a href="https://github.com/knik0/faac/pull/159" xlink:href="https://github.com/knik0/faac/pull/159" target="_blank" rel="noopener" style="cursor:pointer">
+<title>#159: sbr: align payload timing with core audio frames (278 lines, 2.8h to merge)</title>
+<path d="M600.69,259.04 L600.69,251.89 A7.14,7.14 0 1 1 595.28,263.70 Z" fill="#2da44e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<path d="M600.69,259.04 L595.28,263.70 A7.14,7.14 0 0 1 600.69,251.89 Z" fill="#cf222e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<circle cx="600.69" cy="259.04" r="7.14" fill="none" stroke="#6b6b6b" stroke-opacity="0.35" stroke-width="0.75"/>
+</a>
+<a href="https://github.com/knik0/faac/pull/160" xlink:href="https://github.com/knik0/faac/pull/160" target="_blank" rel="noopener" style="cursor:pointer">
+<title>#160: add optional hard per-frame peak-bitrate limiter (--cap-rate) (278 lines, 92.6h to merge)</title>
+<path d="M611.19,86.20 L611.19,79.06 A7.14,7.14 0 1 1 606.71,80.64 Z" fill="#2da44e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<path d="M611.19,86.20 L606.71,80.64 A7.14,7.14 0 0 1 611.19,79.06 Z" fill="#cf222e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<circle cx="611.19" cy="86.20" r="7.14" fill="none" stroke="#6b6b6b" stroke-opacity="0.35" stroke-width="0.75"/>
+</a>
+<a href="https://github.com/knik0/faac/pull/162" xlink:href="https://github.com/knik0/faac/pull/162" target="_blank" rel="noopener" style="cursor:pointer">
+<title>#162: huff2: size both books of a codebook pair in one pass (63 lines, 0.2h to merge)</title>
+<path d="M651.95,400.72 L651.95,396.72 A4.00,4.00 0 0 1 653.32,404.48 Z" fill="#2da44e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<path d="M651.95,400.72 L653.32,404.48 A4.00,4.00 0 1 1 651.95,396.72 Z" fill="#cf222e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<circle cx="651.95" cy="400.72" r="4.00" fill="none" stroke="#6b6b6b" stroke-opacity="0.35" stroke-width="0.75"/>
+</a>
+<a href="https://github.com/knik0/faac/pull/164" xlink:href="https://github.com/knik0/faac/pull/164" target="_blank" rel="noopener" style="cursor:pointer">
+<title>#164: enforce proper baseline size check in info getter APIs (10 lines, 10.5h to merge)</title>
+<path d="M665.63,193.75 L665.63,189.75 A4.00,4.00 0 1 1 661.83,192.51 Z" fill="#2da44e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<path d="M665.63,193.75 L661.83,192.51 A4.00,4.00 0 0 1 665.63,189.75 Z" fill="#cf222e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<circle cx="665.63" cy="193.75" r="4.00" fill="none" stroke="#6b6b6b" stroke-opacity="0.35" stroke-width="0.75"/>
+</a>
+<a href="https://github.com/knik0/faac/pull/165" xlink:href="https://github.com/knik0/faac/pull/165" target="_blank" rel="noopener" style="cursor:pointer">
+<title>#165: bump ABI to 2 for safe faac_params_init caller sizing (72 lines, 10.5h to merge)</title>
+<path d="M665.65,193.82 L665.65,189.82 A4.00,4.00 0 1 1 662.37,196.12 Z" fill="#2da44e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<path d="M665.65,193.82 L662.37,196.12 A4.00,4.00 0 0 1 665.65,189.82 Z" fill="#cf222e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<circle cx="665.65" cy="193.82" r="4.00" fill="none" stroke="#6b6b6b" stroke-opacity="0.35" stroke-width="0.75"/>
+</a>
+<a href="https://github.com/knik0/faac/pull/168" xlink:href="https://github.com/knik0/faac/pull/168" target="_blank" rel="noopener" style="cursor:pointer">
+<title>#168: tns: drop prediction-gain ceiling and screen frames before LPC analysis (144 lines, 12.4h to merge)</title>
+<path d="M668.56,185.52 L668.56,180.38 A5.14,5.14 0 1 1 663.44,185.07 Z" fill="#2da44e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<path d="M668.56,185.52 L663.44,185.07 A5.14,5.14 0 0 1 668.56,180.38 Z" fill="#cf222e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<circle cx="668.56" cy="185.52" r="5.14" fill="none" stroke="#6b6b6b" stroke-opacity="0.35" stroke-width="0.75"/>
+</a>
+<a href="https://github.com/knik0/faac/pull/169" xlink:href="https://github.com/knik0/faac/pull/169" target="_blank" rel="noopener" style="cursor:pointer">
+<title>#169: sbr: expand HE-AAC v1 auto-resolution threshold to 96k (18 lines, 2.8h to merge)</title>
+<path d="M673.12,259.75 L673.12,255.75 A4.00,4.00 0 1 1 669.65,261.75 Z" fill="#2da44e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<path d="M673.12,259.75 L669.65,261.75 A4.00,4.00 0 0 1 673.12,255.75 Z" fill="#cf222e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<circle cx="673.12" cy="259.75" r="4.00" fill="none" stroke="#6b6b6b" stroke-opacity="0.35" stroke-width="0.75"/>
+</a>
+<a href="https://github.com/knik0/faac/pull/170" xlink:href="https://github.com/knik0/faac/pull/170" target="_blank" rel="noopener" style="cursor:pointer">
+<title>#170: sbr: widen the reconstruction toward 20 kHz (27 lines, 0.3h to merge)</title>
+<path d="M674.93,377.83 L674.93,373.83 A4.00,4.00 0 1 1 673.14,374.26 Z" fill="#2da44e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<path d="M674.93,377.83 L673.14,374.26 A4.00,4.00 0 0 1 674.93,373.83 Z" fill="#cf222e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<circle cx="674.93" cy="377.83" r="4.00" fill="none" stroke="#6b6b6b" stroke-opacity="0.35" stroke-width="0.75"/>
+</a>
+<a href="https://github.com/knik0/faac/pull/171" xlink:href="https://github.com/knik0/faac/pull/171" target="_blank" rel="noopener" style="cursor:pointer">
+<title>#171: enforce ISO/IEC 14496-3 per-channel frame ceiling by default (62 lines, 3.7h to merge)</title>
+<path d="M676.72,246.09 L676.72,242.09 A4.00,4.00 0 1 1 672.97,247.48 Z" fill="#2da44e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<path d="M676.72,246.09 L672.97,247.48 A4.00,4.00 0 0 1 676.72,242.09 Z" fill="#cf222e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<circle cx="676.72" cy="246.09" r="4.00" fill="none" stroke="#6b6b6b" stroke-opacity="0.35" stroke-width="0.75"/>
+</a>
+<a href="https://github.com/knik0/faac/pull/172" xlink:href="https://github.com/knik0/faac/pull/172" target="_blank" rel="noopener" style="cursor:pointer">
+<title>#172: frontend: support 64-bit mdat/duration and track language (725 lines, 7.7h to merge)</title>
+<path d="M679.24,209.07 L679.24,197.53 A11.53,11.53 0 1 1 669.80,215.70 Z" fill="#2da44e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<path d="M679.24,209.07 L669.80,215.70 A11.53,11.53 0 0 1 679.24,197.53 Z" fill="#cf222e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<circle cx="679.24" cy="209.07" r="11.53" fill="none" stroke="#6b6b6b" stroke-opacity="0.35" stroke-width="0.75"/>
+</a>
+<a href="https://github.com/knik0/faac/pull/173" xlink:href="https://github.com/knik0/faac/pull/173" target="_blank" rel="noopener" style="cursor:pointer">
+<title>#173: frontend: add UTF-8 and wide-character support across CLI and GUI (550 lines, 2.1h to merge)</title>
+<path d="M680.36,273.31 L680.36,263.26 A10.05,10.05 0 1 1 674.74,264.98 Z" fill="#2da44e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<path d="M680.36,273.31 L674.74,264.98 A10.05,10.05 0 0 1 680.36,263.26 Z" fill="#cf222e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<circle cx="680.36" cy="273.31" r="10.05" fill="none" stroke="#6b6b6b" stroke-opacity="0.35" stroke-width="0.75"/>
+</a>
+<a href="https://github.com/knik0/faac/pull/174" xlink:href="https://github.com/knik0/faac/pull/174" target="_blank" rel="noopener" style="cursor:pointer">
+<title>#174: frontend: fix GUI PCM clipping bug and MSVC warnings in input/mp4write (123 lines, 0.6h to merge)</title>
+<path d="M681.56,335.73 L681.56,330.98 A4.75,4.75 0 0 1 686.29,335.30 Z" fill="#2da44e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<path d="M681.56,335.73 L686.29,335.30 A4.75,4.75 0 1 1 681.56,330.98 Z" fill="#cf222e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<circle cx="681.56" cy="335.73" r="4.75" fill="none" stroke="#6b6b6b" stroke-opacity="0.35" stroke-width="0.75"/>
+</a>
+<a href="https://github.com/knik0/faac/pull/175" xlink:href="https://github.com/knik0/faac/pull/175" target="_blank" rel="noopener" style="cursor:pointer">
+<title>#175: frontend: extract shared encoding engine and add GUI MP4 support (3,139 lines, 2.3h to merge)</title>
+<path d="M681.77,269.51 L681.77,245.51 A24.00,24.00 0 1 1 664.04,285.67 Z" fill="#2da44e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<path d="M681.77,269.51 L664.04,285.67 A24.00,24.00 0 0 1 681.77,245.51 Z" fill="#cf222e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<circle cx="681.77" cy="269.51" r="24.00" fill="none" stroke="#6b6b6b" stroke-opacity="0.35" stroke-width="0.75"/>
+</a>
+<a href="https://github.com/knik0/faac/pull/176" xlink:href="https://github.com/knik0/faac/pull/176" target="_blank" rel="noopener" style="cursor:pointer">
+<title>#176: implement native 24-bit packed PCM input handling (21 lines, 0.2h to merge)</title>
+<path d="M682.06,403.80 L682.06,399.80 A4.00,4.00 0 1 1 678.34,402.34 Z" fill="#2da44e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<path d="M682.06,403.80 L678.34,402.34 A4.00,4.00 0 0 1 682.06,399.80 Z" fill="#cf222e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<circle cx="682.06" cy="403.80" r="4.00" fill="none" stroke="#6b6b6b" stroke-opacity="0.35" stroke-width="0.75"/>
+</a>
+<a href="https://github.com/knik0/faac/pull/177" xlink:href="https://github.com/knik0/faac/pull/177" target="_blank" rel="noopener" style="cursor:pointer">
+<title>#177: frontend: add iTunes gapless playback metadata (iTunSMPB) (61 lines, 13.6h to merge)</title>
+<path d="M682.15,181.21 L682.15,177.21 A4.00,4.00 0 1 1 681.74,177.24 Z" fill="#2da44e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<path d="M682.15,181.21 L681.74,177.24 A4.00,4.00 0 0 1 682.15,177.21 Z" fill="#cf222e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<circle cx="682.15" cy="181.21" r="4.00" fill="none" stroke="#6b6b6b" stroke-opacity="0.35" stroke-width="0.75"/>
+</a>
+<a href="https://github.com/knik0/faac/pull/178" xlink:href="https://github.com/knik0/faac/pull/178" target="_blank" rel="noopener" style="cursor:pointer">
+<title>#178: sbr: fix parameter resolution in VBR mode and transient normalization (5 lines, 0.1h to merge)</title>
+<path d="M685.81,422.31 L685.81,418.31 A4.00,4.00 0 1 1 683.46,425.55 Z" fill="#2da44e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<path d="M685.81,422.31 L683.46,425.55 A4.00,4.00 0 0 1 685.81,418.31 Z" fill="#cf222e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<circle cx="685.81" cy="422.31" r="4.00" fill="none" stroke="#6b6b6b" stroke-opacity="0.35" stroke-width="0.75"/>
+</a>
+<a href="https://github.com/knik0/faac/pull/179" xlink:href="https://github.com/knik0/faac/pull/179" target="_blank" rel="noopener" style="cursor:pointer">
+<title>#179: mp4write: resolve container timing, HE-AAC rate, and gapless bugs (95 lines, 30.5h to merge)</title>
+<path d="M689.52,141.11 L689.52,136.94 A4.18,4.18 0 1 1 686.74,138.00 Z" fill="#2da44e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<path d="M689.52,141.11 L686.74,138.00 A4.18,4.18 0 0 1 689.52,136.94 Z" fill="#cf222e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<circle cx="689.52" cy="141.11" r="4.18" fill="none" stroke="#6b6b6b" stroke-opacity="0.35" stroke-width="0.75"/>
+</a>
+<a href="https://github.com/knik0/faac/pull/180" xlink:href="https://github.com/knik0/faac/pull/180" target="_blank" rel="noopener" style="cursor:pointer">
+<title>#180: api: allow pipeline draining during flush on short streams (161 lines, 2.1h to merge)</title>
+<path d="M692.31,272.88 L692.31,267.44 A5.44,5.44 0 1 1 691.15,278.19 Z" fill="#2da44e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<path d="M692.31,272.88 L691.15,278.19 A5.44,5.44 0 0 1 692.31,267.44 Z" fill="#cf222e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<circle cx="692.31" cy="272.88" r="5.44" fill="none" stroke="#6b6b6b" stroke-opacity="0.35" stroke-width="0.75"/>
+</a>
+<a href="https://github.com/knik0/faac/pull/182" xlink:href="https://github.com/knik0/faac/pull/182" target="_blank" rel="noopener" style="cursor:pointer">
+<title>#182: stereo: dynamic IS crossover and MS restriction at low bitrates (64 lines, 37.9h to merge)</title>
+<path d="M695.87,130.43 L695.87,126.43 A4.00,4.00 0 1 1 693.33,133.53 Z" fill="#2da44e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<path d="M695.87,130.43 L693.33,133.53 A4.00,4.00 0 0 1 695.87,126.43 Z" fill="#cf222e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<circle cx="695.87" cy="130.43" r="4.00" fill="none" stroke="#6b6b6b" stroke-opacity="0.35" stroke-width="0.75"/>
+</a>
+<a href="https://github.com/knik0/faac/pull/183" xlink:href="https://github.com/knik0/faac/pull/183" target="_blank" rel="noopener" style="cursor:pointer">
+<title>#183: huff2/quantize: optimize scale-factor and codebook processing (162 lines, 5.9h to merge)</title>
+<path d="M700.37,222.60 L700.37,217.14 A5.45,5.45 0 1 1 696.70,226.63 Z" fill="#2da44e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<path d="M700.37,222.60 L696.70,226.63 A5.45,5.45 0 0 1 700.37,217.14 Z" fill="#cf222e" fill-opacity="0.8" stroke="white" stroke-width="0.75"/>
+<circle cx="700.37" cy="222.60" r="5.45" fill="none" stroke="#6b6b6b" stroke-opacity="0.35" stroke-width="0.75"/>
+</a>
+<text x="56" y="18" font-size="15" fill="#404040" font-weight="600">Time to merge, by pull request size</text>
+<text x="56" y="546" font-size="11" fill="#8a8a8a">Every merged nschimme &#8594; knik0/faac pull request, Feb&#8211;Aug 2026. Vertical axis is log-scaled hours from PR open to merge.</text>
+<text x="738" y="36.0" font-size="12.5" fill="#404040" font-weight="600">How to read this</text>
+<path d="M745.00,58.00 L745.00,51.00 A7.00,7.00 0 1 1 740.89,63.66 Z" fill="#2da44e" fill-opacity="0.85" stroke="white" stroke-width="0.75"/>
+<path d="M745.00,58.00 L740.89,63.66 A7.00,7.00 0 0 1 745.00,51.00 Z" fill="#cf222e" fill-opacity="0.85" stroke="white" stroke-width="0.75"/>
+<circle cx="745.00" cy="58.00" r="7.00" fill="none" stroke="#6b6b6b" stroke-opacity="0.35" stroke-width="0.75"/>
+<text x="760" y="62.0" font-size="12" fill="#404040">One merged pull</text>
+<text x="760" y="76.0" font-size="12" fill="#404040">request; bigger =</text>
+<text x="760" y="90.0" font-size="12" fill="#404040">more lines changed</text>
+<circle cx="745" cy="112.0" r="6" fill="#2da44e" fill-opacity="0.8" stroke="#1a7f37" stroke-width="1"/>
+<text x="760" y="116.0" font-size="12" fill="#404040">Lines added</text>
+<circle cx="745" cy="132.0" r="6" fill="#cf222e" fill-opacity="0.8" stroke="#a40e26" stroke-width="1"/>
+<text x="760" y="136.0" font-size="12" fill="#404040">Lines removed</text>
+<text x="738" y="152.0" font-size="11" fill="#8a8a8a">(each bubble is a</text>
+<text x="738" y="165.0" font-size="11" fill="#8a8a8a">little pie of the two)</text>
+<line x1="738" y1="182.0" x2="752" y2="182.0" stroke="#0085A1" stroke-width="1.5" stroke-dasharray="4,3"/>
+<text x="760" y="186.0" font-size="12" fill="#404040">faac-benchmark CI</text>
+<text x="760" y="200.0" font-size="12" fill="#404040">wired in (Mar 4)</text>
+<line x1="738" y1="222.0" x2="752" y2="222.0" stroke="#B45309" stroke-width="1.5" stroke-dasharray="4,3"/>
+<text x="760" y="226.0" font-size="12" fill="#404040">FAAC 2.0 ships</text>
+<text x="760" y="240.0" font-size="12" fill="#404040">(Jul 23)</text>
+<rect x="738" y="255.0" width="14" height="10" fill="#f3ecd9"/>
+<text x="760" y="266.0" font-size="12" fill="#404040">Vacation, no PRs</text>
+<text x="738" y="306.0" font-size="12" fill="#404040" font-weight="600">Lines changed</text>
+<circle cx="754" cy="336.0" r="4.0" fill="#9c9c9c" fill-opacity="0.8" stroke="#6b6b6b" stroke-width="1"/>
+<text x="788" y="340.0" font-size="12" fill="#8a8a8a">50</text>
+<circle cx="754" cy="388.0" r="9.6" fill="#9c9c9c" fill-opacity="0.8" stroke="#6b6b6b" stroke-width="1"/>
+<text x="788" y="392.0" font-size="12" fill="#8a8a8a">500</text>
+<circle cx="754" cy="440.0" r="19.2" fill="#9c9c9c" fill-opacity="0.8" stroke="#6b6b6b" stroke-width="1"/>
+<text x="788" y="444.0" font-size="12" fill="#8a8a8a">2,000</text>
+</svg>
