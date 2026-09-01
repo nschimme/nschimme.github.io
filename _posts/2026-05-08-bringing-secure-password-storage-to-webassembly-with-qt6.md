@@ -1,7 +1,7 @@
 ---
 layout: post
 date: 2026-05-08
-title: "Bridging the Gap: Bringing Secure Password Storage to WebAssembly with Qt6"
+title: "QtKeychain: Bringing Secure Password Storage to WebAssembly with Qt6"
 tags:
   - qt6
   - opensource
