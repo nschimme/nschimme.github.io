@@ -2,6 +2,7 @@
 layout: post
 date: 2026-05-08
 title: "QtKeychain: Bringing Secure Password Storage to WebAssembly with Qt6"
+summary: "Bringing native, browser-backed secure credential storage to Qt6 WebAssembly apps via QtKeychain and the HTML Bridge."
 tags:
   - qt6
   - opensource

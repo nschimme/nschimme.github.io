@@ -39,6 +39,13 @@ layout: base
         </div>
       {% endif %}
 
+      {% if page.summary %}
+        <div class="post-summary" role="region" aria-label="Post Summary">
+          <strong class="summary-title">Summary</strong>
+          <p>{{ page.summary }}</p>
+        </div>
+      {% endif %}
+
       <div class="blog-post">
         {{ content }}
       </div>

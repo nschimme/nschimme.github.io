@@ -2,6 +2,7 @@
 layout: post
 date: 2026-07-23
 title: "FAAC 2.0: A Free, Fast AAC Encoder Built for the Edge"
+summary: "How constraint-driven engineering for embedded IP camera firmware pushed FAAC to a 2.0 release featuring 100% LGPL licensing, HE-AAC support, and a 116 KB footprint running at 544.9x real-time."
 tags:
   - FAAC
   - Thingino
