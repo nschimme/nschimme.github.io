@@ -3,6 +3,7 @@ layout: post
 date: 2025-03-19
 title: Integrating Schlage Encode Plus with Home Assistant via HomeKit Actions
   and Automations
+summary: "Integrate the Schlage Encode Plus lock into Home Assistant using HomeKit Actions and helpers to maintain bidirectional status sync while preserving Apple HomeKey and year-long Thread battery performance."
 tags:
   - Home Assistant
   - HomeKit

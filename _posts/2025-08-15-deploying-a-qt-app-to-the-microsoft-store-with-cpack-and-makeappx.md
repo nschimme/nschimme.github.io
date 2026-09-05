@@ -2,6 +2,7 @@
 layout: post
 date: 2025-08-15
 title: Deploying a Qt App to the Microsoft Store with CPack and MakeAppx
+summary: "Avoid expensive code signing certificates for open source Windows apps by packaging C++/Qt CMake builds into Store-ready .appxupload packages using CPack External and MakeAppx.exe."
 tags:
   - qt
   - appx
