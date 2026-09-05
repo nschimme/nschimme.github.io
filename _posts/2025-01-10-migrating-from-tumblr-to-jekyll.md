@@ -2,6 +2,7 @@
 title: "Migrating from Tumblr to Jekyll: A Fresh Start"
 date: 2025-01-10
 layout: post
+summary: "Reflections and step-by-step notes on breaking an eight-year blogging hiatus and migrating from Tumblr to Jekyll hosted on GitHub Pages."
 description: "Reflections on moving my blog from Tumblr to Jekyll after an eight-year hiatus."
 tags: [jekyll, tumblr, hacking]
 ---
