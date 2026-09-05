@@ -944,6 +944,34 @@ pre {
   margin-top: 1.875rem;
 }
 
+/* --- Post summary callout box --- */
+.post-summary {
+  background-color: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-left: 0.3125rem solid var(--link-col, #008AFF);
+  border-radius: 0.3125rem;
+  padding: 1.25rem;
+  margin-bottom: 2rem;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--text-col, #404040);
+}
+
+.post-summary strong.summary-title {
+  display: block;
+  font-family: var(--header-font);
+  font-size: 0.875rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--mid-col, #808080);
+  margin-bottom: 0.5rem;
+}
+
+.post-summary p {
+  margin: 0;
+}
+
 /* --- Notification boxes --- */
 .box-note,
 .box-warning,

@@ -2,6 +2,7 @@
 layout: post
 date: 2025-05-18
 title: Enabling Open Source Two-Way Audio in Thingino
+summary: "An inside look at building a lean RTSP backchannel audio pipeline on 8MB flash cameras for Thingino, enabling real-time two-way audio with Frigate and Scrypted via libhelix-aac and ONVIF."
 tags:
   - Thingino
   - security

@@ -23,6 +23,8 @@
   {% capture description %}
     {%- if page.share-description -%}
       {{ page.share-description | strip_html | xml_escape }}
+    {%- elsif page.summary -%}
+      {{ page.summary | strip_html | xml_escape }}
     {%- elsif page.subtitle -%}
       {{ page.subtitle | strip_html | xml_escape }}
     {%- else -%}

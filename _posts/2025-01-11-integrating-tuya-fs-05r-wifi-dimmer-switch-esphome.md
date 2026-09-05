@@ -2,6 +2,7 @@
 layout: post
 date: 2025-01-11
 title: Integrating the Tuya FS-05R WiFi Dimmer Switch with ESPHome
+summary: "How to liberate the $4 Tuya FS-05R dimmer switch from cloud lock-in using OpenBeken and ESPHome, enabling local Home Assistant control and custom multi-tap brightness cycling."
 tags:
   - FS-05R
   - smart home
