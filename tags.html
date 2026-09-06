@@ -22,16 +22,37 @@ title: 'Tag Index'
 
 <div id="full-tags-list">
 {%- for tag in tags_list -%}
-    <h2 id="{{- tag -}}" class="linked-section">
+    <h2 id="{{- tag -}}" class="linked-section mb-4">
         <i class="fas fa-tag" aria-hidden="true"></i>
-        &nbsp;{{- tag -}}&nbsp;({{site.tags[tag].size}})
+        &nbsp;{{- tag -}}&nbsp;<span class="badge badge-secondary" style="font-size: 0.6em; vertical-align: middle;">{{site.tags[tag].size}} {{ site.tags[tag].size | pluralize: 'post', 'posts' }}</span>
     </h2>
-    <div class="post-list">
+    <div class="post-list mb-5">
         {%- for post in site.tags[tag] -%}
-            <div class="tag-entry">
-                <a href="{{ post.url | relative_url }}">{{- post.title | strip_html -}}</a>
-                <div class="entry-date">
-                    <time datetime="{{- post.date | date_to_xmlschema -}}">{{- post.date | date: date_format -}}</time>
+            <div class="tag-entry card mb-3 p-3 shadow-sm border-0">
+                <div class="row no-gutters align-items-center">
+                    {% if post.image %}
+                    <div class="col-md-3 col-sm-4 text-center pr-md-3 mb-2 mb-sm-0">
+                        <a href="{{ post.url | relative_url }}">
+                            <img src="{{ post.image | relative_url }}" alt="{{ post.title | strip_html }}" class="img-fluid rounded" style="max-height: 120px; object-fit: cover; width: 100%;">
+                        </a>
+                    </div>
+                    {% endif %}
+                    <div class="{% if post.image %}col-md-9 col-sm-8{% else %}col-12{% endif %}">
+                        <h4 class="mb-1">
+                            <a href="{{ post.url | relative_url }}" class="text-dark font-weight-bold">{{- post.title | strip_html -}}</a>
+                        </h4>
+                        <div class="text-muted small mb-2">
+                            <i class="far fa-calendar-alt mr-1"></i><time datetime="{{- post.date | date_to_xmlschema -}}">{{- post.date | date: date_format -}}</time>
+                        </div>
+                        <p class="card-text text-secondary mb-0 small">
+                            {% if post.summary %}
+                                {{- post.summary -}}
+                            {% else %}
+                                {%- assign excerpt_length = site.excerpt_length | default: 35 -%}
+                                {{- post.excerpt | strip_html | truncatewords: excerpt_length -}}
+                            {% endif %}
+                        </p>
+                    </div>
                 </div>
             </div>
         {%- endfor -%}
