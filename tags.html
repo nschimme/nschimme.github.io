@@ -28,16 +28,18 @@ title: 'Tag Index'
     </h2>
     <div class="post-list mb-5">
         {%- for post in site.tags[tag] -%}
+            {% include get-thumbnail.html post=post %}
+            {% assign tag_thumb = thumbnail_path | strip %}
             <div class="tag-entry card mb-3 p-3 shadow-sm border-0">
                 <div class="row no-gutters align-items-center">
-                    {% if post.image %}
+                    {% if tag_thumb != "" %}
                     <div class="col-md-3 col-sm-4 text-center pr-md-3 mb-2 mb-sm-0">
                         <a href="{{ post.url | relative_url }}">
-                            <img src="{{ post.image | relative_url }}" alt="{{ post.title | strip_html }}" class="img-fluid rounded" style="max-height: 120px; object-fit: cover; width: 100%;">
+                            <img src="{{ tag_thumb | relative_url }}" alt="{{ post.title | strip_html }}" class="img-fluid rounded" style="max-height: 120px; object-fit: cover; width: 100%;">
                         </a>
                     </div>
                     {% endif %}
-                    <div class="{% if post.image %}col-md-9 col-sm-8{% else %}col-12{% endif %}">
+                    <div class="{% if tag_thumb != "" %}col-md-9 col-sm-8{% else %}col-12{% endif %}">
                         <h4 class="mb-1">
                             <a href="{{ post.url | relative_url }}" class="text-dark font-weight-bold">{{- post.title | strip_html -}}</a>
                         </h4>

@@ -28,12 +28,16 @@ share-description: This is Nils Schimmelmann's blog. I write about my hobbies. I
       <div class="post-youtube">
         <iframe style="height: auto; width: 100%; aspect-ratio: 16 / 9;" id="youtube_iframe" src="https://www.youtube.com/embed/{{ post.youtube_id }}?feature=oembed&amp;enablejsapi=1&amp;wmode=opaque" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><a href="https://www.youtube.com/watch?v={{ post.youtube_id }}&amp;vq=hd720"></a>
       </div>
-      {% elsif post.image %}
-      <div class="post-image">
-        <a href="{{ post.url | relative_url }}">
-          <img src="{{ post.image | relative_url }}">
-        </a>
-      </div>
+      {% else %}
+        {% include get-thumbnail.html post=post %}
+        {% assign thumbnail = thumbnail_path | strip %}
+        {% if thumbnail != "" %}
+        <div class="post-image">
+          <a href="{{ post.url | relative_url }}">
+            <img src="{{ thumbnail | relative_url }}">
+          </a>
+        </div>
+        {% endif %}
       {% endif %}
       <div class="post-entry">
         {% if post.summary %}
