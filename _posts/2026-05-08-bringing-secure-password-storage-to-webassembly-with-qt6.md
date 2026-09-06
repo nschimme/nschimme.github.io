@@ -3,10 +3,7 @@ layout: post
 date: 2026-05-08
 title: "QtKeychain: Bringing Secure Password Storage to WebAssembly with Qt6"
 summary: "Bringing native, browser-backed secure credential storage to Qt6 WebAssembly apps via QtKeychain and the HTML Bridge."
-tags:
-  - qt6
-  - opensource
-  - hacker
+tags: ["software", "open-source"]
 ---
 One of the greatest promises of modern development is the "write once, run anywhere" philosophy. With Qt6 and WebAssembly (Wasm), we are closer than ever to making high-performance desktop applications run seamlessly in a web browser. But as any developer who has ported a C++ app to the web knows, there’s always a "but." 
 

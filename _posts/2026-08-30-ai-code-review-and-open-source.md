@@ -3,10 +3,7 @@ layout: post
 date: 2026-08-30
 title: "The Velocity of Trust: AI, Code Review, and Open Source"
 summary: "AI can write code faster than maintainers can review it. Here is how building an objective benchmark for FAAC solved the trust bottleneck and accelerated open-source collaboration."
-tags:
-  - open source
-  - AI
-  - FAAC
+tags: ["software", "open-source"]
 ---
 Everyone talks about using AI to write code faster. But in open source, speed isn't necessarily the bottleneck. Trust is.
 

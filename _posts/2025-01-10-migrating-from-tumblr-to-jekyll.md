@@ -4,7 +4,7 @@ date: 2025-01-10
 layout: post
 summary: "Reflections and step-by-step notes on breaking an eight-year blogging hiatus and migrating from Tumblr to Jekyll hosted on GitHub Pages."
 description: "Reflections on moving my blog from Tumblr to Jekyll after an eight-year hiatus."
-tags: [jekyll, tumblr, hacking]
+tags: ["software", "hacking"]
 ---
 
 It has been eight years since my last blog post. In that time, life has taken me on quite the journey—I moved to a new state, my wife and I welcomed two wonderful kids into the world, and I’ve found myself celebrating a sabbatical that provides fresh perspective. With the new year upon us, I’m ready to break that long blogging hiatus, and what better way to start than by refreshing my entire blogging platform? My first step: migrating from Tumblr to Jekyll.

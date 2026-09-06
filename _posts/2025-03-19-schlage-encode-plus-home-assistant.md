@@ -4,11 +4,7 @@ date: 2025-03-19
 title: Integrating Schlage Encode Plus with Home Assistant via HomeKit Actions
   and Automations
 summary: "Integrate the Schlage Encode Plus lock into Home Assistant using HomeKit Actions and helpers to maintain bidirectional status sync while preserving Apple HomeKey and year-long Thread battery performance."
-tags:
-  - Home Assistant
-  - HomeKit
-  - Smart Locks
-  - Schlage
+tags: ["smart-home"]
 ---
 The [Schlage Encode Plus](https://amzn.to/4rEgKxE) is a powerful smart lock that integrates seamlessly with Apple HomeKit. However, Home Assistant lacks native support for this lock. Fortunately, by leveraging HomeKit Actions, the Home Assistant HomeKit bridge, and automations, we can achieve a reliable bidirectional sync—while keeping **Apple Home Key functionality** and **Thread battery life benefits** intact.
 

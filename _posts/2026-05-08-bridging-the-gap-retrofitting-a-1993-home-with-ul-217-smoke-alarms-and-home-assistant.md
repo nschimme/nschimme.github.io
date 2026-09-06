@@ -4,11 +4,7 @@ date: 2026-05-08
 title: "Bridging the Gap: Retrofitting a 1993 Home with UL 217 Smoke Alarms and
   Home Assistant"
 summary: "How I retrofitted a 1993 home with UL 217 9th Edition smoke alarms and integrated them into Home Assistant and Apple HomeKit for critical alerts without cutting into drywall."
-tags:
-  - smart home
-  - Home Assistant
-  - smoke alarm
-  - hacking
+tags: ["smart-home", "hardware"]
 ---
 My old smoke alarms finally reached their 10-year expiration mark, and the replacement process turned into a full-blown engineering project. If you live in a home built in the early 90s—specifically around 1993—you’re likely in the same "infrastructure gap" I was. My house in Houston was originally hardwired for only three spots in the hallways, but modern fire codes now mandate smoke alarms in **every bedroom**.
 
