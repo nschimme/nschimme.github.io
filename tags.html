@@ -24,7 +24,7 @@ title: 'Tag Index'
 {%- for tag in tags_list -%}
     <h2 id="{{- tag -}}" class="linked-section mb-4">
         <i class="fas fa-tag" aria-hidden="true"></i>
-        &nbsp;{{- tag -}}&nbsp;<span class="badge badge-secondary" style="font-size: 0.6em; vertical-align: middle;">{{site.tags[tag].size}} {{ site.tags[tag].size | pluralize: 'post', 'posts' }}</span>
+        &nbsp;{{- tag -}}&nbsp;<span class="badge badge-secondary" style="font-size: 0.6em; vertical-align: middle;">{{site.tags[tag].size}} {% if site.tags[tag].size == 1 %}post{% else %}posts{% endif %}</span>
     </h2>
     <div class="post-list mb-5">
         {%- for post in site.tags[tag] -%}
