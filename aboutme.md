@@ -6,7 +6,9 @@ share-description: A page about Nils Schimmelmann.
 ---
 I am a father of two and an engineer in Houston, Texas. I write about computer hardware, programming, gaming, and outdoor travels. I am a hacker, shredder, gamer, cycler, foodie, hiker, aquarist, and smart home afficionado.
 
-### Archive
+<aside>
+<div data-nosnippet>
+<h3>Archive</h3>
 
 {% assign years = site.posts
    | group_by_exp: "post", "post.date | date: '%Y'"
@@ -22,4 +24,6 @@ I am a father of two and an engineer in Houston, Texas. I write about computer h
       </li>
     {% endfor %}
   </ul>
-{% endfor %} 
+{% endfor %}
+</div>
+</aside>

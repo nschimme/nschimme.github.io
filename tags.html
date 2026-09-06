@@ -12,9 +12,13 @@ title: 'Tag Index'
 {%- endcapture -%}
 {%- assign tags_list = site_tags | split:',' | sort -%}
 
+<nav class="tag-buttons" aria-label="Tag index links">
+<div data-nosnippet>
 {%- for tag in tags_list -%}
     <a href="#{{- tag -}}" class="btn btn-primary tag-btn"><i class="fas fa-tag" aria-hidden="true"></i>&nbsp;{{- tag -}}&nbsp;({{site.tags[tag].size}})</a>
 {%- endfor -%}
+</div>
+</nav>
 
 <div id="full-tags-list">
 {%- for tag in tags_list -%}
