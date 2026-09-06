@@ -4,7 +4,7 @@ use-site-title: false
 cover-img: /assets/img/cover.gif
 share-description: This is Nils Schimmelmann's blog. I write about my hobbies. I am a hacker, traveler, gamer, foodie, outdoorsman, and friendly internet person.
 ---
-<nav style="text-align: center;" aria-label="Tag shortcuts" data-nosnippet><a href="/tags/#hacking">Hacker</a> &nbsp; <a href="/tags/#travel">Traveler</a> &nbsp; <a href="/tags/#gaming">Gamer</a> &nbsp; <a href="/tags/#food">Foodie</a> &nbsp; <a href="/tags/#outdoors">Outdoorsman</a></nav>
+<nav style="text-align: center;" aria-label="Tag shortcuts"><div data-nosnippet><a href="/tags/#hacking">Hacker</a> &nbsp; <a href="/tags/#travel">Traveler</a> &nbsp; <a href="/tags/#gaming">Gamer</a> &nbsp; <a href="/tags/#food">Foodie</a> &nbsp; <a href="/tags/#outdoors">Outdoorsman</a></div></nav>
 <hr class="small">
 <div class="posts-list">
   {% for post in paginator.posts %}
@@ -50,11 +50,13 @@ share-description: This is Nils Schimmelmann's blog. I write about my hobbies. I
     </div>
 
     {% if post.tags.size > 0 %}
-    <aside class="blog-tags" data-nosnippet>
-      Tags:
-      {% for tag in post.tags %}
-      <a href="{{ '/tags' | relative_url }}#{{- tag -}}">{{- tag -}}</a>
-      {% endfor %}
+    <aside class="blog-tags">
+      <div data-nosnippet>
+        Tags:
+        {% for tag in post.tags %}
+        <a href="{{ '/tags' | relative_url }}#{{- tag -}}">{{- tag -}}</a>
+        {% endfor %}
+      </div>
     </aside>
     {% endif %}
 
@@ -63,27 +65,29 @@ share-description: This is Nils Schimmelmann's blog. I write about my hobbies. I
 </div>
 
 {% if paginator.total_pages > 1 %}
-<nav class="pagination" aria-label="Page navigation" data-nosnippet>
-  {% if paginator.previous_page %}
-    <a href="{{ paginator.previous_page_path | relative_url }}">&laquo; Prev</a>
-  {% else %}
-    <span>&laquo; Prev</span>
-  {% endif %}
-
-  {% for page in (1..paginator.total_pages) %}
-    {% if page == paginator.page %}
-      <em>{{ page }}</em>
-    {% elsif page == 1 %}
-      <a href="{{ site.paginate_path | relative_url | replace: 'page:num', '' }}">{{ page }}</a>
+<nav class="pagination" aria-label="Page navigation">
+  <div data-nosnippet>
+    {% if paginator.previous_page %}
+      <a href="{{ paginator.previous_page_path | relative_url }}">&laquo; Prev</a>
     {% else %}
-      <a href="{{ site.paginate_path | relative_url | replace: ':num', page }}">{{ page }}</a>
+      <span>&laquo; Prev</span>
     {% endif %}
-  {% endfor %}
 
-  {% if paginator.next_page %}
-    <a href="{{ paginator.next_page_path | relative_url }}">Next &raquo;</a>
-  {% else %}
-    <span>Next &raquo;</span>
-  {% endif %}
+    {% for page in (1..paginator.total_pages) %}
+      {% if page == paginator.page %}
+        <em>{{ page }}</em>
+      {% elsif page == 1 %}
+        <a href="{{ site.paginate_path | relative_url | replace: 'page:num', '' }}">{{ page }}</a>
+      {% else %}
+        <a href="{{ site.paginate_path | relative_url | replace: ':num', page }}">{{ page }}</a>
+      {% endif %}
+    {% endfor %}
+
+    {% if paginator.next_page %}
+      <a href="{{ paginator.next_page_path | relative_url }}">Next &raquo;</a>
+    {% else %}
+      <span>Next &raquo;</span>
+    {% endif %}
+  </div>
 </nav>
 {% endif %}
