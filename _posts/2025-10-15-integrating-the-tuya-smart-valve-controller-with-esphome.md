@@ -4,13 +4,7 @@ date: 2025-10-15
 image: /assets/img/IMG_7596.jpeg
 title: "Integrating the Tuya Smart Valve Controller with ESPHome "
 summary: "Build an instant, cloud-free local water shut-off system by flashing a $25 Tuya Smart Valve Controller with OpenBeken and ESPHome for Home Assistant."
-tags:
-  - Smart Valve
-  - ESPHome
-  - Tuya
-  - Home Assistant
-  - smart home
-  - hacking
+tags: ["smart-home", "hardware"]
 ---
 When protecting your home, reliability is non-negotiable. A smart water shut-off valve is arguably the second most important component in your smart home defense system when it comes to avoiding damage (wind and hail damage claim first place).
 

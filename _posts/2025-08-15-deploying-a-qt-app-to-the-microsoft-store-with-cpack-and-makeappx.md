@@ -3,12 +3,7 @@ layout: post
 date: 2025-08-15
 title: Deploying a Qt App to the Microsoft Store with CPack and MakeAppx
 summary: "Avoid expensive code signing certificates for open source Windows apps by packaging C++/Qt CMake builds into Store-ready .appxupload packages using CPack External and MakeAppx.exe."
-tags:
-  - qt
-  - appx
-  - msix
-  - cmake
-  - cpack
+tags: ["software"]
 ---
 As the maintainer of [an open source Qt application](https://mume.github.io/MMapper/), I’ve run into a common problem: Windows users often get blocked by security warnings because the software isn’t digitally signed. The cost of a code signing certificate can be prohibitive, but there’s a fantastic alternative — the Microsoft Store. By submitting your app to the Store, Microsoft signs it for you, eliminating trust warnings and giving users a clean, familiar installation experience.
 

@@ -3,7 +3,7 @@ layout: post
 title: "My DIY NVR: From Raspberry Pi Aquarium Streams to Frigate AI Magic"
 summary: "From streaming an aquarium on a Raspberry Pi to a privacy-focused local NVR with Thingino firmware, Frigate AI object detection, Scrypted HKSV, and Home Assistant."
 date: 2025-01-15
-tags: [home automation, security, DIY, Frigate, Wyze, Scrypted, Thingino, Home Assistant]
+tags: ["smart-home", "open-source", "hardware"]
 youtube_id: TEYpFXql8hQ
 ---
 <iframe style="height: auto; width: 100%; aspect-ratio: 16 / 9;" id="youtube_iframe" src="https://www.youtube.com/embed/{{ page.youtube_id }}?feature=oembed&amp;enablejsapi=1&amp;wmode=opaque" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><a href="https://www.youtube.com/watch?v={{ page.youtube_id }}&amp;vq=hd720"></a>
