@@ -11,6 +11,12 @@
     {%- endif -%}
   {%- elsif include.post.youtube_id and include.post.youtube_id != "" -%}
     https://img.youtube.com/vi/{{ include.post.youtube_id }}/hqdefault.jpg
+  {%- elsif include.post.content contains '<img' -%}
+    {%- assign src_split = include.post.content | split: 'src="' -%}
+    {%- if src_split.size > 1 -%}
+      {%- assign img_src = src_split[1] | split: '"' | first -%}
+      {{ img_src }}
+    {%- endif -%}
   {%- endif -%}
 {%- endcapture -%}
 {%- assign thumbnail_path = thumbnail_path | strip -%}
