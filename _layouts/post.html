@@ -131,11 +131,13 @@ layout: base
           <h3 class="mb-4 font-weight-bold">You Might Also Like</h3>
           <div class="row">
             {% for post in related_posts limit:3 %}
+            {% include get-thumbnail.html post=post %}
+            {% assign rel_thumb = thumbnail_path | strip %}
             <div class="col-md-4 mb-4">
               <div class="card h-100 shadow-sm border-0">
-                {% if post.image %}
+                {% if rel_thumb != "" %}
                 <a href="{{ post.url | relative_url }}">
-                  <img src="{{ post.image | relative_url }}" class="card-img-top" alt="{{ post.title | strip_html }}" style="height: 160px; object-fit: cover;">
+                  <img src="{{ rel_thumb | relative_url }}" class="card-img-top" alt="{{ post.title | strip_html }}" style="height: 160px; object-fit: cover;">
                 </a>
                 {% endif %}
                 <div class="card-body d-flex flex-column p-3">

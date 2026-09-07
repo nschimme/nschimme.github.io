@@ -555,8 +555,12 @@ footer .footer-custom-content {
   filter: grayscale(0%);
 }
 .post-preview .post-image img {
-  max-height: 100%;
-  max-width: 100%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 4px;
+  image-rendering: -webkit-optimize-contrast;
 }
 .post-preview .post-image-short {
   margin-top: -2.1875rem;
