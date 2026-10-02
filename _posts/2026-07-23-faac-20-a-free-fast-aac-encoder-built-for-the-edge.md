@@ -79,4 +79,4 @@ With clean LGPL licensing, a zero-dependency C architecture, a 116 KB footprint,
 - **Edge servers and real-time broadcast pipelines** where CPU cycles are scarce and shared across many concurrent streams.
 - **High-bitrate archival encoding (128k–192k)**, where FAAC reaches perceptual transparency faster and lighter than any alternative here.
 
-FAAC 2.0 is open source and available now at [github.com/knik0/faac](https://github.com/knik0/faac).
+FAAC 2.0 is open source and available now at [github.com/FreewareAdvancedAudio/faac](https://github.com/FreewareAdvancedAudio/faac).
